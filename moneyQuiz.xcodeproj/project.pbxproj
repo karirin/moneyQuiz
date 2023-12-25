@@ -7,18 +7,121 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26071BCD2B25D3370012B836 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26071BCC2B25D3370012B836 /* GoogleService-Info.plist */; };
+		26071BDF2B25EB290012B836 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD22B25EA800012B836 /* QuizView.swift */; };
+		26071BE02B25EB290012B836 /* QuizResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD52B25EA860012B836 /* QuizResultView.swift */; };
+		26071BE12B25EB290012B836 /* QuizDailyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD12B25EA7E0012B836 /* QuizDailyList.swift */; };
+		26071BE22B25EB290012B836 /* QuizIntermediateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD32B25EA810012B836 /* QuizIntermediateList.swift */; };
+		26071BE32B25EB290012B836 /* QuizManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD72B25EA8B0012B836 /* QuizManagerView.swift */; };
+		26071BE52B25EB290012B836 /* QuizDatabaseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD42B25EA830012B836 /* QuizDatabaseList.swift */; };
+		26071BE62B25EB290012B836 /* QuizManagerTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD82B25EA8C0012B836 /* QuizManagerTimerView.swift */; };
+		26071BE72B25EB290012B836 /* QuizHtmlCssView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BDA2B25EA920012B836 /* QuizHtmlCssView.swift */; };
+		26071BE82B25EB290012B836 /* QuizGodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BDC2B25EA930012B836 /* QuizGodList.swift */; };
+		26071BE92B25EB290012B836 /* QuizBeginnerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD02B25EA750012B836 /* QuizBeginnerList.swift */; };
+		26071BEA2B25EB290012B836 /* QuizSecurityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BDD2B25EA950012B836 /* QuizSecurityList.swift */; };
+		26071BEB2B25EB290012B836 /* QuizAdvancedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD92B25EA8E0012B836 /* QuizAdvancedList.swift */; };
+		26071BEC2B25EB290012B836 /* QuizNetworkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD62B25EA880012B836 /* QuizNetworkList.swift */; };
+		26071BEE2B25EBE80012B836 /* AnswerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BED2B25EBE80012B836 /* AnswerSelectionView.swift */; };
+		26071BF02B2746B60012B836 /* ModalExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BEF2B2746B60012B836 /* ModalExplanationView.swift */; };
+		26071BF22B2A73AD0012B836 /* ModalTimeoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BF12B2A73AD0012B836 /* ModalTimeoutView.swift */; };
 		261F44B82B25B93C00080669 /* moneyQuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44B72B25B93C00080669 /* moneyQuizApp.swift */; };
-		261F44BA2B25B93C00080669 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44B92B25B93C00080669 /* ContentView.swift */; };
 		261F44BC2B25B93E00080669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 261F44BB2B25B93E00080669 /* Assets.xcassets */; };
 		261F44BF2B25B93E00080669 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 261F44BE2B25B93E00080669 /* Preview Assets.xcassets */; };
+		261F44C62B25B9ED00080669 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44C52B25B9ED00080669 /* ContentView.swift */; };
+		261F44C82B25BA4A00080669 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44C72B25BA4A00080669 /* AuthManager.swift */; };
+		261F44CC2B25BAD800080669 /* PentagonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44C92B25BAD800080669 /* PentagonShape.swift */; };
+		261F44D22B25BAE500080669 /* RateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44D02B25BAE500080669 /* RateManager.swift */; };
+		261F44D72B25BB3A00080669 /* AvatarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44D32B25BB3700080669 /* AvatarListView.swift */; };
+		261F44D92B25BB3A00080669 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44D52B25BB3A00080669 /* SettingView.swift */; };
+		261F44DA2B25BB3A00080669 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44D62B25BB3A00080669 /* TopView.swift */; };
+		261F44DF2B25BB4F00080669 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44DB2B25BB4F00080669 /* ModalView.swift */; };
+		261F44E02B25BB4F00080669 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44DC2B25BB4F00080669 /* SignUp.swift */; };
+		261F44E12B25BB4F00080669 /* GachaManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44DD2B25BB4F00080669 /* GachaManagerView.swift */; };
+		261F44E22B25BB4F00080669 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44DE2B25BB4F00080669 /* RootView.swift */; };
+		261F44E72B25BB8300080669 /* RareGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44E52B25BB8200080669 /* RareGachaView.swift */; };
+		261F44E82B25BB8300080669 /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44E62B25BB8300080669 /* RewardView.swift */; };
+		261F44EB2B25BB8B00080669 /* GachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44E92B25BB8B00080669 /* GachaView.swift */; };
+		261F44EC2B25BB8B00080669 /* GachaAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44EA2B25BB8B00080669 /* GachaAnimationView.swift */; };
+		261F44F42B25BBB100080669 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44ED2B25BBB000080669 /* AudioManager.swift */; };
+		261F44F62B25BBB100080669 /* RewardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44EF2B25BBB100080669 /* RewardModalView.swift */; };
+		261F44F72B25BBB100080669 /* LoginModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44F02B25BBB100080669 /* LoginModalView.swift */; };
+		261F44F82B25BBB100080669 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44F12B25BBB100080669 /* TimerView.swift */; };
+		261F44F92B25BBB100080669 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44F22B25BBB100080669 /* LoadingView.swift */; };
+		261F44FA2B25BBB100080669 /* ProgressBar3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F44F32B25BBB100080669 /* ProgressBar3.swift */; };
+		261F450C2B25BDAE00080669 /* TimeIntermediateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45092B25BDAE00080669 /* TimeIntermediateList.swift */; };
+		261F450D2B25BDAE00080669 /* TimeAdvancedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F450A2B25BDAE00080669 /* TimeAdvancedList.swift */; };
+		261F450E2B25BDAE00080669 /* TimeBeginnerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F450B2B25BDAE00080669 /* TimeBeginnerList.swift */; };
+		261F45102B25BDD000080669 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F450F2B25BDD000080669 /* Interstitial.swift */; };
+		261F45122B25BE0500080669 /* IllustratedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45112B25BE0500080669 /* IllustratedView.swift */; };
+		261F45162B25BE5F00080669 /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45152B25BE5E00080669 /* MemoView.swift */; };
+		261F45192B25BE8C00080669 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45172B25BE8C00080669 /* PrivacyView.swift */; };
+		261F451A2B25BE8C00080669 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45182B25BE8C00080669 /* TermsOfServiceView.swift */; };
+		267D0C972B33388600A8D4ED /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D0C962B33388600A8D4ED /* BarChartView.swift */; };
+		26F229012B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F229002B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift */; };
+		26F229032B302B0600760F40 /* ModalReturnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F229022B302B0600760F40 /* ModalReturnView.swift */; };
+		26F229052B3173AC00760F40 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F229042B3173AC00760F40 /* Banner.swift */; };
+		8F33CDB948ECC3251FC1061A /* Pods_moneyQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805E30CF208D0832E765F07B /* Pods_moneyQuiz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26071BCC2B25D3370012B836 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		26071BCE2B25D3D30012B836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		26071BD02B25EA750012B836 /* QuizBeginnerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBeginnerList.swift; sourceTree = "<group>"; };
+		26071BD12B25EA7E0012B836 /* QuizDailyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDailyList.swift; sourceTree = "<group>"; };
+		26071BD22B25EA800012B836 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		26071BD32B25EA810012B836 /* QuizIntermediateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizIntermediateList.swift; sourceTree = "<group>"; };
+		26071BD42B25EA830012B836 /* QuizDatabaseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDatabaseList.swift; sourceTree = "<group>"; };
+		26071BD52B25EA860012B836 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
+		26071BD62B25EA880012B836 /* QuizNetworkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizNetworkList.swift; sourceTree = "<group>"; };
+		26071BD72B25EA8B0012B836 /* QuizManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManagerView.swift; sourceTree = "<group>"; };
+		26071BD82B25EA8C0012B836 /* QuizManagerTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManagerTimerView.swift; sourceTree = "<group>"; };
+		26071BD92B25EA8E0012B836 /* QuizAdvancedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAdvancedList.swift; sourceTree = "<group>"; };
+		26071BDA2B25EA920012B836 /* QuizHtmlCssView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHtmlCssView.swift; sourceTree = "<group>"; };
+		26071BDC2B25EA930012B836 /* QuizGodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGodList.swift; sourceTree = "<group>"; };
+		26071BDD2B25EA950012B836 /* QuizSecurityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSecurityList.swift; sourceTree = "<group>"; };
+		26071BED2B25EBE80012B836 /* AnswerSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnswerSelectionView.swift; path = ../../it/it/AnswerSelectionView.swift; sourceTree = "<group>"; };
+		26071BEF2B2746B60012B836 /* ModalExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalExplanationView.swift; sourceTree = "<group>"; };
+		26071BF12B2A73AD0012B836 /* ModalTimeoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTimeoutView.swift; sourceTree = "<group>"; };
 		261F44B42B25B93C00080669 /* moneyQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moneyQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		261F44B72B25B93C00080669 /* moneyQuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moneyQuizApp.swift; sourceTree = "<group>"; };
-		261F44B92B25B93C00080669 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		261F44BB2B25B93E00080669 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		261F44BE2B25B93E00080669 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		261F44C52B25B9ED00080669 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "../../itクローン/ContentView.swift"; sourceTree = "<group>"; };
+		261F44C72B25BA4A00080669 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthManager.swift; path = ../../it/it/AuthManager.swift; sourceTree = "<group>"; };
+		261F44C92B25BAD800080669 /* PentagonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PentagonShape.swift; path = ../../it/it/PentagonShape.swift; sourceTree = "<group>"; };
+		261F44D02B25BAE500080669 /* RateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RateManager.swift; path = ../../it/it/RateManager.swift; sourceTree = "<group>"; };
+		261F44D32B25BB3700080669 /* AvatarListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvatarListView.swift; path = ../../it/it/AvatarListView.swift; sourceTree = "<group>"; };
+		261F44D52B25BB3A00080669 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = ../../it/it/SettingView.swift; sourceTree = "<group>"; };
+		261F44D62B25BB3A00080669 /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopView.swift; path = ../../it/it/TopView.swift; sourceTree = "<group>"; };
+		261F44DB2B25BB4F00080669 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalView.swift; path = ../../it/it/ModalView.swift; sourceTree = "<group>"; };
+		261F44DC2B25BB4F00080669 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp.swift; path = ../../it/it/SignUp.swift; sourceTree = "<group>"; };
+		261F44DD2B25BB4F00080669 /* GachaManagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaManagerView.swift; path = ../../it/it/GachaManagerView.swift; sourceTree = "<group>"; };
+		261F44DE2B25BB4F00080669 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootView.swift; path = ../../it/it/RootView.swift; sourceTree = "<group>"; };
+		261F44E52B25BB8200080669 /* RareGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RareGachaView.swift; path = ../../it/it/RareGachaView.swift; sourceTree = "<group>"; };
+		261F44E62B25BB8300080669 /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardView.swift; path = ../../it/it/RewardView.swift; sourceTree = "<group>"; };
+		261F44E92B25BB8B00080669 /* GachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaView.swift; path = ../../it/it/GachaView.swift; sourceTree = "<group>"; };
+		261F44EA2B25BB8B00080669 /* GachaAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaAnimationView.swift; path = ../../it/it/GachaAnimationView.swift; sourceTree = "<group>"; };
+		261F44ED2B25BBB000080669 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioManager.swift; path = ../../it/it/AudioManager.swift; sourceTree = "<group>"; };
+		261F44EF2B25BBB100080669 /* RewardModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardModalView.swift; path = ../../it/it/RewardModalView.swift; sourceTree = "<group>"; };
+		261F44F02B25BBB100080669 /* LoginModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModalView.swift; path = ../../it/it/LoginModalView.swift; sourceTree = "<group>"; };
+		261F44F12B25BBB100080669 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = ../../it/it/TimerView.swift; sourceTree = "<group>"; };
+		261F44F22B25BBB100080669 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = ../../it/it/LoadingView.swift; sourceTree = "<group>"; };
+		261F44F32B25BBB100080669 /* ProgressBar3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressBar3.swift; path = ../../it/it/ProgressBar3.swift; sourceTree = "<group>"; };
+		261F45092B25BDAE00080669 /* TimeIntermediateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeIntermediateList.swift; path = ../../it/it/TimeIntermediateList.swift; sourceTree = "<group>"; };
+		261F450A2B25BDAE00080669 /* TimeAdvancedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeAdvancedList.swift; path = ../../it/it/TimeAdvancedList.swift; sourceTree = "<group>"; };
+		261F450B2B25BDAE00080669 /* TimeBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeBeginnerList.swift; path = ../../it/it/TimeBeginnerList.swift; sourceTree = "<group>"; };
+		261F450F2B25BDD000080669 /* Interstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interstitial.swift; path = ../../it/it/Interstitial.swift; sourceTree = "<group>"; };
+		261F45112B25BE0500080669 /* IllustratedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllustratedView.swift; path = ../../it/it/IllustratedView.swift; sourceTree = "<group>"; };
+		261F45152B25BE5E00080669 /* MemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoView.swift; path = ../../it/it/MemoView.swift; sourceTree = "<group>"; };
+		261F45172B25BE8C00080669 /* PrivacyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivacyView.swift; path = ../../reward/reward/PrivacyView.swift; sourceTree = "<group>"; };
+		261F45182B25BE8C00080669 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsOfServiceView.swift; path = ../../reward/reward/TermsOfServiceView.swift; sourceTree = "<group>"; };
+		267D0C962B33388600A8D4ED /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		26F229002B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizIncorrectAnswerListView.swift; sourceTree = "<group>"; };
+		26F229022B302B0600760F40 /* ModalReturnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalReturnView.swift; sourceTree = "<group>"; };
+		26F229042B3173AC00760F40 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		805E30CF208D0832E765F07B /* Pods_moneyQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moneyQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCE499DB89CA47F6DE14E256 /* Pods-moneyQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moneyQuiz.debug.xcconfig"; path = "Target Support Files/Pods-moneyQuiz/Pods-moneyQuiz.debug.xcconfig"; sourceTree = "<group>"; };
+		EB012294A179B0574EC40D19 /* Pods-moneyQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moneyQuiz.release.xcconfig"; path = "Target Support Files/Pods-moneyQuiz/Pods-moneyQuiz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F33CDB948ECC3251FC1061A /* Pods_moneyQuiz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +141,8 @@
 			children = (
 				261F44B62B25B93C00080669 /* moneyQuiz */,
 				261F44B52B25B93C00080669 /* Products */,
+				2C13CE95877EB0EB6450C86B /* Pods */,
+				3537C3590AEC75E539D83CB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,8 +157,58 @@
 		261F44B62B25B93C00080669 /* moneyQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				26071BCE2B25D3D30012B836 /* Info.plist */,
 				261F44B72B25B93C00080669 /* moneyQuizApp.swift */,
-				261F44B92B25B93C00080669 /* ContentView.swift */,
+				261F44C52B25B9ED00080669 /* ContentView.swift */,
+				267D0C962B33388600A8D4ED /* BarChartView.swift */,
+				261F44C72B25BA4A00080669 /* AuthManager.swift */,
+				261F44C92B25BAD800080669 /* PentagonShape.swift */,
+				26071BD52B25EA860012B836 /* QuizResultView.swift */,
+				26071BD22B25EA800012B836 /* QuizView.swift */,
+				26071BD72B25EA8B0012B836 /* QuizManagerView.swift */,
+				26071BD92B25EA8E0012B836 /* QuizAdvancedList.swift */,
+				26071BD12B25EA7E0012B836 /* QuizDailyList.swift */,
+				26071BD42B25EA830012B836 /* QuizDatabaseList.swift */,
+				26071BDC2B25EA930012B836 /* QuizGodList.swift */,
+				26071BDA2B25EA920012B836 /* QuizHtmlCssView.swift */,
+				26071BD32B25EA810012B836 /* QuizIntermediateList.swift */,
+				26071BED2B25EBE80012B836 /* AnswerSelectionView.swift */,
+				26F229042B3173AC00760F40 /* Banner.swift */,
+				26071BD62B25EA880012B836 /* QuizNetworkList.swift */,
+				26071BD82B25EA8C0012B836 /* QuizManagerTimerView.swift */,
+				26071BDD2B25EA950012B836 /* QuizSecurityList.swift */,
+				26071BD02B25EA750012B836 /* QuizBeginnerList.swift */,
+				26F229002B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift */,
+				261F44D02B25BAE500080669 /* RateManager.swift */,
+				261F44D32B25BB3700080669 /* AvatarListView.swift */,
+				261F44D52B25BB3A00080669 /* SettingView.swift */,
+				261F44DD2B25BB4F00080669 /* GachaManagerView.swift */,
+				26071BEF2B2746B60012B836 /* ModalExplanationView.swift */,
+				26F229022B302B0600760F40 /* ModalReturnView.swift */,
+				26071BF12B2A73AD0012B836 /* ModalTimeoutView.swift */,
+				261F45112B25BE0500080669 /* IllustratedView.swift */,
+				261F450A2B25BDAE00080669 /* TimeAdvancedList.swift */,
+				261F450B2B25BDAE00080669 /* TimeBeginnerList.swift */,
+				261F450F2B25BDD000080669 /* Interstitial.swift */,
+				26071BCC2B25D3370012B836 /* GoogleService-Info.plist */,
+				261F45092B25BDAE00080669 /* TimeIntermediateList.swift */,
+				261F44DB2B25BB4F00080669 /* ModalView.swift */,
+				261F44ED2B25BBB000080669 /* AudioManager.swift */,
+				261F44F22B25BBB100080669 /* LoadingView.swift */,
+				261F44F02B25BBB100080669 /* LoginModalView.swift */,
+				261F44F32B25BBB100080669 /* ProgressBar3.swift */,
+				261F45152B25BE5E00080669 /* MemoView.swift */,
+				261F45172B25BE8C00080669 /* PrivacyView.swift */,
+				261F45182B25BE8C00080669 /* TermsOfServiceView.swift */,
+				261F44EF2B25BBB100080669 /* RewardModalView.swift */,
+				261F44F12B25BBB100080669 /* TimerView.swift */,
+				261F44DE2B25BB4F00080669 /* RootView.swift */,
+				261F44E52B25BB8200080669 /* RareGachaView.swift */,
+				261F44E62B25BB8300080669 /* RewardView.swift */,
+				261F44DC2B25BB4F00080669 /* SignUp.swift */,
+				261F44D62B25BB3A00080669 /* TopView.swift */,
+				261F44EA2B25BB8B00080669 /* GachaAnimationView.swift */,
+				261F44E92B25BB8B00080669 /* GachaView.swift */,
 				261F44BB2B25B93E00080669 /* Assets.xcassets */,
 				261F44BD2B25B93E00080669 /* Preview Content */,
 			);
@@ -67,6 +223,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		2C13CE95877EB0EB6450C86B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BCE499DB89CA47F6DE14E256 /* Pods-moneyQuiz.debug.xcconfig */,
+				EB012294A179B0574EC40D19 /* Pods-moneyQuiz.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3537C3590AEC75E539D83CB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				805E30CF208D0832E765F07B /* Pods_moneyQuiz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 261F44C22B25B93E00080669 /* Build configuration list for PBXNativeTarget "moneyQuiz" */;
 			buildPhases = (
+				5D54FDE9D096EBF5ABD8D2AD /* [CP] Check Pods Manifest.lock */,
 				261F44B02B25B93C00080669 /* Sources */,
 				261F44B12B25B93C00080669 /* Frameworks */,
 				261F44B22B25B93C00080669 /* Resources */,
+				6DA82069819BF4715F74FB78 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,18 +302,109 @@
 			files = (
 				261F44BF2B25B93E00080669 /* Preview Assets.xcassets in Resources */,
 				261F44BC2B25B93E00080669 /* Assets.xcassets in Resources */,
+				26071BCD2B25D3370012B836 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D54FDE9D096EBF5ABD8D2AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-moneyQuiz-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DA82069819BF4715F74FB78 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-moneyQuiz/Pods-moneyQuiz-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-moneyQuiz/Pods-moneyQuiz-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-moneyQuiz/Pods-moneyQuiz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		261F44B02B25B93C00080669 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				261F44BA2B25B93C00080669 /* ContentView.swift in Sources */,
+				26071BEA2B25EB290012B836 /* QuizSecurityList.swift in Sources */,
+				261F44C62B25B9ED00080669 /* ContentView.swift in Sources */,
+				261F44C82B25BA4A00080669 /* AuthManager.swift in Sources */,
+				261F450D2B25BDAE00080669 /* TimeAdvancedList.swift in Sources */,
+				26F229052B3173AC00760F40 /* Banner.swift in Sources */,
+				26071BE82B25EB290012B836 /* QuizGodList.swift in Sources */,
+				261F44D22B25BAE500080669 /* RateManager.swift in Sources */,
+				267D0C972B33388600A8D4ED /* BarChartView.swift in Sources */,
 				261F44B82B25B93C00080669 /* moneyQuizApp.swift in Sources */,
+				261F44E82B25BB8300080669 /* RewardView.swift in Sources */,
+				26071BE12B25EB290012B836 /* QuizDailyList.swift in Sources */,
+				26071BEB2B25EB290012B836 /* QuizAdvancedList.swift in Sources */,
+				26071BE22B25EB290012B836 /* QuizIntermediateList.swift in Sources */,
+				261F45122B25BE0500080669 /* IllustratedView.swift in Sources */,
+				26071BE92B25EB290012B836 /* QuizBeginnerList.swift in Sources */,
+				26071BE32B25EB290012B836 /* QuizManagerView.swift in Sources */,
+				261F44D72B25BB3A00080669 /* AvatarListView.swift in Sources */,
+				261F45192B25BE8C00080669 /* PrivacyView.swift in Sources */,
+				261F44F92B25BBB100080669 /* LoadingView.swift in Sources */,
+				26071BDF2B25EB290012B836 /* QuizView.swift in Sources */,
+				261F44E72B25BB8300080669 /* RareGachaView.swift in Sources */,
+				261F44E02B25BB4F00080669 /* SignUp.swift in Sources */,
+				261F44E22B25BB4F00080669 /* RootView.swift in Sources */,
+				26071BE52B25EB290012B836 /* QuizDatabaseList.swift in Sources */,
+				261F44E12B25BB4F00080669 /* GachaManagerView.swift in Sources */,
+				261F44EB2B25BB8B00080669 /* GachaView.swift in Sources */,
+				26F229032B302B0600760F40 /* ModalReturnView.swift in Sources */,
+				261F44CC2B25BAD800080669 /* PentagonShape.swift in Sources */,
+				261F451A2B25BE8C00080669 /* TermsOfServiceView.swift in Sources */,
+				26071BE02B25EB290012B836 /* QuizResultView.swift in Sources */,
+				26071BEC2B25EB290012B836 /* QuizNetworkList.swift in Sources */,
+				261F44EC2B25BB8B00080669 /* GachaAnimationView.swift in Sources */,
+				261F44F72B25BBB100080669 /* LoginModalView.swift in Sources */,
+				26F229012B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift in Sources */,
+				26071BE62B25EB290012B836 /* QuizManagerTimerView.swift in Sources */,
+				261F44FA2B25BBB100080669 /* ProgressBar3.swift in Sources */,
+				261F45162B25BE5F00080669 /* MemoView.swift in Sources */,
+				26071BEE2B25EBE80012B836 /* AnswerSelectionView.swift in Sources */,
+				261F45102B25BDD000080669 /* Interstitial.swift in Sources */,
+				261F44F82B25BBB100080669 /* TimerView.swift in Sources */,
+				26071BE72B25EB290012B836 /* QuizHtmlCssView.swift in Sources */,
+				261F44DF2B25BB4F00080669 /* ModalView.swift in Sources */,
+				261F44DA2B25BB3A00080669 /* TopView.swift in Sources */,
+				261F44F62B25BBB100080669 /* RewardModalView.swift in Sources */,
+				261F450E2B25BDAE00080669 /* TimeBeginnerList.swift in Sources */,
+				26071BF02B2746B60012B836 /* ModalExplanationView.swift in Sources */,
+				26071BF22B2A73AD0012B836 /* ModalTimeoutView.swift in Sources */,
+				261F44F42B25BBB100080669 /* AudioManager.swift in Sources */,
+				261F44D92B25BB3A00080669 /* SettingView.swift in Sources */,
+				261F450C2B25BDAE00080669 /* TimeIntermediateList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +448,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -245,7 +511,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -266,6 +532,7 @@
 		};
 		261F44C32B25B93E00080669 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCE499DB89CA47F6DE14E256 /* Pods-moneyQuiz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -275,11 +542,13 @@
 				DEVELOPMENT_TEAM = F3XS565TSX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = moneyQuiz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,6 +564,7 @@
 		};
 		261F44C42B25B93E00080669 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB012294A179B0574EC40D19 /* Pods-moneyQuiz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -304,11 +574,13 @@
 				DEVELOPMENT_TEAM = F3XS565TSX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = moneyQuiz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
