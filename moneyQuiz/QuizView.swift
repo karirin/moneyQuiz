@@ -453,7 +453,11 @@ struct IncorrectAnswer {
                             })
                         } else {
                             HStack {
-                                Text("問題数：\(incorrectCount)")
+                                VStack{
+                                    Text("問題数")
+                                    Text("\(incorrectCount)")
+                                        .font(.system(size: 24))
+                                }
                                 ProgressBar3(value: Double(incorrectCount), maxValue: Double(self.incorrectAnswerCount), color: Color("loading"))
                                     .frame(height: 20)
                             }
@@ -1178,7 +1182,7 @@ struct IncorrectAnswer {
 
 struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
-//        QuizIncorrectAnswerListView(isPresenting: .constant(false))
-        QuizBeginnerList(isPresenting: .constant(false))
+        QuizIncorrectAnswerListView(isPresenting: .constant(false))
+//        QuizBeginnerList(isPresenting: .constant(false))
     }
 }
