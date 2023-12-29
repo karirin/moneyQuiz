@@ -288,6 +288,7 @@ struct ExperienceModalView: View {
     let maxExperience: Double = 100
     @ObservedObject var authManager: AuthManager
     @ObservedObject var audioManager = AudioManager.shared
+    @ObservedObject var interstitial = Interstitial()
 
     var body: some View {
         ZStack {
@@ -345,12 +346,20 @@ struct ExperienceModalView: View {
                         // ここでUIの更新を行います。
                     }
                 }
+                if !interstitial.interstitialAdLoaded {
+                    interstitial.loadInterstitial()
+                }
             }
             .padding()
             .background(Color.white)
             .cornerRadius(20)
             .shadow(radius: 10)
             .padding(30)
+            .onChange(of: interstitial.interstitialAdLoaded) { isLoaded in
+                if isLoaded {
+                    interstitial.presentInterstitial()
+                }
+            }
         }.overlay(
             // 「×」ボタンを右上に配置
             Button(action: {

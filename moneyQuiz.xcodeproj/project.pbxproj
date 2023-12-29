@@ -57,6 +57,7 @@
 		261F45192B25BE8C00080669 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45172B25BE8C00080669 /* PrivacyView.swift */; };
 		261F451A2B25BE8C00080669 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45182B25BE8C00080669 /* TermsOfServiceView.swift */; };
 		263086232B3AD84800D8BD76 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263086222B3AD84800D8BD76 /* Charts.framework */; };
+		265DDFFF2B3D1A73004BF2B2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265DDFFE2B3D1A73004BF2B2 /* AppState.swift */; };
 		267D0C972B33388600A8D4ED /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D0C962B33388600A8D4ED /* BarChartView.swift */; };
 		26F229012B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F229002B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift */; };
 		26F229032B302B0600760F40 /* ModalReturnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F229022B302B0600760F40 /* ModalReturnView.swift */; };
@@ -118,6 +119,7 @@
 		261F45182B25BE8C00080669 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsOfServiceView.swift; path = ../../reward/reward/TermsOfServiceView.swift; sourceTree = "<group>"; };
 		2630861E2B3AD63900D8BD76 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		263086222B3AD84800D8BD76 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = System/Library/Frameworks/Charts.framework; sourceTree = SDKROOT; };
+		265DDFFE2B3D1A73004BF2B2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		267D0C962B33388600A8D4ED /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		26F229002B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizIncorrectAnswerListView.swift; sourceTree = "<group>"; };
 		26F229022B302B0600760F40 /* ModalReturnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalReturnView.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				26071BDA2B25EA920012B836 /* QuizHtmlCssView.swift */,
 				26071BD32B25EA810012B836 /* QuizIntermediateList.swift */,
 				26071BED2B25EBE80012B836 /* AnswerSelectionView.swift */,
+				265DDFFE2B3D1A73004BF2B2 /* AppState.swift */,
 				26F229042B3173AC00760F40 /* Banner.swift */,
 				26071BD62B25EA880012B836 /* QuizNetworkList.swift */,
 				26071BD82B25EA8C0012B836 /* QuizManagerTimerView.swift */,
@@ -367,6 +370,7 @@
 				261F450D2B25BDAE00080669 /* TimeAdvancedList.swift in Sources */,
 				26F229052B3173AC00760F40 /* Banner.swift in Sources */,
 				26071BE82B25EB290012B836 /* QuizGodList.swift in Sources */,
+				265DDFFF2B3D1A73004BF2B2 /* AppState.swift in Sources */,
 				261F44D22B25BAE500080669 /* RateManager.swift in Sources */,
 				267D0C972B33388600A8D4ED /* BarChartView.swift in Sources */,
 				261F44B82B25B93C00080669 /* moneyQuizApp.swift in Sources */,
@@ -560,6 +564,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.moneyQuiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -592,7 +597,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.moneyQuiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -219,7 +219,6 @@ struct IncorrectAnswer {
         
         func answerSelectionAction(index: Int) {
             if !hasAnswered {
-                print("index:\(index)")
                 self.selectedAnswerIndex = index
                 self.timer?.invalidate() // 回答を選択したらタイマーを止める
                 
@@ -352,7 +351,6 @@ struct IncorrectAnswer {
                             })
                     }
                     .padding(.trailing)
-//                    .padding(.top,40)
                     Spacer()
                     VStack{
                         ZStack {
@@ -1182,7 +1180,7 @@ struct IncorrectAnswer {
 
 struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
-        QuizIncorrectAnswerListView(isPresenting: .constant(false))
-//        QuizBeginnerList(isPresenting: .constant(false))
+//        QuizIncorrectAnswerListView(isPresenting: .constant(false))
+        QuizBeginnerList(isPresenting: .constant(false))
     }
 }

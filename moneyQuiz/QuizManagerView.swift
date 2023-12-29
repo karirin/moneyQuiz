@@ -42,6 +42,40 @@ struct QuizManagerView: View {
             ZStack{
                     ScrollView{
                         VStack {
+                            HStack {
+                                Text(" ")
+                                    .background(.gray)
+                                    .frame(width:10,height: 20)
+                                Text("過去に不正解した問題だけを解くことができます")
+                                    .font(.system(size: 15))
+                            }
+                            .padding(.horizontal)
+                            Button(action: {
+                                audioManager.playKetteiSound()
+                                // 画面遷移のトリガーをオンにする
+                                self.isPresentingQuizIncorrectAnswer = true
+                            }) {
+                                //                        Image("IT基礎知識の問題の初級")
+                                Image("選択肢0")
+                                    .resizable()
+                                    .frame(height: 70)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal)
+                            .padding(.bottom)
+                            .shadow(radius: 5)
+                            .fullScreenCover(isPresented: $isPresentingQuizIncorrectAnswer) {
+                                QuizIncorrectAnswerListView(isPresenting: $isPresentingQuizIncorrectAnswer)
+                                        }
+                        
+                            HStack {
+                                Text(" ")
+                                    .background(.gray)
+                                    .frame(width:10,height: 20)
+                                Text("問題の難易度、種類別で解くことができます　　")
+                                    .font(.system(size: 15))
+                            }
+                            .padding(.horizontal)
                                 Button(action: {
                                     audioManager.playKetteiSound()
                                     // 画面遷移のトリガーをオンにする
@@ -62,26 +96,6 @@ struct QuizManagerView: View {
                             .background(GeometryReader { geometry in
                                 Color.clear.preference(key: ViewPositionKey.self, value: [geometry.frame(in: .global)])
                             })
-                            Button(action: {
-                                audioManager.playKetteiSound()
-                                // 画面遷移のトリガーをオンにする
-                                self.isPresentingQuizIncorrectAnswer = true
-                            }) {
-                                //                        Image("IT基礎知識の問題の初級")
-                                Image("選択肢1")
-                                    .resizable()
-                                    .frame(height: 70)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal)
-                            .padding(.bottom)
-                            .shadow(radius: 5)
-                            .fullScreenCover(isPresented: $isPresentingQuizIncorrectAnswer) {
-                                QuizIncorrectAnswerListView(isPresenting: $isPresentingQuizIncorrectAnswer)
-                                        }
-                        .background(GeometryReader { geometry in
-                            Color.clear.preference(key: ViewPositionKey.self, value: [geometry.frame(in: .global)])
-                        })
                             Button(action: {
                                 audioManager.playKetteiSound()
                                 self.isPresentingQuizIntermediate = true
