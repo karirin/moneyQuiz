@@ -57,6 +57,7 @@
 		261F45192B25BE8C00080669 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45172B25BE8C00080669 /* PrivacyView.swift */; };
 		261F451A2B25BE8C00080669 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45182B25BE8C00080669 /* TermsOfServiceView.swift */; };
 		263086232B3AD84800D8BD76 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263086222B3AD84800D8BD76 /* Charts.framework */; };
+		264CE41F2B3EFE5B00CFC826 /* GraphManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264CE41E2B3EFE5B00CFC826 /* GraphManagerView.swift */; };
 		265DDFFF2B3D1A73004BF2B2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265DDFFE2B3D1A73004BF2B2 /* AppState.swift */; };
 		267D0C972B33388600A8D4ED /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D0C962B33388600A8D4ED /* BarChartView.swift */; };
 		26F229012B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F229002B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift */; };
@@ -119,6 +120,7 @@
 		261F45182B25BE8C00080669 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsOfServiceView.swift; path = ../../reward/reward/TermsOfServiceView.swift; sourceTree = "<group>"; };
 		2630861E2B3AD63900D8BD76 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		263086222B3AD84800D8BD76 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = System/Library/Frameworks/Charts.framework; sourceTree = SDKROOT; };
+		264CE41E2B3EFE5B00CFC826 /* GraphManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphManagerView.swift; sourceTree = "<group>"; };
 		265DDFFE2B3D1A73004BF2B2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		267D0C962B33388600A8D4ED /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		26F229002B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizIncorrectAnswerListView.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				261F44D32B25BB3700080669 /* AvatarListView.swift */,
 				261F44D52B25BB3A00080669 /* SettingView.swift */,
 				261F44DD2B25BB4F00080669 /* GachaManagerView.swift */,
+				264CE41E2B3EFE5B00CFC826 /* GraphManagerView.swift */,
 				26071BEF2B2746B60012B836 /* ModalExplanationView.swift */,
 				26F229022B302B0600760F40 /* ModalReturnView.swift */,
 				26071BF12B2A73AD0012B836 /* ModalTimeoutView.swift */,
@@ -393,6 +396,7 @@
 				261F44EB2B25BB8B00080669 /* GachaView.swift in Sources */,
 				26F229032B302B0600760F40 /* ModalReturnView.swift in Sources */,
 				261F44CC2B25BAD800080669 /* PentagonShape.swift in Sources */,
+				264CE41F2B3EFE5B00CFC826 /* GraphManagerView.swift in Sources */,
 				261F451A2B25BE8C00080669 /* TermsOfServiceView.swift in Sources */,
 				26071BE02B25EB290012B836 /* QuizResultView.swift in Sources */,
 				26071BEC2B25EB290012B836 /* QuizNetworkList.swift in Sources */,

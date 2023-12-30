@@ -226,6 +226,9 @@ struct QuizResultView: View {
                       }
                   }
                 .onAppear {
+                    if !interstitial.interstitialAdLoaded {
+                        interstitial.loadInterstitial()
+                    }
                     if elapsedTime != 0 {
                         authManager.saveElapsedTime(category: "Beginner", elapsedTime: elapsedTime) { success in
                             if success {
@@ -345,9 +348,6 @@ struct ExperienceModalView: View {
                     DispatchQueue.main.async {
                         // ここでUIの更新を行います。
                     }
-                }
-                if !interstitial.interstitialAdLoaded {
-                    interstitial.loadInterstitial()
                 }
             }
             .padding()
