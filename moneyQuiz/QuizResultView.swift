@@ -355,11 +355,6 @@ struct ExperienceModalView: View {
             .cornerRadius(20)
             .shadow(radius: 10)
             .padding(30)
-            .onChange(of: interstitial.interstitialAdLoaded) { isLoaded in
-                if isLoaded {
-                    interstitial.presentInterstitial()
-                }
-            }
         }.overlay(
             // 「×」ボタンを右上に配置
             Button(action: {

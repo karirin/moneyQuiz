@@ -82,6 +82,7 @@ struct IncorrectAnswer {
         @State private var userMoney: Int = 0
         @State private var userHp: Int = 100
         @State private var userMaxHp: Int = 100
+        @State private var userFlag: Int = 0
         @State private var avatarHp: Int = 100
         @State private var userAttack: Int = 30
         @State private var tutorialNum: Int = 0
@@ -94,6 +95,7 @@ struct IncorrectAnswer {
         @State private var showIncorrectBackground: Bool = false
         @State private var hasAnswered: Bool = false
         @Binding var isPresenting: Bool
+        @State var showAlert: Bool = false
         @State var showHomeModal: Bool = false
         @State var showExplanationModal: Bool = false
         @State var showTimeOutModal: Bool = false
@@ -205,7 +207,13 @@ struct IncorrectAnswer {
             } else if currentQuizIndex + 1 < quizzes.count { // 最大問題数を超えていないかチェック
                 print("self.remainingSeconds:\(self.remainingSeconds)")
 //                currentQuizIndex += 1
-                showExplanationModal = true
+                print("a userFlag:\(userFlag)")
+                if userFlag == 0 {
+                    showExplanationModal = true
+                } else {
+                    currentQuizIndex += 1
+                   selectedAnswerIndex = nil
+                }
 //                selectedAnswerIndex = nil
 //                startTimer()
                 hasAnswered = false
@@ -512,7 +520,7 @@ struct IncorrectAnswer {
                     ZStack {
                         Color.black.opacity(0.7)
                             .edgesIgnoringSafeArea(.all)
-                        ModalView(isSoundOn: $isSoundOn, isPresented: $showHomeModal, isPresenting: $isPresenting, audioManager: audioManager, showHomeModal: $showHomeModal,tutorialNum: $tutorialNum,pauseTimer:pauseTimer,resumeTimer: resumeTimer)
+                        ModalView(isSoundOn: $isSoundOn, isPresented: $showHomeModal, isPresenting: $isPresenting, audioManager: audioManager, showHomeModal: $showHomeModal,tutorialNum: $tutorialNum,pauseTimer:pauseTimer,resumeTimer: resumeTimer, userFlag: $userFlag)
                     }
                 }
                 if showExplanationModal {
@@ -522,10 +530,10 @@ struct IncorrectAnswer {
                         if let selectedIndex = selectedAnswerIndex, selectedIndex < currentQuiz.choices.count {
                             ModalExplanationView(
                                 isPresented: $showExplanationModal,
-                                selectedAnswerIndex: $selectedAnswerIndex, audioManager: audioManager , question: quizzes[currentQuizIndex].question, userAnswer: currentQuiz.choices[selectedIndex],
+                                selectedAnswerIndex: $selectedAnswerIndex, showAlert: $showAlert, audioManager: audioManager , question: quizzes[currentQuizIndex].question, userAnswer: currentQuiz.choices[selectedIndex],
                                 correctAnswer: quizzes[currentQuizIndex].choices[quizzes[currentQuizIndex].correctAnswerIndex],
                                 explanation: quizzes[currentQuizIndex].explanation, currentQuizIndex: $currentQuizIndex,
-                                pauseTimer:pauseTimer, startTimer: startTimer
+                                userFlag: $userFlag, pauseTimer:pauseTimer, startTimer: startTimer
                             )
                         } else {
                             ModalReturnView(
@@ -815,7 +823,12 @@ struct IncorrectAnswer {
                 if quizLevel == .incorrectAnswer {
                     userAttack = 0
                 }
-                print("userAttack:\(userAttack)")
+                authManager.fetchUserFlag()
+                print("onAppear authManager.userFlag:\(authManager.userFlag)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    userFlag = authManager.userFlag
+                    print("onAppear userFlag:\(userFlag)")
+                }
             }
             .onDisappear {
                 // QuizViewが閉じるときの時刻を記録する
@@ -837,6 +850,16 @@ struct IncorrectAnswer {
                     }
                 }
             }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("通知"),
+                    message: Text("設定画面で切り替える事ができます"),
+                    dismissButton: .default(Text("OK"), action: {
+//                        isPresented = false
+                        selectedAnswerIndex = nil
+                    })
+                )
+            }
             .onChange(of: selectedAnswerIndex) { newValue in
                 if let selected = newValue, selected != currentQuiz.correctAnswerIndex {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -845,6 +868,10 @@ struct IncorrectAnswer {
                 } else {
                     self.showIncorrectBackground = false
                 }
+            }
+            .onChange(of: userFlag) { flag in
+                print("onchange userFlag:\(userFlag)")
+//                userFlag = authManager.userFlag
             }
             .onChange(of: showCompletionMessage) { newValue in
                 // 味方のHPが０以下のとき

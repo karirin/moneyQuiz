@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBFGkYkGpvzA4X40MhTPYUFJJzzw8pgHF4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>716513214152</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Swift-Beginners-app.moneyQuiz</string>
+	<key>PROJECT_ID</key>
+	<string>moneyquiz-b9258</string>
+	<key>STORAGE_BUCKET</key>
+	<string>moneyquiz-b9258.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:716513214152:ios:e243f8341a2a557923affd</string>
+	<key>DATABASE_URL</key>
+	<string>https://moneyquiz-b9258-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

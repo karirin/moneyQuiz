@@ -63,7 +63,7 @@ struct QuizManagerView: View {
                             .frame(maxWidth: .infinity)
                             .padding(.horizontal)
                             .padding(.bottom)
-                            .shadow(radius: 5)
+//                            .shadow(radius: 5)
                             .fullScreenCover(isPresented: $isPresentingQuizIncorrectAnswer) {
                                 QuizIncorrectAnswerListView(isPresenting: $isPresentingQuizIncorrectAnswer)
                                         }
@@ -89,7 +89,7 @@ struct QuizManagerView: View {
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal)
                                 .padding(.bottom)
-                                .shadow(radius: 5)
+//                                .shadow(radius: 5)
                                 .fullScreenCover(isPresented: $isPresentingQuizBeginner) {
                                                 QuizBeginnerList(isPresenting: $isPresentingQuizBeginner)
                                             }
@@ -108,7 +108,7 @@ struct QuizManagerView: View {
                             .frame(maxWidth: .infinity)
                             .padding(.horizontal)
                             .padding(.bottom)
-                            .shadow(radius: 3)
+//                            .shadow(radius: 3)
                             .fullScreenCover(isPresented: $isPresentingQuizIntermediate) {
                                             QuizIntermediateList(isPresenting: $isPresentingQuizIntermediate)
                                         }
@@ -125,79 +125,79 @@ struct QuizManagerView: View {
                             .frame(maxWidth: .infinity)
                             .padding(.horizontal)
                             .padding(.bottom)
-                            .shadow(radius: 3)
+//                            .shadow(radius: 3)
                             .fullScreenCover(isPresented: $isPresentingQuizAdvanced) {
                                             QuizAdvancedList(isPresenting: $isPresentingQuizAdvanced)
                                         }
-                            Button(action: {
-                                audioManager.playKetteiSound()
-                                self.isPresentingQuizGod = true
-                            }) {
-                                //                    Image("データベース系の問題")
-                                Image("選択肢7")
-                                    .resizable()
-                                    .frame(height: 70)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal)
-                            .padding(.bottom)
-                            .shadow(radius: 3)
-                            .fullScreenCover(isPresented: $isPresentingQuizGod) {
-                                            QuizGodList(isPresenting: $isPresentingQuizGod)
-                                        }
-                            // ネットワーク系の問題
-                            Button(action: {
-                                audioManager.playKetteiSound()
-                                self.isPresentingQuizNetwork = true
-                            }) {
-                                //                    Image("ネットワーク系の問題")
-                                Image("選択肢4")
-                                    .resizable()
-                                    .frame(height: 70)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal)
-                            .padding(.bottom)
-                            .shadow(radius: 3)
-                            .fullScreenCover(isPresented: $isPresentingQuizNetwork) {
-                                            QuizNetworkList(isPresenting: $isPresentingQuizNetwork)
-                                        }
-                            
-                            // セキュリティ系の問題
-                            Button(action: {
-                                audioManager.playKetteiSound()
-                                self.isPresentingQuizSecurity = true
-                            }) {
-                                //                    Image("セキュリティ系の問題")
-                                Image("選択肢5")
-                                    .resizable()
-                                    .frame(height: 70)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal)
-                            .padding(.bottom)
-                            .shadow(radius: 3)
-                            .fullScreenCover(isPresented: $isPresentingQuizSecurity) {
-                                            QuizSecurityList(isPresenting: $isPresentingQuizSecurity)
-                                        }
-                            
-                            // データベース系の問題
-                            Button(action: {
-                                audioManager.playKetteiSound()
-                                self.isPresentingQuizDatabase = true
-                            }) {
-                                //                    Image("データベース系の問題")
-                                Image("選択肢6")
-                                    .resizable()
-                                    .frame(height: 70)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal)
-                            .padding(.bottom)
-                            .shadow(radius: 3)
-                            .fullScreenCover(isPresented: $isPresentingQuizDatabase) {
-                                            QuizDatabaseList(isPresenting: $isPresentingQuizDatabase)
-                                        }
+//                            Button(action: {
+//                                audioManager.playKetteiSound()
+//                                self.isPresentingQuizGod = true
+//                            }) {
+//                                //                    Image("データベース系の問題")
+//                                Image("選択肢7")
+//                                    .resizable()
+//                                    .frame(height: 70)
+//                            }
+//                            .frame(maxWidth: .infinity)
+//                            .padding(.horizontal)
+//                            .padding(.bottom)
+//                            .shadow(radius: 3)
+//                            .fullScreenCover(isPresented: $isPresentingQuizGod) {
+//                                            QuizGodList(isPresenting: $isPresentingQuizGod)
+//                                        }
+//                            // ネットワーク系の問題
+//                            Button(action: {
+//                                audioManager.playKetteiSound()
+//                                self.isPresentingQuizNetwork = true
+//                            }) {
+//                                //                    Image("ネットワーク系の問題")
+//                                Image("選択肢4")
+//                                    .resizable()
+//                                    .frame(height: 70)
+//                            }
+//                            .frame(maxWidth: .infinity)
+//                            .padding(.horizontal)
+//                            .padding(.bottom)
+//                            .shadow(radius: 3)
+//                            .fullScreenCover(isPresented: $isPresentingQuizNetwork) {
+//                                            QuizNetworkList(isPresenting: $isPresentingQuizNetwork)
+//                                        }
+//                            
+//                            // セキュリティ系の問題
+//                            Button(action: {
+//                                audioManager.playKetteiSound()
+//                                self.isPresentingQuizSecurity = true
+//                            }) {
+//                                //                    Image("セキュリティ系の問題")
+//                                Image("選択肢5")
+//                                    .resizable()
+//                                    .frame(height: 70)
+//                            }
+//                            .frame(maxWidth: .infinity)
+//                            .padding(.horizontal)
+//                            .padding(.bottom)
+//                            .shadow(radius: 3)
+//                            .fullScreenCover(isPresented: $isPresentingQuizSecurity) {
+//                                            QuizSecurityList(isPresenting: $isPresentingQuizSecurity)
+//                                        }
+//                            
+//                            // データベース系の問題
+//                            Button(action: {
+//                                audioManager.playKetteiSound()
+//                                self.isPresentingQuizDatabase = true
+//                            }) {
+//                                //                    Image("データベース系の問題")
+//                                Image("選択肢6")
+//                                    .resizable()
+//                                    .frame(height: 70)
+//                            }
+//                            .frame(maxWidth: .infinity)
+//                            .padding(.horizontal)
+//                            .padding(.bottom)
+//                            .shadow(radius: 3)
+//                            .fullScreenCover(isPresented: $isPresentingQuizDatabase) {
+//                                            QuizDatabaseList(isPresenting: $isPresentingQuizDatabase)
+//                                        }
                             
                         }
 //                        VStack{
