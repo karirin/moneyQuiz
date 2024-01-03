@@ -218,16 +218,12 @@ struct QuizResultView: View {
                         }
                     }
                 }
-                .onChange(of: interstitial.interstitialAdLoaded) { isLoaded in
-                    print("onChange isLoaded:\(isLoaded)")
-                    print("onChange interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
-                      if isLoaded && !interstitial.wasAdDismissed {
-                          interstitial.presentInterstitial()
-                      }
-                  }
                 .onAppear {
                     if !interstitial.interstitialAdLoaded {
                         interstitial.loadInterstitial()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        interstitial.presentInterstitial()
                     }
                     if elapsedTime != 0 {
                         authManager.saveElapsedTime(category: "Beginner", elapsedTime: elapsedTime) { success in
@@ -239,6 +235,13 @@ struct QuizResultView: View {
                         }
                     }
                 }
+//                .onChange(of: interstitial.interstitialAdLoaded) { isLoaded in
+//                    print("onChange isLoaded:\(isLoaded)")
+//                    print("onChange interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
+//                      if isLoaded && !interstitial.wasAdDismissed {
+//                          interstitial.presentInterstitial()
+//                      }
+//                  }
 
                 if showMemoView {
                     MemoView(memo: $currentMemo, question: selectedQuestion)
