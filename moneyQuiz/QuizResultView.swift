@@ -222,9 +222,11 @@ struct QuizResultView: View {
                     if !interstitial.interstitialAdLoaded {
                         interstitial.loadInterstitial()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        interstitial.presentInterstitial()
-                    }
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        if interstitial.interstitialAdLoaded && !interstitial.wasAdDismissed {
+                          interstitial.presentInterstitial()
+                      }
+//                    }
                     if elapsedTime != 0 {
                         authManager.saveElapsedTime(category: "Beginner", elapsedTime: elapsedTime) { success in
                             if success {

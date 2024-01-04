@@ -54,6 +54,7 @@
 		261F45162B25BE5F00080669 /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45152B25BE5E00080669 /* MemoView.swift */; };
 		261F45192B25BE8C00080669 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45172B25BE8C00080669 /* PrivacyView.swift */; };
 		261F451A2B25BE8C00080669 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45182B25BE8C00080669 /* TermsOfServiceView.swift */; };
+		26228EEA2B463016009D59ED /* TittlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26228EE92B463016009D59ED /* TittlesView.swift */; };
 		262F6C002B42FD5800DC0E69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F6BFF2B42FD5800DC0E69 /* ContentView.swift */; };
 		263086232B3AD84800D8BD76 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263086222B3AD84800D8BD76 /* Charts.framework */; };
 		264CE41F2B3EFE5B00CFC826 /* GraphManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264CE41E2B3EFE5B00CFC826 /* GraphManagerView.swift */; };
@@ -117,6 +118,7 @@
 		261F45152B25BE5E00080669 /* MemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoView.swift; path = ../../it/it/MemoView.swift; sourceTree = "<group>"; };
 		261F45172B25BE8C00080669 /* PrivacyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivacyView.swift; path = ../../reward/reward/PrivacyView.swift; sourceTree = "<group>"; };
 		261F45182B25BE8C00080669 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsOfServiceView.swift; path = ../../reward/reward/TermsOfServiceView.swift; sourceTree = "<group>"; };
+		26228EE92B463016009D59ED /* TittlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TittlesView.swift; sourceTree = "<group>"; };
 		262F6BFF2B42FD5800DC0E69 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../Downloads/ContentView.swift; sourceTree = "<group>"; };
 		2630861E2B3AD63900D8BD76 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		263086222B3AD84800D8BD76 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = System/Library/Frameworks/Charts.framework; sourceTree = SDKROOT; };
@@ -224,6 +226,7 @@
 				261F44BB2B25B93E00080669 /* Assets.xcassets */,
 				261F44BD2B25B93E00080669 /* Preview Content */,
 				26502AA02B43181A00ACFBF1 /* HelpView.swift */,
+				26228EE92B463016009D59ED /* TittlesView.swift */,
 			);
 			path = moneyQuiz;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				26071BE82B25EB290012B836 /* QuizGodList.swift in Sources */,
 				265DDFFF2B3D1A73004BF2B2 /* AppState.swift in Sources */,
 				261F44D22B25BAE500080669 /* RateManager.swift in Sources */,
+				26228EEA2B463016009D59ED /* TittlesView.swift in Sources */,
 				267D0C972B33388600A8D4ED /* BarChartView.swift in Sources */,
 				261F44B82B25B93C00080669 /* moneyQuizApp.swift in Sources */,
 				261F44E82B25BB8300080669 /* RewardView.swift in Sources */,
