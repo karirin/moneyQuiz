@@ -15,7 +15,7 @@ struct TittlesView: View {
         let name: String  // これが一意の識別子として機能します
         let attack: Int
         let probability: Int
-        let health: Int
+        let health: String
         let rarity: Rarity
         var id: String { name }  // Identifiable の要件を満たすために name を id として使用
     }
@@ -44,30 +44,19 @@ struct TittlesView: View {
     }
     
     let allItems: [Item] = [
-        Item(name: "レベル３", attack: 10, probability: 25,health: 20, rarity: .normal),
-        Item(name: "レベル５", attack: 15, probability: 25,health: 15, rarity: .normal),
-        Item(name: "ルイーカ", attack: 20, probability: 25, health: 10, rarity: .normal),
-        Item(name: "もりこう", attack: 20, probability: 25, health: 100, rarity: .normal),
-        Item(name: "うっさん", attack: 25, probability: 25, health: 150, rarity: .normal),
-        Item(name: "キリキリン", attack: 30, probability: 25, health: 200, rarity: .normal),
-        Item(name: "カゲロウ", attack: 35, probability: 10, health: 220, rarity: .rare),
-        Item(name: "ライム", attack: 40, probability: 10, health: 240, rarity: .rare),
-        Item(name: "ラオン", attack: 45, probability: 10, health: 260, rarity: .rare),
-        Item(name: "ぴょこん", attack: 20,probability: 25, health: 220, rarity: .rare),
-        Item(name: "キャット夫人", attack: 25,probability: 25, health: 225, rarity: .rare),
-        Item(name: "かみ蔵", attack: 20,probability: 25, health: 220, rarity: .rare),
-        Item(name: "キャット夫人", attack: 25,probability: 25, health: 225, rarity: .rare),
-        Item(name: "ミッチー", attack: 30,probability: 25, health: 240, rarity: .rare),
-        Item(name: "ライム兄", attack: 40,probability: 10, health: 250, rarity: .rare),
-        Item(name: "幸福のパンダ", attack: 47,probability: 5, health: 260, rarity: .rare),
-        Item(name: "レッドドラゴン", attack: 47, probability: 5, health: 280, rarity: .superRare),
-        Item(name: "ブルードラゴン", attack: 48, probability: 5, health: 285, rarity: .superRare),
-        Item(name: "英雄デル", attack: 50,probability: 10, health: 300, rarity: .superRare),
-        Item(name: "覚醒 ライム", attack: 56,probability: 10, health: 300, rarity: .superRare),
-        Item(name: "レインボードラゴン", attack: 50, probability: 3, health: 300, rarity: .ultraRare),
-        Item(name: "七福神 玉", attack: 72,probability: 5, health: 350, rarity: .ultraRare),
-        Item(name: "七福神 福天丸", attack: 75,probability: 3, health: 380, rarity: .ultraRare),
-        Item(name: "七福神 金満徳", attack: 100,probability: 3, health: 500, rarity: .legendRare)
+        Item(name: "レベル３", attack: 10, probability: 25,health: "レベル３を達成したことを讃える称号", rarity: .normal),
+        Item(name: "レベル５", attack: 15, probability: 25,health: "レベル５を達成したことを讃える称号", rarity: .normal),
+        Item(name: "レベル１０", attack: 20, probability: 25, health: "レベル１０を達成したことを讃える称号", rarity: .normal),
+        Item(name: "回答数３０", attack: 20, probability: 25, health: "問題の回答数が３０問を達成したことを讃える称号", rarity: .normal),
+        Item(name: "回答数５０", attack: 25, probability: 25, health: "問題の回答数が５０問を達成したことを讃える称号", rarity: .normal),
+        Item(name: "回答数１００", attack: 30, probability: 25, health: "問題の回答数が１００問を達成したことを讃える称号", rarity: .normal),
+        Item(name: "ダンジョン制覇", attack: 35, probability: 10, health: "すべてのダンジョンをクリアしたことを讃える称号", rarity: .rare),
+        Item(name: "おとも１０種類制覇", attack: 40, probability: 10, health: "おともを１０種類仲間にしたことを讃える称号", rarity: .rare),
+        Item(name: "おとも２０種類制覇", attack: 45, probability: 10, health: "おともを２０種類仲間にしたことを讃える称号", rarity: .rare),
+        Item(name: "おともフルコンプ", attack: 20,probability: 25, health: "すべてのおともを仲間にしたことを讃える称号", rarity: .rare),
+        Item(name: "ガチャ１０回", attack: 25,probability: 25, health: "ガチャを１０回回したことを讃える称号", rarity: .rare),
+        Item(name: "ガチャ２０回", attack: 20,probability: 25, health: "ガチャを２０回回したことを讃える称号", rarity: .rare),
+        Item(name: "ガチャ３０回", attack: 25,probability: 25, health: "ガチャを３０回回したことを讃える称号", rarity: .rare)
     ]
     
     @State private var selectedItem: Item?
@@ -128,6 +117,9 @@ struct TittlesView: View {
                                 .frame(height: 180)
                                 .cornerRadius(15)
                                 .frame(height:180)
+                            Text(selected.health)
+                                .font(.system(size:24))
+                                .foregroundColor(Color("fontGray"))
 //                            HStack{
 //                                Image("ハート")
 //                                    .resizable()
@@ -147,11 +139,11 @@ struct TittlesView: View {
                     
                 }else{
                     ZStack{
-                        Image("\(selected.rarity.displayString)")
-                            .resizable()
-                            .frame(width: 70,height:70)
-                            .padding(.trailing,240)
-                            .padding(.bottom,100)
+//                        Image("\(selected.rarity.displayString)")
+//                            .resizable()
+//                            .frame(width: 70,height:70)
+//                            .padding(.trailing,240)
+//                            .padding(.bottom,100)
                         VStack {
                             Text("???")
                                 .font(.system(size:24))
@@ -163,20 +155,20 @@ struct TittlesView: View {
                                 .frame(height: 180)
                                 .cornerRadius(15)
                                 .frame(height:180)
-                            HStack{
-                                Image("ハート")
-                                    .resizable()
-                                    .frame(width: 20,height:20)
-                                Text("???")
-                                    .font(.system(size:24))
-                                    .foregroundColor(Color("fontGray"))
-                                Image("ソード")
-                                    .resizable()
-                                    .frame(width: 25,height:20)
-                                Text("???")
-                                    .font(.system(size:24))
-                                    .foregroundColor(Color("fontGray"))
-                            }
+//                            HStack{
+//                                Image("ハート")
+//                                    .resizable()
+//                                    .frame(width: 20,height:20)
+//                                Text("???")
+//                                    .font(.system(size:24))
+//                                    .foregroundColor(Color("fontGray"))
+//                                Image("ソード")
+//                                    .resizable()
+//                                    .frame(width: 25,height:20)
+//                                Text("???")
+//                                    .font(.system(size:24))
+//                                    .foregroundColor(Color("fontGray"))
+//                            }
                         }
                     }
                 }
@@ -233,7 +225,7 @@ Spacer()
         }
         .padding(.top,5)
         .onAppear {
-            self.selectedItem = Item(name: "ネッキー", attack: 10, probability: 25,health: 20, rarity: .normal)
+            self.selectedItem = Item(name: "レベル３", attack: 10, probability: 25,health: "レベル３を達成したことを讃える称号", rarity: .normal)
         }
         .background(Color("purple2"))
         .navigationBarBackButtonHidden(true)

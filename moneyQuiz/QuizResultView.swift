@@ -223,6 +223,8 @@ struct QuizResultView: View {
                         interstitial.loadInterstitial()
                     }
 //                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    print("interstitial.interstitialAdLoaded:\(interstitial.interstitialAdLoaded)")
+                    print("interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
                         if interstitial.interstitialAdLoaded && !interstitial.wasAdDismissed {
                           interstitial.presentInterstitial()
                       }
