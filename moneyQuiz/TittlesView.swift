@@ -155,6 +155,9 @@ struct TittlesView: View {
                                 .frame(height: 180)
                                 .cornerRadius(15)
                                 .frame(height:180)
+                            Text(selected.health)
+                                .font(.system(size:24))
+                                .foregroundColor(Color("fontGray"))
 //                            HStack{
 //                                Image("ハート")
 //                                    .resizable()

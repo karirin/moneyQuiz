@@ -16,10 +16,15 @@ struct QuizResult {
     var showExplanation: Bool = false
 }
 
+struct QuizTotal {
+    var totalAnswers: Int
+}
+
 struct QuizResultView: View {
 //    var results: [QuizResult]
     @State private var showModal = true
     @State private var showLevelUpModal = false
+    @State private var showTittleModal = false
     @State private var showMemoView = false
     @State private var currentMemo = ""
     @State private var selectedQuestion = ""
@@ -33,6 +38,9 @@ struct QuizResultView: View {
     @State var results: [QuizResult]
     @State private var isShow: Bool = true
     @State private var flag: Bool = false
+    @State private var answer30flag: Bool = false
+    @State private var answer50flag: Bool = false
+    @State private var answer100flag: Bool = false
 //    @Int var elapsedTime = 1
     @Binding var isPresenting: Bool
     @Binding var navigateToQuizResultView: Bool
@@ -50,7 +58,6 @@ struct QuizResultView: View {
         _playerExperience = State(initialValue: playerExperience)
         _playerMoney = State(initialValue: playerMoney)
         self.elapsedTime = elapsedTime
-        print("self.elapsedTime init:\(self.elapsedTime)")
     }
     
     var body: some View {
@@ -218,14 +225,40 @@ struct QuizResultView: View {
                         }
                     }
                 }
-                .onAppear {
+                .onAppear {                    authManager.fetchTotalAnswersData(userId: authManager.currentUserId!) { (totalData, totalAnswers) in
+                    // ここでtotalDataやtotalAnswersを使用する
+                    if totalAnswers > 30 {
+                        authManager.checkTitles(userId: authManager.currentUserId!, title: "回答数３０") { exists in
+                            if !exists {
+                                answer30flag = true
+                                authManager.saveTitleForUser(userId: authManager.currentUserId!, title: "回答数３０")
+                            }
+                        }
+                    }
+                    if totalAnswers > 50 {
+                        authManager.checkTitles(userId: authManager.currentUserId!, title: "回答数５０") { exists in
+                            if !exists {
+                                answer50flag = true
+                                authManager.saveTitleForUser(userId: authManager.currentUserId!, title: "回答数５０")
+                            }
+                        }
+                    }
+                    if totalAnswers > 100 {
+                        authManager.checkTitles(userId: authManager.currentUserId!, title: "回答数１００") { exists in
+                            if !exists {
+                                answer100flag = true
+                                authManager.saveTitleForUser(userId: authManager.currentUserId!, title: "回答数１００")
+                            }
+                        }
+                    }
+                    }
                     if !interstitial.interstitialAdLoaded {
                         interstitial.loadInterstitial()
                     }
 //                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    print("interstitial.interstitialAdLoaded:\(interstitial.interstitialAdLoaded)")
-                    print("interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
-                        if interstitial.interstitialAdLoaded && !interstitial.wasAdDismissed {
+                    print("onAppear interstitial.interstitialAdLoaded:\(interstitial.interstitialAdLoaded)")
+                    print("onAppear interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
+                        if !interstitial.wasAdDismissed {
                           interstitial.presentInterstitial()
                       }
 //                    }
@@ -239,13 +272,13 @@ struct QuizResultView: View {
                         }
                     }
                 }
-//                .onChange(of: interstitial.interstitialAdLoaded) { isLoaded in
-//                    print("onChange isLoaded:\(isLoaded)")
-//                    print("onChange interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
-//                      if isLoaded && !interstitial.wasAdDismissed {
-//                          interstitial.presentInterstitial()
-//                      }
-//                  }
+                .onChange(of: interstitial.interstitialAdLoaded) { isLoaded in
+                    print("onChange isLoaded:\(isLoaded)")
+                    print("onChange interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
+                      if isLoaded && !interstitial.wasAdDismissed {
+                          interstitial.presentInterstitial()
+                      }
+                  }
 
                 if showMemoView {
                     MemoView(memo: $currentMemo, question: selectedQuestion)
@@ -274,6 +307,15 @@ struct QuizResultView: View {
             }
             if showLevelUpModal {
                 LevelUpModalView(showLevelUpModal: $showLevelUpModal, authManager: authManager)
+            }
+            if answer30flag {
+                ModalTittleView(showLevelUpModal: $answer30flag, authManager: authManager, tittleNumber: .constant(30))
+            }
+            if answer50flag {
+                ModalTittleView(showLevelUpModal: $answer50flag, authManager: authManager, tittleNumber: .constant(50))
+            }
+            if answer100flag {
+                ModalTittleView(showLevelUpModal: $answer100flag, authManager: authManager, tittleNumber: .constant(100))
             }
             NavigationLink("", destination: ContentView().navigationBarBackButtonHidden(true), isActive: $isContentView)
         }

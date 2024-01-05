@@ -55,6 +55,7 @@
 		261F45192B25BE8C00080669 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45172B25BE8C00080669 /* PrivacyView.swift */; };
 		261F451A2B25BE8C00080669 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F45182B25BE8C00080669 /* TermsOfServiceView.swift */; };
 		26228EEA2B463016009D59ED /* TittlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26228EE92B463016009D59ED /* TittlesView.swift */; };
+		26280CFC2B47D02A006D96B6 /* ModalTittleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26280CFB2B47D02A006D96B6 /* ModalTittleView.swift */; };
 		262F6C002B42FD5800DC0E69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F6BFF2B42FD5800DC0E69 /* ContentView.swift */; };
 		263086232B3AD84800D8BD76 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263086222B3AD84800D8BD76 /* Charts.framework */; };
 		264CE41F2B3EFE5B00CFC826 /* GraphManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264CE41E2B3EFE5B00CFC826 /* GraphManagerView.swift */; };
@@ -119,6 +120,7 @@
 		261F45172B25BE8C00080669 /* PrivacyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivacyView.swift; path = ../../reward/reward/PrivacyView.swift; sourceTree = "<group>"; };
 		261F45182B25BE8C00080669 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsOfServiceView.swift; path = ../../reward/reward/TermsOfServiceView.swift; sourceTree = "<group>"; };
 		26228EE92B463016009D59ED /* TittlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TittlesView.swift; sourceTree = "<group>"; };
+		26280CFB2B47D02A006D96B6 /* ModalTittleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTittleView.swift; sourceTree = "<group>"; };
 		262F6BFF2B42FD5800DC0E69 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../Downloads/ContentView.swift; sourceTree = "<group>"; };
 		2630861E2B3AD63900D8BD76 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		263086222B3AD84800D8BD76 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = System/Library/Frameworks/Charts.framework; sourceTree = SDKROOT; };
@@ -206,6 +208,7 @@
 				261F450F2B25BDD000080669 /* Interstitial.swift */,
 				261F45092B25BDAE00080669 /* TimeIntermediateList.swift */,
 				261F44DB2B25BB4F00080669 /* ModalView.swift */,
+				26280CFB2B47D02A006D96B6 /* ModalTittleView.swift */,
 				261F44ED2B25BBB000080669 /* AudioManager.swift */,
 				261F44F22B25BBB100080669 /* LoadingView.swift */,
 				261F44F02B25BBB100080669 /* LoginModalView.swift */,
@@ -402,6 +405,7 @@
 				261F44E12B25BB4F00080669 /* GachaManagerView.swift in Sources */,
 				261F44EB2B25BB8B00080669 /* GachaView.swift in Sources */,
 				26F229032B302B0600760F40 /* ModalReturnView.swift in Sources */,
+				26280CFC2B47D02A006D96B6 /* ModalTittleView.swift in Sources */,
 				261F44CC2B25BAD800080669 /* PentagonShape.swift in Sources */,
 				264CE41F2B3EFE5B00CFC826 /* GraphManagerView.swift in Sources */,
 				261F451A2B25BE8C00080669 /* TermsOfServiceView.swift in Sources */,
