@@ -98,10 +98,26 @@ struct QuizManagerView: View {
                             })
                             Button(action: {
                                 audioManager.playKetteiSound()
+                                self.isPresentingQuizAdvanced = true
+                            }) {
+                                //                    Image("IT基礎知識の問題の上級")
+                                Image("選択肢4")
+                                    .resizable()
+                                    .frame(height: 70)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal)
+                            .padding(.bottom)
+//                            .shadow(radius: 3)
+                            .fullScreenCover(isPresented: $isPresentingQuizAdvanced) {
+                                            QuizAdvancedList(isPresenting: $isPresentingQuizAdvanced)
+                                        }
+                            Button(action: {
+                                audioManager.playKetteiSound()
                                 self.isPresentingQuizIntermediate = true
                             }) {
                                 //                    Image("IT基礎知識の問題の中級")
-                                Image("選択肢2")
+                                Image("選択肢3")
                                     .resizable()
                                     .frame(height: 70)
                             }
@@ -113,38 +129,41 @@ struct QuizManagerView: View {
                                             QuizIntermediateList(isPresenting: $isPresentingQuizIntermediate)
                                         }
                             
+                            
                             Button(action: {
                                 audioManager.playKetteiSound()
-                                self.isPresentingQuizAdvanced = true
+                                self.isPresentingQuizGod = true
                             }) {
-                                //                    Image("IT基礎知識の問題の上級")
-                                Image("選択肢3")
+                                //                    Image("データベース系の問題")
+                                Image("選択肢2")
                                     .resizable()
                                     .frame(height: 70)
                             }
                             .frame(maxWidth: .infinity)
                             .padding(.horizontal)
                             .padding(.bottom)
-//                            .shadow(radius: 3)
-                            .fullScreenCover(isPresented: $isPresentingQuizAdvanced) {
-                                            QuizAdvancedList(isPresenting: $isPresentingQuizAdvanced)
+                            .shadow(radius: 3)
+                            .fullScreenCover(isPresented: $isPresentingQuizGod) {
+                                            QuizGodList(isPresenting: $isPresentingQuizGod)
                                         }
-//                            Button(action: {
-//                                audioManager.playKetteiSound()
-//                                self.isPresentingQuizGod = true
-//                            }) {
-//                                //                    Image("データベース系の問題")
-//                                Image("選択肢7")
-//                                    .resizable()
-//                                    .frame(height: 70)
-//                            }
-//                            .frame(maxWidth: .infinity)
-//                            .padding(.horizontal)
-//                            .padding(.bottom)
-//                            .shadow(radius: 3)
-//                            .fullScreenCover(isPresented: $isPresentingQuizGod) {
-//                                            QuizGodList(isPresenting: $isPresentingQuizGod)
-//                                        }
+                            
+                            // データベース系の問題
+                            Button(action: {
+                                audioManager.playKetteiSound()
+                                self.isPresentingQuizDatabase = true
+                            }) {
+                                //                    Image("データベース系の問題")
+                                Image("選択肢5")
+                                    .resizable()
+                                    .frame(height: 70)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal)
+                            .padding(.bottom)
+                            .shadow(radius: 3)
+                            .fullScreenCover(isPresented: $isPresentingQuizDatabase) {
+                                QuizDatabaseList(isPresenting: $isPresentingQuizDatabase)
+                            }
 //                            // ネットワーク系の問題
 //                            Button(action: {
 //                                audioManager.playKetteiSound()
@@ -181,23 +200,7 @@ struct QuizManagerView: View {
 //                                            QuizSecurityList(isPresenting: $isPresentingQuizSecurity)
 //                                        }
 //                            
-//                            // データベース系の問題
-//                            Button(action: {
-//                                audioManager.playKetteiSound()
-//                                self.isPresentingQuizDatabase = true
-//                            }) {
-//                                //                    Image("データベース系の問題")
-//                                Image("選択肢6")
-//                                    .resizable()
-//                                    .frame(height: 70)
-//                            }
-//                            .frame(maxWidth: .infinity)
-//                            .padding(.horizontal)
-//                            .padding(.bottom)
-//                            .shadow(radius: 3)
-//                            .fullScreenCover(isPresented: $isPresentingQuizDatabase) {
-//                                            QuizDatabaseList(isPresenting: $isPresentingQuizDatabase)
-//                                        }
+//
                             
                         }
 //                        VStack{
@@ -240,7 +243,7 @@ struct QuizManagerView: View {
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .padding(.trailing, 306.0)
-                            Text("「IT基礎知識の問題（初級）」をクリックしてください。")
+                            Text("「お金の基礎知識問題」をクリックしてください。")
                                 .font(.system(size: 24.0))
                                 .padding(.all, 16.0)
                                 .background(Color.white)

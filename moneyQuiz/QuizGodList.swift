@@ -11,666 +11,544 @@ struct QuizGodList: View {
     @Binding var isPresenting: Bool
     let QuizGodList: [QuizQuestion] = [
         QuizQuestion(
-            question: "ネットワークプロトコル「HTTP/3」で主に使用されるトランスポートプロトコルは何ですか？",
-            choices: [
-                "TCP",
-                "TPP",
-                "SCTP",
-                "QUIC"
-            ],
-            correctAnswerIndex: 3,
-            explanation: "HTTP/3では、以前のバージョンで使用されていたTCPの代わりにQUICプロトコルが使用されます。これにより、通信の効率と速度が向上しています。"
-        ),
+               question: "日本における消費税の還付を受けることができるのはどのような場合ですか？",
+               choices: [
+                   "個人が日用品を購入した場合",
+                   "輸出業者が商品を海外に出荷した場合",
+                   "外国人観光客が宿泊施設を利用した場合",
+                   "国内で事業を行う小規模企業"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本において、輸出業者が商品を海外に出荷した場合、消費税の還付を受けることができます。これは輸出免税として知られ、輸出商品にかかった消費税が還付される制度です。"
+           ),
+           QuizQuestion(
+               question: "日本における法人税の計算基準は何ですか？",
+               choices: [
+                   "法人の年間売上高",
+                   "法人の総資産額",
+                   "法人の純利益",
+                   "法人の従業員数"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "日本での法人税は、法人の純利益に基づいて計算されます。純利益は、売上高から経費を差し引いた後の利益のことで、この利益に対して税率が適用されます。"
+           ),
+           QuizQuestion(
+               question: "日本で小規模企業が受けられる税制上の優遇措置は何ですか？",
+               choices: [
+                   "法人税率の軽減",
+                   "輸入税の免除",
+                   "消費税の還付",
+                   "従業員の社会保険料の補助"
+               ],
+               correctAnswerIndex: 0,
+               explanation: "日本では、小規模企業に対して法人税率の軽減という税制上の優遇措置があります。これにより、小規模企業の負担が軽減され、経営の安定に寄与します。"
+           ),
+       QuizQuestion(
+               question: "相続税の納税猶予制度とは何ですか？",
+               choices: [
+                   "相続税の支払いを完全に免除する制度",
+                   "相続税の支払いを一定期間延期できる制度",
+                   "相続税を分割して支払うことができる制度",
+                   "相続税の額を減額できる制度"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "相続税の納税猶予制度は、相続税の支払いを一定期間延期できる制度です。これは特に不動産などの換金が難しい資産を相続した場合に有効で、納税者の負担を軽減します。"
+           ),
+           QuizQuestion(
+               question: "日本で消費税を免除される事業は何ですか？",
+               choices: [
+                   "すべての食品販売業",
+                   "年間売上が一定額未満の小規模事業者",
+                   "輸出事業者",
+                   "非営利団体"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本では、年間売上が一定額未満の小規模事業者に対して消費税の免除があります。これにより、小規模事業者の経済的負担が軽減されます。"
+           ),
+           QuizQuestion(
+               question: "日本の不動産を売却した際に発生する譲渡所得税について、以下のうち正しいのは何ですか？",
+               choices: [
+                   "売却額全体に対して一律の税率が適用される",
+                   "所有期間が５年以下の場合は税率が高くなる",
+                   "不動産の売却益には税金がかからない",
+                   "売却額に関わらず一定額の税金が課せられる"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "不動産を売却した際の譲渡所得税は、所有期間によって税率が異なります。所有期間が５年以下の短期間の場合、税率が高く設定されています。"
+           ),
+         QuizQuestion(
+               question: "日本における消費税の免税制度で、外国人観光客が免税の対象となる商品はどれですか？",
+               choices: [
+                   "消耗品のみ",
+                   "家具や家電製品などの耐久消費財",
+                   "すべての商品",
+                   "食品と医薬品のみ"
+               ],
+               correctAnswerIndex: 0,
+               explanation: "日本では、外国人観光客に対して消耗品（一定金額以上の物品）の購入時に消費税の免税が適用されます。耐久消費財や食品、医薬品はこの免税対象外です。"
+           ),
+           QuizQuestion(
+               question: "日本での住宅取得等資金の贈与に関する特例とは何ですか？",
+               choices: [
+                   "すべての贈与に贈与税が免除される",
+                   "特定の条件下で贈与税が軽減される",
+                   "住宅取得資金に限り贈与税が全額免除される",
+                   "贈与される住宅に関わらず、一定額まで贈与税が免除される"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本では、住宅取得等のための資金を贈与される場合、特定の条件下で贈与税の特例が適用され、税額が軽減されます。"
+           ),
+           QuizQuestion(
+               question: "日本の中小企業が利用できる税制上の優遇措置にはどのようなものがありますか？",
+               choices: [
+                   "すべての中小企業が法人税免除される",
+                   "投資に対する特別減税が適用される",
+                   "従業員の給与に対する税金が免除される",
+                   "消費税が全額還付される"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本では、中小企業が設備投資などを行った場合、特別減税の優遇措置が適用されることがあります。これにより、企業の負担が軽減され、経営の活性化が図られます。"
+           ),
         QuizQuestion(
-            question: "暗号学において、同じ平文を同じ鍵で暗号化したときに常に同じ暗号文を生成する暗号方式を何と言いますか？",
-            choices: [
-                "非対称暗号",
-                "ハッシュ関数",
-                "対称暗号",
-                "ブロック暗号"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "対称暗号は、同じ鍵を使用して暗号化と復号を行います。したがって、同じ平文と同じ鍵を使用すると、常に同じ暗号文が生成されます。"
-        ),
+               question: "日本における給与所得者の所得税計算で基本的に考慮される要素は何ですか？",
+               choices: [
+                   "給与の総額",
+                   "勤務年数",
+                   "年齢",
+                   "職種"
+               ],
+               correctAnswerIndex: 0,
+               explanation: "日本で給与所得者の所得税を計算する際、基本的に考慮されるのは給与の総額です。総給与額から所得控除を差し引いた金額に対して、税率が適用されます。"
+           ),
+           QuizQuestion(
+               question: "日本の消費税はどのような税金ですか？",
+               choices: [
+                   "直接税",
+                   "間接税",
+                   "資産税",
+                   "法人税"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本の消費税は間接税に分類されます。間接税は商品やサービスの購入時に消費者が負担する税金で、価格に含まれています。"
+           ),
+           QuizQuestion(
+               question: "日本の税制において、住民税はどのようにして計算されますか？",
+               choices: [
+                   "前年の所得に基づいて計算される",
+                   "現在の資産額に基づいて計算される",
+                   "消費状況に基づいて計算される",
+                   "世帯の人数に基づいて計算される"
+               ],
+               correctAnswerIndex: 0,
+               explanation: "日本の住民税は、前年の所得に基づいて計算されます。これには所得税の他、市民税や県民税などが含まれ、所得に応じて税率が異なります。"
+           ),
+       QuizQuestion(
+               question: "日本における配偶者控除の条件は何ですか？",
+               choices: [
+                   "配偶者の年収が一定額以下であること",
+                   "配偶者が専業主婦（主夫）であること",
+                   "結婚して10年以上であること",
+                   "子供がいること"
+               ],
+               correctAnswerIndex: 0,
+               explanation: "日本の税制における配偶者控除は、配偶者の年収が一定額以下である場合に適用されます。これにより、所得税や住民税の負担が軽減されます。"
+           ),
+           QuizQuestion(
+               question: "日本における所得税の累進課税制度とは何を意味しますか？",
+               choices: [
+                   "所得が高くなるほど税率が低くなる",
+                   "すべての所得に対して同一の税率が適用される",
+                   "所得が高くなるほど税率が高くなる",
+                   "所得に関わらず一律の税額が課される"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "日本の所得税では累進課税制度が採用されており、所得が高くなるにつれて税率も高くなります。これにより、所得の高い人がより多くの税金を負担することになります。"
+           ),
+           QuizQuestion(
+               question: "日本で適用される配当所得の税率はどれくらいですか？",
+               choices: [
+                   "10%",
+                   "20%",
+                   "30%",
+                   "40%"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本において配当所得に適用される税率はおおむね20%です。これには所得税と住民税が含まれますが、一定の条件下では税率が異なることがあります。"
+           ),
         QuizQuestion(
-            question: "コンピュータビジョンにおいて、「畳み込みニューラルネットワーク（CNN）」の主要な用途は何ですか？",
-            choices: [
-                "音声認識",
-                "テキスト解析",
-                "画像認識",
-                "時系列データ分析"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "畳み込みニューラルネットワーク（CNN）は、画像認識や物体検出など、視覚的なタスクに非常に効果的です。"
-        ),
+               question: "日本の相続税制度で適用される基礎控除額はどれくらいですか？",
+               choices: [
+                   "300万円",
+                   "500万円",
+                   "3000万円＋法定相続人の数×600万円",
+                   "5000万円＋法定相続人の数×1000万円"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "日本の相続税制度では、基礎控除額として3000万円に法定相続人の数に応じて600万円を乗じた金額が適用されます。この控除額を超える部分に対して相続税が課されます。"
+           ),
+           QuizQuestion(
+               question: "日本での年末調整とは何を指しますか？",
+               choices: [
+                   "年末に行われる企業の決算処理",
+                   "所得税の年間納税額を調整する手続き",
+                   "年末に行われる家計の見直し",
+                   "住民税の年間納税額を調整する手続き"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "年末調整は、給与所得者が年間を通じて支払った所得税の過不足を調整する手続きです。これにより、実際の所得税額に基づいて最終的な納税額が決定されます。"
+           ),
+           QuizQuestion(
+               question: "日本の消費税の軽減税率制度とは何を意味しますか？",
+               choices: [
+                   "すべての商品に対して消費税が免除される",
+                   "特定の商品やサービスに対して低い消費税率が適用される",
+                   "消費税が一律に減税される",
+                   "外国人観光客にのみ消費税が免除される"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本の消費税の軽減税率制度では、食品や新聞など特定の商品やサービスに対して標準税率より低い税率が適用されます。これにより、生活必需品の負担が軽減されることを目的としています。"
+           ),
         QuizQuestion(
-            question: "ブロックチェーン技術において、全てのトランザクションが全ノードで確認されるプロセスを何と言いますか？",
-            choices: [
-                "マイニング",
-                "コンセンサス",
-                "ハッシング",
-                "暗号化"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "コンセンサスプロセスは、ブロックチェーンネットワーク上での全てのトランザクションが正しいものとして確認されるためのプロセスです。"
-        ),
+               question: "日本の住宅ローン控除制度の利用条件にはどのようなものがありますか？",
+               choices: [
+                   "どのような住宅でも利用可能",
+                   "特定の地域に住宅を購入すること",
+                   "新築または中古住宅の購入または建設",
+                   "所得に関わらず利用可能"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "住宅ローン控除制度は、新築または中古住宅の購入、あるいは住宅の建設に際してローンを利用する個人に適用されます。この制度を利用することで、一定期間所得税からの控除が受けられます。"
+           ),
+           QuizQuestion(
+               question: "日本の税制における「青色申告特別控除」とは何ですか？",
+               choices: [
+                   "すべての税金が特別に控除される制度",
+                   "青色申告を行う個人事業主や法人に与えられる特別な控除",
+                   "特定の業種にのみ適用される控除",
+                   "高額の医療費に対する控除"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "青色申告特別控除は、青色申告を選択する個人事業主や法人に対して与えられる控除で、所得から一定額を控除できます。これにより、税負担の軽減が図られます。"
+           ),
+           QuizQuestion(
+               question: "日本で適用される固定資産税は、どのような財産に対して課されますか？",
+               choices: [
+                   "移動可能な財産",
+                   "金融資産",
+                   "不動産などの固定資産",
+                   "賃貸物件の収入"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "固定資産税は、不動産などの固定資産に対して地方自治体が課す税金です。この税金は、土地や建物などの固定資産の所有者に対して年間で課されます。"
+           ),
         QuizQuestion(
-            question: "Linuxオペレーティングシステムにおいて、システムの起動時にカーネルが最初に実行するプログラムの名前は何ですか？",
-            choices: [
-                "bash",
-                "systemd",
-                "init",
-                "grub"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "initはLinuxシステムが起動する際にカーネルによって最初に実行されるプログラムであり、システム初期化やデーモンプロセスの起動を担当します。"
-        ),
+               question: "日本の税制において、家族を扶養している場合に受けられる税制上の優遇措置は何ですか？",
+               choices: [
+                   "扶養控除",
+                   "所得税免除",
+                   "消費税還付",
+                   "固定資産税の軽減"
+               ],
+               correctAnswerIndex: 0,
+               explanation: "扶養控除は、日本の税制において家族を扶養している場合に適用される優遇措置です。所得税や住民税の計算時に、扶養している家族の人数に応じて控除額が設定され、税負担が軽減されます。"
+           ),
+           QuizQuestion(
+               question: "日本の税制における医療費控除とは何ですか？",
+               choices: [
+                   "すべての医療費に対する全額控除",
+                   "特定の病気や治療に限定される控除",
+                   "一定額以上の医療費に対する所得税の控除",
+                   "医療費に関係なく適用される一律控除"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "医療費控除は、一定額以上の医療費を支払った場合に適用される所得税の控除です。年間の医療費が一定額を超えると、その超過分に対して所得税から控除が受けられます。"
+           ),
+           QuizQuestion(
+               question: "日本での住宅取得に際して適用される登録免許税とは何ですか？",
+               choices: [
+                   "住宅購入時に一律で課せられる税金",
+                   "住宅ローンを利用する際に課せられる税金",
+                   "不動産の登記に際して課せられる税金",
+                   "住宅購入に際して国が提供する補助金"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "登録免許税は、不動産の登記（所有権移転や抵当権設定など）に際して課せられる税金です。この税金は不動産取得の際に必要となる費用の一部です。"
+           ),
         QuizQuestion(
-            question: "「CAP定理」において、分散システムが同時に達成できないとされている2つの特性は何ですか？",
-            choices: [
-                "一貫性と分割耐性",
-                "可用性と分割耐性",
-                "一貫性と可用性",
-                "パフォーマンスと信頼性"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "CAP定理は、分散システムにおいて、一貫性、可用性、分割耐性の3つの特性のうち、同時に2つしか達成できないと述べています。したがって、一貫性と分割耐性を同時に達成することはできません。"
-        ),
+               question: "日本の税制で、小規模宅地等の特例とは何ですか？",
+               choices: [
+                   "小規模宅地に対して固定資産税が免除される",
+                   "小規模宅地の売却時に譲渡所得税が軽減される",
+                   "小規模宅地に対する所得税の特別控除",
+                   "小規模宅地の相続時に相続税が軽減される"
+               ],
+               correctAnswerIndex: 3,
+               explanation: "小規模宅地等の特例は、相続時に小規模な宅地（自宅用地等）に適用される相続税の軽減措置です。この特例により、相続税の負担が大幅に軽減されることがあります。"
+           ),
+           QuizQuestion(
+               question: "日本で事業を行う個人事業主が利用できる青色申告の条件は何ですか？",
+               choices: [
+                   "事業の規模に関わらず自動的に適用される",
+                   "一定額以上の年間売上があること",
+                   "所定の帳簿を作成し、申告すること",
+                   "特定の業種に限定される"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "青色申告は、所定の帳簿を作成し、これに基づいて申告を行う個人事業主が利用できる制度です。この申告を行うことで、特別な控除や納税の優遇措置を受けることが可能です。"
+           ),
+           QuizQuestion(
+               question: "日本における贈与税の基礎控除額は、年間でどれくらいですか？",
+               choices: [
+                   "100万円",
+                   "110万円",
+                   "150万円",
+                   "200万円"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本の贈与税制度では、年間110万円までの贈与に対して基礎控除が適用されます。この金額を超える贈与に対しては、贈与税が課せられます。"
+           ),
         QuizQuestion(
-            question: "暗号通貨の「51%攻撃」は何を意味しますか？",
-            choices: [
-                "ネットワークの51%以上を制御することでダブルスペンディングを可能にする攻撃",
-                "51%以上のユーザーのアカウントをハッキングする攻撃",
-                "51%以上のコンピューティングパワーを使って全てのマイニング報酬を獲得する攻撃",
-                "トランザクションの51%を偽造する攻撃"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "51%攻撃は、攻撃者がネットワークのマイニングパワーの51%以上を制御することで、トランザクションの検証を操作し、ダブルスペンディングを可能にする攻撃を指します。"
-        ),
+               question: "日本の税制における配偶者特別控除とは何ですか？",
+               choices: [
+                   "配偶者がいる場合に自動的に適用される控除",
+                   "配偶者の年収が一定額以下の場合に適用される控除",
+                   "配偶者が専業主婦（主夫）の場合に適用される控除",
+                   "配偶者の医療費に対する控除"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "配偶者特別控除は、配偶者の年収が一定額以下である場合に適用される所得税の控除です。この控除により、配偶者を扶養している納税者の税負担が軽減されます。"
+           ),
+           QuizQuestion(
+               question: "日本の税制において、退職所得に対する控除の特徴は何ですか？",
+               choices: [
+                   "退職所得には一律の控除が適用される",
+                   "退職金の全額が所得税から控除される",
+                   "退職所得の金額と勤続年数に応じて控除額が決まる",
+                   "退職所得に対する控除は存在しない"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "日本の税制において、退職所得に対する控除は、退職金の金額と勤続年数に基づいて計算されます。これにより、退職金に対する税負担が軽減されることがあります。"
+           ),
+           QuizQuestion(
+               question: "日本で株式や投資信託の配当から得られる収入に適用される税率はいくつですか？",
+               choices: [
+                   "5%",
+                   "10%",
+                   "15%",
+                   "20%"
+               ],
+               correctAnswerIndex: 3,
+               explanation: "日本において株式や投資信託からの配当収入には、源泉徴収される形で20%の税率が適用されます。これには所得税と住民税が含まれています。"
+           ),
         QuizQuestion(
-            question: "「BlueKeep」は何のセキュリティ脆弱性を指しますか？",
-            choices: [
-                "Windows 10のセキュリティ脆弱性",
-                "Windows Remote Desktop Servicesのセキュリティ脆弱性",
-                "Android OSのセキュリティ脆弱性",
-                "macOSのセキュリティ脆弱性"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "BlueKeepはWindows Remote Desktop Servicesに存在するセキュリティ脆弱性であり、攻撃者が任意のコードを実行し、システムを完全にコントロールできるようになる恐れがあります。"
-        ),
+               question: "日本の税制において、教育費控除とは何ですか？",
+               choices: [
+                   "子どもの教育費に対する所得税免除",
+                   "教育費に応じて所得から控除される制度",
+                   "教育機関への寄付に対する控除",
+                   "教育ローンの利子に対する控除"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "教育費控除は、子どもの教育費に応じて納税者の所得から一定額を控除できる制度です。この控除により、教育費の負担が一定程度軽減されます。"
+           ),
+           QuizQuestion(
+               question: "日本の相続税の計算で使用される「課税遺産総額」とは何を指しますか？",
+               choices: [
+                   "被相続人の全財産の市場価値",
+                   "相続人が実際に受け取る財産の価値",
+                   "相続放棄された財産を含む総額",
+                   "相続税の基礎控除後の残額"
+               ],
+               correctAnswerIndex: 0,
+               explanation: "課税遺産総額は、被相続人の全財産（不動産、預貯金、株式など）の市場価値の合計を指します。この総額から各種控除を差し引いた後に、相続税が計算されます。"
+           ),
+           QuizQuestion(
+               question: "日本で住宅を新築または購入した際に適用される固定資産税の特例とは何ですか？",
+               choices: [
+                   "固定資産税が完全に免除される",
+                   "固定資産税が一定期間半額になる",
+                   "固定資産税の納税義務が延期される",
+                   "固定資産税が一定期間軽減される"
+               ],
+               correctAnswerIndex: 3,
+               explanation: "新築または購入した住宅に対して、一定期間固定資産税が軽減される特例があります。これにより、初期の住宅購入費用の負担を軽減することができます。"
+           ),
+           QuizQuestion(
+               question: "日本における住民税の非課税世帯の基準とは何ですか？",
+               choices: [
+                   "世帯の年間総収入が一定額以下であること",
+                   "世帯主の年齢が65歳以上であること",
+                   "世帯内に未成年者がいること",
+                   "世帯主が特定の職業に就いていること"
+               ],
+               correctAnswerIndex: 0,
+               explanation: "日本において住民税の非課税となる世帯は、その年間総収入が特定の基準額以下である場合に限られます。この基準は、生活保護を受けている世帯などに適用される" ),
         QuizQuestion(
-            question: "「Dirty COW」はLinuxカーネルのどの部分に影響を与えるセキュリティ脆弱性ですか？",
-            choices: [
-                "ネットワークスタック",
-                "ファイルシステム",
-                "メモリ管理",
-                "デバイスドライバ"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "Dirty COWはLinuxカーネルのメモリ管理システムに影響を与えるセキュリティ脆弱性で、権限昇格を引き起こす可能性があります。"
-        ),
+               question: "日本の税制において、小規模企業共済とは何ですか？",
+               choices: [
+                   "企業の税負担を軽減するための制度",
+                   "小規模企業の従業員向けの福利厚生制度",
+                   "小規模企業主が退職時の生活資金を確保するための制度",
+                   "小規模企業の災害時に支払われる保険"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "小規模企業共済は、小規模企業主が自身の退職時に備えて生活資金を積み立てるための制度です。加入することで税制上の優遇措置を受けることができます。"
+           ),
+           QuizQuestion(
+               question: "日本で行われる年末調整において、医療費控除の申告に必要なものは何ですか？",
+               choices: [
+                   "医療費の領収書",
+                   "病院からの診断書",
+                   "医療保険の証書",
+                   "薬局での購入記録"
+               ],
+               correctAnswerIndex: 0,
+               explanation: "年末調整における医療費控除の申告には、支払った医療費の領収書が必要です。これらの領収書に基づいて、一定額以上の医療費に対して所得税の控除を受けることができます。"
+           ),
+           QuizQuestion(
+               question: "日本の税制において、個人年金保険料控除の対象となる保険とは何ですか？",
+               choices: [
+                   "任意の生命保険",
+                   "自動車保険",
+                   "住宅ローン保険",
+                   "特定の個人年金保険"
+               ],
+               correctAnswerIndex: 3,
+               explanation: "個人年金保険料控除は、特定の個人年金保険に加入している場合に適用されます。これにより、支払った年金保険料の一部が所得税や住民税から控除されることがあります。"
+           ),
         QuizQuestion(
-            question: "「Zero-Day Exploit」とは何ですか？",
-            choices: [
-                "脆弱性が発見されてから30日以内に利用されるエクスプロイト",
-                "脆弱性がパッチで修正される前に利用されるエクスプロイト",
-                "脆弱性が公にされてから1日以内に利用されるエクスプロイト",
-                "未知の脆弱性を利用するエクスプロイト"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "Zero-Day Exploitは、脆弱性が開発者によって修正される前に、攻撃者がその脆弱性を利用することを指します。"
-        ),
+               question: "日本における相続税の計算で重要な「課税価格」の決定方法は何ですか？",
+               choices: [
+                   "相続された財産の購入価格に基づく",
+                   "相続時の市場価値に基づく",
+                   "被相続人の生前の資産総額に基づく",
+                   "相続人の所得に基づく"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "相続税の計算において、課税価格は相続された財産の相続時の市場価値に基づいて決定されます。これには不動産、株式、預貯金など、被相続人が所有していたあらゆる財産の価値が含まれます。"
+           ),
+           QuizQuestion(
+               question: "日本の税制における「ふるさと納税」とは何ですか？",
+               choices: [
+                   "自分の故郷に対して特別な税金を支払う制度",
+                   "地方自治体に寄付を行い、税額控除を受ける制度",
+                   "地方産品を購入した際の税金の免除",
+                   "地方への移住者に対する税金の優遇"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "ふるさと納税は、地方自治体に寄付を行い、その額を所得税や住民税から控除できる制度です。寄付者は寄付した地方自治体からのお礼の品を受け取ることができます。"
+           ),
+           QuizQuestion(
+               question: "日本で適用される消費税の免税制度の対象となるのはどのような場合ですか？",
+               choices: [
+                   "国内での消費に対して一律適用される",
+                   "小規模事業者のみが適用を受けられる",
+                   "海外からの旅行者が日本国内で購入した商品",
+                   "全ての食品に自動的に適用される"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "日本の消費税の免税制度は、海外からの旅行者が日本国内で購入した商品に適用されます。これにより、特定の条件下で海外旅行者は消費税を支払う必要がなくなります。"
+           ),
         QuizQuestion(
-            question: "「Kubernetes」は何を管理するためのオープンソースプラットフォームですか？",
-            choices: [
-                "データベース",
-                "コンテナ",
-                "ネットワークデバイス",
-                "ウェブサーバ"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "Kubernetesは、コンテナのデプロイメント、スケーリング、および運用を自動化するためのオープンソースプラットフォームです。"
-        ),
+               question: "日本において、法人税の納税義務が発生するのはどのような場合ですか？",
+               choices: [
+                   "すべての個人事業主に適用される",
+                   "法人として設立された企業が利益を上げた場合",
+                   "非営利団体が寄付を受けた場合",
+                   "個人が株式投資で利益を得た場合"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本における法人税は、法人として設立された企業が事業活動により利益を上げた場合に課せられる税金です。これには利益に対する法人税のほか、地方税も含まれます。"
+           ),
+           QuizQuestion(
+               question: "日本の税制における「配偶者控除」とは何を指しますか？",
+               choices: [
+                   "配偶者がいる全ての納税者に適用される控除",
+                   "配偶者の年収が一定額以下の場合に適用される控除",
+                   "配偶者が高齢者の場合に適用される控除",
+                   "配偶者が外国人の場合に適用される控除"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "配偶者控除は、配偶者がいてその年収が一定額以下の場合に適用される所得税の控除です。この控除により、配偶者を扶養している納税者の税負担が軽減されることを目的としています。"
+           ),
+           QuizQuestion(
+               question: "日本の税制において、中小企業者等が設備投資を行った際に受けられる税制優遇策は何ですか？",
+               choices: [
+                   "投資額の全額控除",
+                   "固定資産税の免除",
+                   "特別償却または税額控除",
+                   "資金調達に関する利子の免税"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "中小企業者等が新たな設備投資を行った場合、特別償却や税額控除を受けることができる場合があります。これにより、設備投資に伴う初期コストの負担が軽減されます。"
+           ),
+       QuizQuestion(
+               question: "日本の税制における「事業承継税制」とは、どのような場合に適用されますか？",
+               choices: [
+                   "企業が新たな事業を開始した場合",
+                   "企業が経営破綻した場合",
+                   "企業が株式公開を行った場合",
+                   "中小企業が親族内で事業を承継する場合"
+               ],
+               correctAnswerIndex: 3,
+               explanation: "事業承継税制は、中小企業が親族内で事業を承継する場合に適用される税制優遇措置です。この制度により、事業の世代交代時の財産評価額や相続税の負担が軽減されます。"
+           ),
+           QuizQuestion(
+               question: "日本の税制において、住宅ローン減税の適用期間は最長で何年間ですか？",
+               choices: [
+                   "5年間",
+                   "10年間",
+                   "13年間",
+                   "20年間"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "日本における住宅ローン減税（住宅ローン控除）の適用期間は最長で13年間です。この期間中、住宅ローンの利子に対して所得税から一定の控除が受けられます。"
+           ),
+           QuizQuestion(
+               question: "日本の税制において、給与所得者の基礎控除額はいくらですか？",
+               choices: [
+                   "38万円",
+                   "48万円",
+                   "58万円",
+                   "68万円"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本の税制では、給与所得者には年間48万円の基礎控除が適用されます。これは、所得税を計算する際に所得から差し引かれる金額で、全ての給与所得者に一律に適用されます。"
+           ),
         QuizQuestion(
-            question: "「SHA-256」は何の略ですか？",
-            choices: [
-                "Secure Hash Algorithm 256-bit",
-                "Symmetric Hash Algorithm 256-bit",
-                "Secure Hypertext Algorithm 256-bit",
-                "Symmetric Hypertext Algorithm 256-bit"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "SHA-256はSecure Hash Algorithm 256-bitの略で、一方向のハッシュ関数の一つです。"
-        ),
-        QuizQuestion(
-            question: "「OAuth」は何のために使用されますか？",
-            choices: [
-                "パスワードベースの認証",
-                "データベース暗号化",
-                "サードパーティ認証",
-                "ウイルススキャン"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "OAuthは、ユーザーが自分の情報を共有する際に安全にサードパーティのアプリケーションに認証情報を提供できるプロトコルです。"
-        ),
-        QuizQuestion(
-            question: "「REST」の「S」は何を意味しますか？",
-            choices: [
-                "Simple",
-                "Secure",
-                "State",
-                "Service"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "RESTはRepresentational State Transferの略であり、「S」は「State」を意味します。RESTfulなAPIでは、各リクエストは独立しており、以前のリクエストの状態に依存しません。"
-        ),
-        QuizQuestion(
-            question: "「ビッグエンディアン」および「リトルエンディアン」は何に関連していますか？",
-            choices: [
-                "プロセッサのアーキテクチャ",
-                "プログラミング言語",
-                "ネットワークプロトコル",
-                "データベース管理システム"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "ビッグエンディアンとリトルエンディアンは、プロセッサがデータをメモリに格納する際のバイト順を指します。ビッグエンディアンでは最も重要なバイトが最も低いアドレスに格納され、リトルエンディアンでは最も重要なバイトが最も高いアドレスに格納されます。"
-        ),
-        QuizQuestion(
-            question: "「Quantum Supremacy」は何を指しますか？",
-            choices: [
-                "量子コンピュータが古典コンピュータよりも高速に特定の問題を解くことができる状態",
-                "量子通信の最先端技術",
-                "超伝導材料の新しいクラス",
-                "量子暗号の安全性"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "「Quantum Supremacy」は、量子コンピュータが古典コンピュータよりも高速に特定の問題を解くことができる状態を指します。"
-        ),
-        QuizQuestion(
-            question: "「CAP定理」で「C」は何を表しますか？",
-            choices: [
-                "Consistency",
-                "Compatibility",
-                "Concurrency",
-                "Connectivity"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "CAP定理は、分散コンピューティングシステムにおいて「Consistency（一貫性）」、「Availability（可用性）」、「Partition tolerance（分断耐性）」の3つの特性の間でトレードオフが存在すると述べています。"
-        ),
-        QuizQuestion(
-            question: "「DevOps」の主要な目的は何ですか？",
-            choices: [
-                "データベースのパフォーマンス最適化",
-                "開発と運用の連携強化",
-                "ソフトウェアのセキュリティ強化",
-                "ユーザーインターフェースの改善"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "DevOpsは、ソフトウェアの開発（Dev）と運用（Ops）のプラクティスを統合し、コラボレーションと効率の向上を図ることを目的としています。"
-        ),
-        QuizQuestion(
-            question: "「Blockchain」技術の主要な特徴は何ですか？",
-            choices: [
-                "中央集権化",
-                "改ざん防止",
-                "低いスケーラビリティ",
-                "データの非永続性"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "Blockchainは、その不変性と改ざん防止の特性により知られています。一度ブロックチェーンにデータが追加されると、それを変更することは非常に困難です。"
-        ),
-        QuizQuestion(
-            question: "「CIDR」の「CIDR」は何の略ですか？",
-            choices: [
-                "Classless Inter-Domain Routing",
-                "Classful Inter-Domain Routing",
-                "Classless Intra-Domain Routing",
-                "Classful Intra-Domain Routing"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "CIDRはClassless Inter-Domain Routingの略で、IPアドレスを割り当てるための方法です。これにより、IPアドレスの使用がより柔軟になり、インターネットの成長に対応しやすくなりました。"
-        ),
-        QuizQuestion(
-            question: "「メモリリーク」とは何を指しますか？",
-            choices: [
-                "プログラムが不要になったメモリ領域を解放しない状態",
-                "メモリの物理的な故障",
-                "データが意図せず外部に漏れ出る状態",
-                "メモリが一定の閾値を超えたときにシステムがクラッシュする状態"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "メモリリークは、プログラムが不要になったメモリ領域を適切に解放しないことにより発生し、システムのパフォーマンスを低下させる可能性があります。"
-        ),
-        QuizQuestion(
-            question: "「OAuth」とは何のためのプロトコルですか？",
-            choices: [
-                "電子メールの暗号化",
-                "ファイル転送",
-                "認証と認可",
-                "ネットワークルーティング"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "OAuthは、ユーザーが第三者アプリケーションに対して認証および認可を提供できるようにするためのオープンスタンダードなプロトコルです。"
-        ),
-        QuizQuestion(
-            question: "仮想マシンとコンテナの主な違いは何ですか？",
-            choices: [
-                "仮想マシンはハードウェアをエミュレートし、コンテナはOSレベルで実行されます",
-                "コンテナはハードウェアをエミュレートし、仮想マシンはOSレベルで実行されます",
-                "仮想マシンとコンテナは同じものです",
-                "仮想マシンはクラウド専用、コンテナはオンプレミス専用です"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "仮想マシンはハードウェアをエミュレートし、完全なオペレーティングシステムを実行しますが、コンテナはオペレーティングシステムの一部を共有し、より軽量で効率的です。"
-        ),
-        QuizQuestion(
-            question: "「REST」のAPIで「REST」は何の略ですか？",
-            choices: [
-                "Representational State Transfer",
-                "Real-time Essential Software Technology",
-                "Rapid Elastic Search Technology",
-                "Reliable Electronic System Transmission"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "RESTはRepresentational State Transferの略で、シンプルでスケーラブルなウェブサービスを設計するためのアーキテクチャスタイルです。"
-        ),
-        QuizQuestion(
-            question: "「Big O notation」で「O(n log n)」の計算複雑性はどのアルゴリズムでよく見られますか？",
-            choices: [
-                "バブルソート",
-                "クイックソート",
-                "線形探索",
-                "バイナリサーチ"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "O(n log n)は、平均的な計算複雑性でクイックソートなどの効率的なソートアルゴリズムで見られます。"
-        ),
-        QuizQuestion(
-            question: "デジタル署名を作成するのに一般的に使用される暗号化のタイプは何ですか？",
-            choices: [
-                "対称暗号化",
-                "非対称暗号化",
-                "ハッシュ関数",
-                "ブロック暗号"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "デジタル署名では非対称暗号化が一般的に使用されます。公開鍵と秘密鍵のペアを使用してメッセージの真正性と完全性を確保します。"
-        ),
-        QuizQuestion(
-            question: "「CAP定理」で「AP」は何を意味しますか？",
-            choices: [
-                "Availability and Partition Tolerance",
-                "Atomicity and Partition Tolerance",
-                "Availability and Performance",
-                "Atomicity and Performance"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "CAP定理は、分散システムの基本的なトレードオフを説明するもので、「AP」は「Availability（可用性）」と「Partition Tolerance（パーティション耐性）」を意味します。"
-        ),
-        QuizQuestion(
-            question: "Webアプリケーションのセキュリティで「XSS」は何の略ですか？",
-            choices: [
-                "Cross-Site Scripting",
-                "Cross-System Security",
-                "Cross-Site Security",
-                "Cross-System Scripting"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "XSS（Cross-Site Scripting）は、攻撃者が悪意のあるスクリプトをウェブページに注入する攻撃です。ユーザーはそのページを表示する際にスクリプトが実行され、セキュリティが危険にさらされる可能性があります。"
-        ),
-        QuizQuestion(
-            question: "データベースで「ACID」プロパティの「A」は何を表しますか？",
-            choices: [
-                "Atomicity",
-                "Availability",
-                "Associativity",
-                "Authentication"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "ACIDプロパティの「A」は「Atomicity（原子性）」を表し、トランザクションが全部または全く実行されないことを保証します。"
-        ),
-        QuizQuestion(
-            question: "ネットワークセキュリティで「DOS攻撃」は何を意味しますか？",
-            choices: [
-                "Denial Of Service",
-                "Data Optimization Service",
-                "Disk Operating System",
-                "Data Output Stream"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "DOS攻撃（Denial Of Service）は、ネットワークリソースへのアクセスを妨害することを目的とした攻撃の一種です。"
-        ),
-        QuizQuestion(
-            question: "REST API設計において、無状態性(Statelessness)とは何を意味しますか？",
-            choices: [
-                "各リクエストが他のリクエストと独立している",
-                "サーバーがクライアントの状態を保持する",
-                "データが暗号化されている",
-                "データが圧縮されている"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "REST APIの無状態性(Statelessness)は、各リクエストが他のリクエストと独立しており、サーバーがクライアントの状態を保持しないことを意味します。"
-        ),
-        QuizQuestion(
-            question: "「OAuth」は何のために使用されますか？",
-            choices: [
-                "暗号化",
-                "認証と承認",
-                "データベース管理",
-                "ファイル圧縮"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "OAuthは、ユーザーの代わりに別のアプリケーションがリソースにアクセスするための安全な方法を提供する認証と承認のフレームワークです。"
-        ),
-        QuizQuestion(
-            question: "「ビッグエンディアン」と「リトルエンディアン」の違いは何ですか？",
-            choices: [
-                "文字エンコーディングの違い",
-                "データの圧縮方法の違い",
-                "バイト順序の違い",
-                "エラー検出方法の違い"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "「ビッグエンディアン」と「リトルエンディアン」はバイト順序が異なるコンピューターアーキテクチャを指します。ビッグエンディアンでは最も重要なバイトが最初に格納され、リトルエンディアンでは最も重要でないバイトが最初に格納されます。"
-        ),
-        QuizQuestion(
-            question: "ブロックチェーンの「コンセンサスアルゴリズム」の主な目的は何ですか？",
-            choices: [
-                "データの暗号化",
-                "トランザクションの承認と合意形成",
-                "データベースのインデックス作成",
-                "ファイルの圧縮"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "コンセンサスアルゴリズムは、ブロックチェーンネットワーク上のすべてのノードがトランザクションの正当性に同意するプロセスを指し、データの整合性とセキュリティを保つのに役立ちます。"
-        ),
-        QuizQuestion(
-            question: "Linuxオペレーティングシステムにおいて、「chmod 755」コマンドは何を行いますか？",
-            choices: [
-                "ファイルを削除する",
-                "ファイルのパーミッションを変更し、オーナーには読み書き実行の権限を、他のユーザーには読み込みと実行の権限を与える",
-                "ファイルを圧縮する",
-                "ネットワーク設定を変更する"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "「chmod 755」コマンドは、ファイルのパーミッションを変更し、オーナーには読み書き実行の権限を与え、グループと他のユーザーには読み込みと実行の権限を与えます。"
-        ),
-        QuizQuestion(
-            question: "「Deadlock」または「デッドロック」とは何ですか？",
-            choices: [
-                "ディスクの障害",
-                "プロセスまたはスレッドが互いにリソースの解放を待っている状態",
-                "メモリの断片化",
-                "ネットワークの遅延"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "デッドロックは、プロセスまたはスレッドが互いにリソースの解放を待っている状態を指し、これが原因でシステムが停止する可能性があります。"
-        ),
-        QuizQuestion(
-            question: "「CAP定理」において、「C」は何を表しますか？",
-            choices: [
-                "Consistency（一貫性）",
-                "Compression（圧縮）",
-                "Concurrency（並行性）",
-                "Connectivity（接続性）"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "CAP定理は、分散コンピューティングにおいて、一貫性（Consistency）、可用性（Availability）、およびパーティション耐性（Partition Tolerance）の三つの要素について説明しています。ここでの「C」は一貫性（Consistency）を表します。"
-        ),
-        QuizQuestion(
-            question: "「Kubernetes」は何を管理するためのプラットフォームですか？",
-            choices: [
-                "データベース",
-                "コンテナ",
-                "ネットワーク",
-                "ファイルシステム"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "Kubernetesはコンテナオーケストレーションプラットフォームであり、コンテナのデプロイメント、スケーリング、および運用を自動化するために使用されます。"
-        ),
-        QuizQuestion(
-            question: "「Quantum Computing」で使用される「Qubit」は何を表しますか？",
-            choices: [
-                "クエリビット",
-                "量子ビット",
-                "クイックビット",
-                "クオリティビット"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "Qubit（量子ビット）は量子コンピューティングにおいて、0と1の両方の状態を同時に取ることができるビットを指します。"
-        ),
-        QuizQuestion(
-            question: "「SHA-256」は何の略ですか？",
-            choices: [
-                "Secure Hash Algorithm 256-bit",
-                "Symmetric Hash Algorithm 256-bit",
-                "Secure Hash Allocation 256-byte",
-                "Symmetric Hash Allocation 256-byte"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "SHA-256はSecure Hash Algorithm 256-bitの略であり、256ビットのハッシュ値を生成する暗号学的ハッシュ関数です。"
-        ),
-        QuizQuestion(
-            question: "「Polymorphism」はオブジェクト指向プログラミングのどの概念を指しますか？",
-            choices: [
-                "変数の複数の型を持つこと",
-                "コードの隠蔽",
-                "複数の形態を持つこと",
-                "メモリの効率的な利用"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "ポリモーフィズムはオブジェクトが複数の形態を持つ能力を指し、同じインターフェースで異なるデータタイプやクラスのオブジェクトを操作できるようにします。"
-        ),
-        QuizQuestion(
-            question: "「Big O Notation」で「O(n^2)」は何を表しますか？",
-            choices: [
-                "定数時間",
-                "線形時間",
-                "二次時間",
-                "対数時間"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "「O(n^2)」は二次時間の計算複雑性を表し、アルゴリズムの実行時間が入力サイズの二乗に比例して増加することを意味します。"
-        ),
-        QuizQuestion(
-            question: "「Blue Screen of Death (BSOD)」はどのオペレーティングシステムと関連していますか？",
-            choices: [
-                "Linux",
-                "Windows",
-                "macOS",
-                "Android"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "Blue Screen of Death (BSOD)は、Windowsオペレーティングシステムにおいて、重大なエラーが発生したときに表示されるエラー画面です。"
-        ),
-        QuizQuestion(
-            question: "「REST」のフルフォームは何ですか？",
-            choices: [
-                "Representational State Transfer",
-                "Rapid Elastic Search Technology",
-                "Real-time Secure Transfer",
-                "Relational State Transfer"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "RESTはRepresentational State Transferの略で、分散システムにおいてクライアントとサーバー間の通信を行うためのアーキテクチャスタイルです。"
-        ),
-        QuizQuestion(
-            question: "「DevOps」の主な目標は何ですか？",
-            choices: [
-                "開発と運用の分離",
-                "ソフトウェアの品質向上",
-                "開発と運用の連携強化",
-                "開発サイクルの延長"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "DevOpsは、ソフトウェア開発（Dev）とIT運用（Ops）のプラクティスを統合することを目指しており、開発からリリースまでのプロセスを迅速かつ効率的にすることを目標としています。"
-        ),
-        QuizQuestion(
-            question: "暗号通貨のブロックチェーンにおいて、新しいトランザクションを追加するプロセスを何と言いますか？",
-            choices: [
-                "ハッシング",
-                "マイニング",
-                "トークニング",
-                "エンクリプティング"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "ブロックチェーンにおけるマイニングは、新しいトランザクションをブロックに追加し、ネットワーク全体で合意を形成するプロセスを指します。"
-        ),
-        QuizQuestion(
-            question: "プログラミングにおいて、「Deadlock」は何を指しますか？",
-            choices: [
-                "コンパイルエラー",
-                "実行時エラー",
-                "プロセスやスレッドが永遠にブロックされる状態",
-                "メモリリーク"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "デッドロックは、二つ以上のプロセスやスレッドが互いにリソースを持っているため、永遠にブロックされる状態を指します。"
-        ),
-        QuizQuestion(
-            question: "「SQL Injection」攻撃とは何ですか？",
-            choices: [
-                "データベースに不正なSQLクエリを実行させる攻撃",
-                "システムにマルウェアを注入する攻撃",
-                "ネットワークパケットを改ざんする攻撃",
-                "ユーザーのセッションを乗っ取る攻撃"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "SQLインジェクション攻撃は、攻撃者が不正なSQLクエリをデータベースに送信して、データを盗んだり、データベースを損傷したりする攻撃です。"
-        ),
-        QuizQuestion(
-            question: "「Kubernetes」は何のために使用されますか？",
-            choices: [
-                "ウェブブラウジング",
-                "コンテナオーケストレーション",
-                "ソフトウェア開発",
-                "ネットワークセキュリティ"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "Kubernetesはコンテナオーケストレーションツールであり、コンテナ化されたアプリケーションのデプロイ、スケーリング、および運用を自動化するために使用されます。"
-        ),
-        QuizQuestion(
-            question: "「CAP定理」で「C」は何を表しますか？",
-            choices: [
-                "Consistency",
-                "Concurrency",
-                "Computation",
-                "Connectivity"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "CAP定理では、「C」はConsistencyを表し、全てのノードが同じ時点で同じデータを持っていることを指します。"
-        ),
-        QuizQuestion(
-            question: "「ビッグオー記法」において、アルゴリズムの実行時間が入力サイズnに対して線形に増加する場合、その複雑さをどのように表しますか？",
-            choices: [
-                "O(1)",
-                "O(log n)",
-                "O(n)",
-                "O(n^2)"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "ビッグオー記法において、O(n)はアルゴリズムの実行時間または空間が入力サイズnに対して線形に増加することを表します。"
-        ),
-        QuizQuestion(
-            question: "「HTTP/2」の主要な利点は何ですか？",
-            choices: [
-                "暗号化の強化",
-                "単一のTCP接続を通じた多重化",
-                "データの圧縮",
-                "すべての上記"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "HTTP/2の主要な利点の一つは単一のTCP接続を通じて複数のリクエストとレスポンスを同時に送受信できる多重化です。これにより、ウェブページのロード時間が大幅に改善されます。"
-        ),
-        QuizQuestion(
-            question: "「OAuth」は何のために使用されますか？",
-            choices: [
-                "データベースの管理",
-                "オペレーティングシステム",
-                "認可と認証",
-                "ファイル圧縮"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "OAuthは、ユーザーが第三者のアプリケーションに対して特定のリソースへのアクセスを許可するための開放規格です。これにより、ユーザーはそのサービスの認証情報を直接第三者に提供することなく、サービスを利用できます。"
-        ),
-        QuizQuestion(
-            question: "「REST」アーキテクチャにおいて、クライアントとサーバー間の通信を状態のない（stateless）とはどういう意味ですか？",
-            choices: [
-                "サーバーはクライアントの状態を保存しない",
-                "クライアントはサーバーの状態を保存しない",
-                "通信は暗号化されていない",
-                "通信は非同期である"
-            ],
-            correctAnswerIndex: 0,
-            explanation: "状態のない通信では、サーバーはクライアントの状態を保存しません。各リクエストは独立しており、過去のリクエストからの情報を必要としません。"
-        ),
-        QuizQuestion(
-            question: "「Docker」において、コンテナ内のプロセスがホストOS上で直接実行される理由は何ですか？",
-            choices: [
-                "ハードウェアの仮想化を使用するため",
-                "パフォーマンスを向上させるため",
-                "セキュリティを強化するため",
-                "ネットワーキングを簡素化するため"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "Dockerコンテナは、パフォーマンスの向上とオーバーヘッドの削減を目的として、ホストOS上で直接プロセスを実行します。これにより、仮想マシンに比べて軽量で効率的になります。"
-        ),
-        QuizQuestion(
-            question: "「カーネル」はオペレーティングシステムのどの部分を指しますか？",
-            choices: [
-                "ユーザーインターフェイス",
-                "デバイスドライバ",
-                "コア機能と管理",
-                "アプリケーションソフトウェア"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "カーネルはオペレーティングシステムの中心的な部分で、ハードウェアとソフトウェアの間の通信を管理し、システムリソースを管理します。"
-        ),
-        QuizQuestion(
-            question: "「デッドロック」とは何ですか？",
-            choices: [
-                "メモリリーク",
-                "プログラムのクラッシュ",
-                "プロセス間の相互依存による停止",
-                "ディスクの断片化"
-            ],
-            correctAnswerIndex: 2,
-            explanation: "デッドロックは、プロセス間でリソースが相互に依存している状態で、それぞれが他のプロセスが持っているリソースを待っているために進行が停止してしまう状態を指します。"
-        ),
-        QuizQuestion(
-            question: "「ブロックチェーン」技術の主な特徴は何ですか？",
-            choices: [
-                "集中型データベース",
-                "改ざん防止",
-                "データの非暗号化",
-                "高速トランザクション"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "ブロックチェーンは、データの改ざんを防ぐために設計されており、一度書き込まれたデータは後から変更することが非常に難しいです。"
-        ),
-        QuizQuestion(
-            question: "「CIDR」表記において、「/24」は何を意味しますか？",
-            choices: [
-                "サブネットマスク 255.255.255.0",
-                "256個のIPアドレス",
-                "サブネット内の254個の使用可能なIPアドレス",
-                "すべての上記"
-            ],
-            correctAnswerIndex: 3,
-            explanation: "/24（CIDR表記）はサブネットマスク255.255.255.0を意味し、これにより256個のIPアドレス（サブネット内で使用可能なIPアドレスは254個）が利用可能になります。"
-        ),
-        QuizQuestion(
-            question: "「DevOps」の主な目標は何ですか？",
-            choices: [
-                "ソフトウェアの開発と運用の分離",
-                "ソフトウェアの開発サイクルの加速",
-                "ソフトウェアテストの省略",
-                "古い技術の維持"
-            ],
-            correctAnswerIndex: 1,
-            explanation: "DevOpsはソフトウェアの開発（Dev）と運用（Ops）のプロセスを統合し、コラボレーションを促進することで、ソフトウェアの開発サイクルを速めることを目的としています。"
-        )
-    ]
+               question: "日本で個人が住宅を新築または購入する際、適用される住宅ローン減税の対象となる住宅ローンの最大額はいくらですか？",
+               choices: [
+                   "1,000万円",
+                   "2,000万円",
+                   "3,000万円",
+                   "4,000万円"
+               ],
+               correctAnswerIndex: 2,
+               explanation: "日本の住宅ローン減税（住宅ローン控除）では、最大3,000万円までの住宅ローンが対象となります。この制度により、ローンの利子部分に対して一定の税額控除が受けられます。"
+           ),
+           QuizQuestion(
+               question: "日本の税制で、配偶者の年収が一定額以下の場合に適用される「配偶者特別控除」の最大控除額はいくらですか？",
+               choices: [
+                   "38万円",
+                   "48万円",
+                   "58万円",
+                   "68万円"
+               ],
+               correctAnswerIndex: 0,
+               explanation: "日本の税制における配偶者特別控除の最大控除額は38万円です。これは、配偶者の年収が一定額以下の場合に適用される控除で、納税者の税負担を軽減します。"
+           ),
+           QuizQuestion(
+               question: "日本で行われる相続税の計算において、基礎控除額はいくらですか？",
+               choices: [
+                   "3,000万円",
+                   "3,000万円＋法定相続人1人につき600万円",
+                   "5,000万円",
+                   "5,000万円＋法定相続人1人につき1,000万円"
+               ],
+               correctAnswerIndex: 1,
+               explanation: "日本の相続税の計算では、基礎控除額は3,000万円プラス法定相続人1人につき600万円です。これにより、相続財産の一部が非課税となり、全体の相続税額が軽減されます。"
+           )
+        ]
 
     @State private var shuffledQuizList: [QuizQuestion]
     private var authManager = AuthManager()

@@ -184,7 +184,7 @@ struct IncorrectAnswer {
         // 次の問題へ移る処理
         func moveToNextQuiz() {
             print("moveToNextQuiz - currentQuizIndex: \(currentQuizIndex), selectedAnswerIndex: \(String(describing: selectedAnswerIndex))")
-            if monsterType == 3 && monsterHP <= 0 {
+            if monsterType == 2 && monsterHP <= 0 {
                 // 最後のモンスターが倒された場合、結果画面へ遷移
                 showCompletionMessage = true
                 timer?.invalidate()
@@ -743,23 +743,22 @@ struct IncorrectAnswer {
                 }
                 .ignoresSafeArea()
                 }
-                if showCountdown {
-                       ZStack {
-                           // 背景
-                           Color.black.opacity(0.7)
-                               .edgesIgnoringSafeArea(.all)
-                           // カウントダウンの数字
-                           Text("\(countdownValue)")
-                               .font(.system(size: 100))
-                               .foregroundColor(.white)
-                               .bold()
-                       }
-                   }
+//                if showCountdown {
+//                       ZStack {
+//                           // 背景
+//                           Color.black.opacity(0.7)
+//                               .edgesIgnoringSafeArea(.all)
+//                           // カウントダウンの数字
+//                           Text("\(countdownValue)")
+//                               .font(.system(size: 100))
+//                               .foregroundColor(.white)
+//                               .bold()
+//                       }
+//                   }
         }
             
             .onTapGesture {
                 audioManager.playSound()
-                if showCountdown == false {
                     if tutorialNum == 3 {
                         tutorialNum = 4
                         authManager.updateTutorialNum(userId: authManager.currentUserId ?? "", tutorialNum: 4) { success in
@@ -779,15 +778,15 @@ struct IncorrectAnswer {
                         }
                     }
                 }
-            }
             .onAppear {
 //                print("interstitial.interstitialAdLoaded:\(interstitial.interstitialAdLoaded)")
 //                if !interstitial.interstitialAdLoaded {
 //                    print("onAppear interstitial.interstitialAdLoaded")
 //                    interstitial.presentInterstitial()
 //                }
-                startCountdown()
+//                startCountdown()
                 self.monsterType = 1 // すぐに1に戻す
+                showTutorial = true
                 authManager.fetchUserInfo { (name, avator, money, hp, attack, tutorialNum) in
                     self.userName = name ?? ""
                     self.avator = avator ?? [[String: Any]]()
@@ -795,6 +794,7 @@ struct IncorrectAnswer {
                     self.userHp = hp ?? 100
                     self.userAttack = attack ?? 20
                     self.tutorialNum = tutorialNum ?? 0
+                    print("self.tutorialNum:\(self.tutorialNum)")
                     if let additionalAttack = self.avator.first?["attack"] as? Int {
                         self.userAttack = self.userAttack + additionalAttack
                     }
@@ -807,14 +807,14 @@ struct IncorrectAnswer {
                         self.playerHP = self.userHp
                     }
                     if self.tutorialNum == 0 {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                             startTimer() // Viewが表示されたときにタイマーを開始
-                        }
+//                        }
                     }
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    audioManager.playCountdownSound()
-                }
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                    audioManager.playCountdownSound()
+//                }
                 self.startTime = Date()
                 fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
                     self.incorrectAnswerCount = count
@@ -925,10 +925,10 @@ struct IncorrectAnswer {
                         monsterHP = 120
                         monsterUnderHP = 120
                         monsterAttack = 30
-                    case 3:
-                        monsterHP = 160
-                        monsterUnderHP = 160
-                        monsterAttack = 40
+//                    case 3:
+//                        monsterHP = 160
+//                        monsterUnderHP = 160
+//                        monsterAttack = 40
                     default:
                         monsterHP = 30
                     }
@@ -949,10 +949,10 @@ struct IncorrectAnswer {
                         monsterHP = 120
                         monsterUnderHP = 120
                         monsterAttack = 40
-                    case 3:
-                        monsterHP = 160
-                        monsterUnderHP = 160
-                        monsterAttack = 50
+//                    case 3:
+//                        monsterHP = 160
+//                        monsterUnderHP = 160
+//                        monsterAttack = 50
                     default:
                         monsterHP = 50
                     }
@@ -973,10 +973,10 @@ struct IncorrectAnswer {
                         monsterHP = 160
                         monsterUnderHP = 160
                         monsterAttack = 50
-                    case 3:
-                        monsterHP = 200
-                        monsterUnderHP = 200
-                        monsterAttack = 60
+//                    case 3:
+//                        monsterHP = 200
+//                        monsterUnderHP = 200
+//                        monsterAttack = 60
                     default:
                         monsterHP = 80
                     }
@@ -997,10 +997,10 @@ struct IncorrectAnswer {
                         monsterHP = 120
                         monsterUnderHP = 120
                         monsterAttack = 50
-                    case 3:
-                        monsterHP = 160
-                        monsterUnderHP = 160
-                        monsterAttack = 60
+//                    case 3:
+//                        monsterHP = 160
+//                        monsterUnderHP = 160
+//                        monsterAttack = 60
                     default:
                         monsterHP = 50
                     }
@@ -1021,10 +1021,10 @@ struct IncorrectAnswer {
                         monsterHP = 120
                         monsterUnderHP = 120
                         monsterAttack = 50
-                    case 3:
-                        monsterHP = 160
-                        monsterUnderHP = 160
-                        monsterAttack = 60
+//                    case 3:
+//                        monsterHP = 160
+//                        monsterUnderHP = 160
+//                        monsterAttack = 60
                     default:
                         monsterHP = 50
                     }
@@ -1045,10 +1045,10 @@ struct IncorrectAnswer {
                         monsterHP = 120
                         monsterUnderHP = 120
                         monsterAttack = 50
-                    case 3:
-                        monsterHP = 160
-                        monsterUnderHP = 160
-                        monsterAttack = 60
+//                    case 3:
+//                        monsterHP = 160
+//                        monsterUnderHP = 160
+//                        monsterAttack = 60
                     default:
                         monsterHP = 50
                     }
@@ -1069,10 +1069,10 @@ struct IncorrectAnswer {
                         monsterHP = 60
                         monsterUnderHP = 60
                         monsterAttack = 30
-                    case 3:
-                        monsterHP = 70
-                        monsterUnderHP = 70
-                        monsterAttack = 40
+//                    case 3:
+//                        monsterHP = 70
+//                        monsterUnderHP = 70
+//                        monsterAttack = 40
                     default:
                         monsterHP = 50
                     }
@@ -1084,22 +1084,22 @@ struct IncorrectAnswer {
                     playerExperience = 5
                     playerMoney = 5
                 }
-                switch newMonsterType {
-                case 1:
-                    monsterHP = 80
-                    monsterUnderHP = 80
-                    monsterAttack = 500
-                case 2:
-                    monsterHP = 120
-                    monsterUnderHP = 120
-                    monsterAttack = 1000
-                case 3:
-                    monsterHP = 160
-                    monsterUnderHP = 160
-                    monsterAttack = 1500
-                default:
-                    monsterHP = 1000
-                }
+                    switch newMonsterType {
+                    case 1:
+                        monsterHP = 80
+                        monsterUnderHP = 80
+                        monsterAttack = 40
+                    case 2:
+                        monsterHP = 120
+                        monsterUnderHP = 120
+                        monsterAttack = 50
+//                    case 3:
+//                        monsterHP = 160
+//                        monsterUnderHP = 160
+//                        monsterAttack = 60
+                    default:
+                        monsterHP = 50
+                    }
                 case .incorrectAnswer:
                     monsterBackground = "incorrectAnswerBackground"
                     playerExperience = 0
@@ -1117,10 +1117,10 @@ struct IncorrectAnswer {
                         monsterHP = 10
                         monsterUnderHP = 10
                         monsterAttack = 0
-                    case 3:
-                        monsterHP = 10
-                        monsterUnderHP = 10
-                        monsterAttack = 0
+//                    case 3:
+//                        monsterHP = 10
+//                        monsterUnderHP = 10
+//                        monsterAttack = 0
                     default:
                         monsterHP = 10
                     }
@@ -1141,10 +1141,10 @@ struct IncorrectAnswer {
                     monsterHP = 30
                     monsterUnderHP = 30
                     monsterAttack = 30
-                case 3:
-                    monsterHP = 40
-                    monsterUnderHP = 40
-                    monsterAttack = 40
+//                case 3:
+//                    monsterHP = 40
+//                    monsterUnderHP = 40
+//                    monsterAttack = 40
                 default:
                     monsterHP = 1000
                 }
@@ -1165,10 +1165,10 @@ struct IncorrectAnswer {
                     monsterHP = 50
                     monsterUnderHP = 50
                     monsterAttack = 50
-                case 3:
-                    monsterHP = 60
-                    monsterUnderHP = 60
-                    monsterAttack = 60
+//                case 3:
+//                    monsterHP = 60
+//                    monsterUnderHP = 60
+//                    monsterAttack = 60
                 default:
                     monsterHP = 1000
                 }
@@ -1189,10 +1189,10 @@ struct IncorrectAnswer {
                     monsterHP = 60
                     monsterUnderHP = 60
                     monsterAttack = 60
-                case 3:
-                    monsterHP = 70
-                    monsterUnderHP = 70
-                    monsterAttack = 70
+//                case 3:
+//                    monsterHP = 70
+//                    monsterUnderHP = 70
+//                    monsterAttack = 70
                 default:
                     monsterHP = 1000
                 }
