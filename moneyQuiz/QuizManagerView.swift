@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import Firebase
 
 struct QuizManagerView: View {
     @State private var isIntermediateQuizActive: Bool = false
@@ -15,7 +16,6 @@ struct QuizManagerView: View {
     @State private var isButtonEnabled: Bool = true
     @State private var lastClickedDate: Date = Date()
     @State private var audioPlayerKettei: AVAudioPlayer?
-    @State private var isPresentingQuizIncorrectAnswer: Bool = false
     @State private var isPresentingQuizBeginner: Bool = false
     @State private var isPresentingQuizIntermediate: Bool = false
     @State private var isPresentingQuizAdvanced: Bool = false
@@ -23,6 +23,7 @@ struct QuizManagerView: View {
     @State private var isPresentingQuizSecurity: Bool = false
     @State private var isPresentingQuizDatabase: Bool = false
     @State private var isPresentingQuizGod: Bool = false
+    @State private var isPresentingQuizIncorrectAnswer: Bool = false
     @State private var isSoundOn: Bool = true
     @ObservedObject var audioManager = AudioManager.shared
     @Environment(\.presentationMode) var presentationMode
@@ -30,6 +31,10 @@ struct QuizManagerView: View {
     @State private var tutorialNum: Int = 0
     @State private var buttonRect: CGRect = .zero
     @State private var bubbleHeight: CGFloat = 0.0
+    @State private var isIncorrectAnswersEmpty: Bool = true
+    @ObservedObject var reward = Reward()
+    @State private var showLoginModal: Bool = false
+    @State private var isButtonClickable: Bool = false
     
     init(isPresenting: Binding<Bool>) {
         _isPresenting = isPresenting
@@ -44,38 +49,81 @@ struct QuizManagerView: View {
                         VStack {
                             HStack {
                                 Text(" ")
+                                    .frame(width:isIPad() ? 10 : 5,height: isIPad() ? 40 : 15)
                                     .background(.gray)
-                                    .frame(width:10,height: 20)
-                                Text("過去に不正解した問題だけを解くことができます")
-                                    .font(.system(size: 15))
+                                Text(" 過去に不正解した問題だけを解くことができます")
+                                    .font(.system(size: isIPad() ? 40 : 15))
+                                    .foregroundColor(Color("fontGray"))
                             }
-                            .padding(.horizontal)
+//                            .padding(.horizontal,0)
+                            .padding(.bottom)
                             Button(action: {
                                 audioManager.playKetteiSound()
                                 // 画面遷移のトリガーをオンにする
                                 self.isPresentingQuizIncorrectAnswer = true
                             }) {
                                 //                        Image("IT基礎知識の問題の初級")
-                                Image("選択肢0")
+                                if isIncorrectAnswersEmpty == true {
+                                Image("白黒選択肢0")
                                     .resizable()
-                                    .frame(height: 70)
+                                    .frame(height: isIPad() ? 200 : 70)
+                                }else{
+                                    Image("選択肢0")
+                                        .resizable()
+                                        .frame(height: isIPad() ? 200 : 70)
+                                }
                             }
+                            .disabled(isIncorrectAnswersEmpty)
                             .frame(maxWidth: .infinity)
                             .padding(.horizontal)
                             .padding(.bottom)
-//                            .shadow(radius: 5)
+                            .shadow(radius: 3)
                             .fullScreenCover(isPresented: $isPresentingQuizIncorrectAnswer) {
                                 QuizIncorrectAnswerListView(isPresenting: $isPresentingQuizIncorrectAnswer)
                                         }
+                            .onChange(of: isPresentingQuizBeginner) { isPresenting in
+                                    fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
+                                }
+                            }
+                            .onChange(of: isPresentingQuizIncorrectAnswer) { isPresenting in
+                                    fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
+                                }
+                            }
+                            .onChange(of: isPresentingQuizIntermediate) { isPresenting in
+                                    fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
+                                }
+                            }
+                            .onChange(of: isPresentingQuizAdvanced) { isPresenting in
+                                    fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
+                                }
+                            }
+                            .onChange(of: isPresentingQuizGod) { isPresenting in
+                                    fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
+                                }
+                            }
+                            .onChange(of: isPresentingQuizNetwork) { isPresenting in
+                                    fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
+                                }
+                            }
+                            .onChange(of: isPresentingQuizSecurity) { isPresenting in
+                                    fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
+                                }
+                            }
+                            .onChange(of: isPresentingQuizDatabase) { isPresenting in
+                                    fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
+                                }
+                            }
                         
                             HStack {
                                 Text(" ")
+                                    .frame(width:isIPad() ? 10 : 5,height: isIPad() ? 40 : 15)
                                     .background(.gray)
-                                    .frame(width:10,height: 20)
-                                Text("問題の難易度、種類別で解くことができます　　")
-                                    .font(.system(size: 15))
+                                Text(" 問題の難易度、種類別で解くことができます　　")
+                                    .font(.system(size: isIPad() ? 40 : 15))
+                                    .foregroundColor(Color("fontGray"))
                             }
                             .padding(.horizontal)
+                            .padding(.bottom)
                                 Button(action: {
                                     audioManager.playKetteiSound()
                                     // 画面遷移のトリガーをオンにする
@@ -84,34 +132,35 @@ struct QuizManagerView: View {
                                     //                        Image("IT基礎知識の問題の初級")
                                     Image("選択肢1")
                                         .resizable()
-                                        .frame(height: 70)
+                                        .frame(height: isIPad() ? 200 : 70)
                                 }
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal)
                                 .padding(.bottom)
-//                                .shadow(radius: 5)
+                                .shadow(radius: 3)
                                 .fullScreenCover(isPresented: $isPresentingQuizBeginner) {
                                                 QuizBeginnerList(isPresenting: $isPresentingQuizBeginner)
                                             }
                             .background(GeometryReader { geometry in
                                 Color.clear.preference(key: ViewPositionKey.self, value: [geometry.frame(in: .global)])
                             })
-                            Button(action: {
-                                audioManager.playKetteiSound()
-                                self.isPresentingQuizAdvanced = true
-                            }) {
-                                //                    Image("IT基礎知識の問題の上級")
-                                Image("選択肢4")
-                                    .resizable()
-                                    .frame(height: 70)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal)
-                            .padding(.bottom)
-//                            .shadow(radius: 3)
-                            .fullScreenCover(isPresented: $isPresentingQuizAdvanced) {
-                                            QuizAdvancedList(isPresenting: $isPresentingQuizAdvanced)
-                                        }
+                            
+                Button(action: {
+                        audioManager.playKetteiSound()
+                        self.isPresentingQuizGod = true
+                    }) {
+                        //                    Image("データベース系の問題")
+                        Image("選択肢2")
+                            .resizable()
+                            .frame(height: isIPad() ? 200 : 70)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    .shadow(radius: 3)
+                    .fullScreenCover(isPresented: $isPresentingQuizGod) {
+                                    QuizGodList(isPresenting: $isPresentingQuizGod)
+                                }
                             Button(action: {
                                 audioManager.playKetteiSound()
                                 self.isPresentingQuizIntermediate = true
@@ -119,52 +168,48 @@ struct QuizManagerView: View {
                                 //                    Image("IT基礎知識の問題の中級")
                                 Image("選択肢3")
                                     .resizable()
-                                    .frame(height: 70)
+                                    .frame(height: isIPad() ? 200 : 70)
                             }
                             .frame(maxWidth: .infinity)
                             .padding(.horizontal)
                             .padding(.bottom)
-//                            .shadow(radius: 3)
+                            .shadow(radius: 3)
                             .fullScreenCover(isPresented: $isPresentingQuizIntermediate) {
                                             QuizIntermediateList(isPresenting: $isPresentingQuizIntermediate)
                                         }
-                            
-                            
                             Button(action: {
                                 audioManager.playKetteiSound()
-                                self.isPresentingQuizGod = true
+                                self.isPresentingQuizAdvanced = true
                             }) {
-                                //                    Image("データベース系の問題")
-                                Image("選択肢2")
+                                //                    Image("IT基礎知識の問題の上級")
+                                Image("選択肢4")
                                     .resizable()
-                                    .frame(height: 70)
+                                    .frame(height: isIPad() ? 200 : 70)
                             }
                             .frame(maxWidth: .infinity)
                             .padding(.horizontal)
                             .padding(.bottom)
                             .shadow(radius: 3)
-                            .fullScreenCover(isPresented: $isPresentingQuizGod) {
-                                            QuizGodList(isPresenting: $isPresentingQuizGod)
+                            .fullScreenCover(isPresented: $isPresentingQuizAdvanced) {
+                                            QuizAdvancedList(isPresenting: $isPresentingQuizAdvanced)
                                         }
-                            
-                            // データベース系の問題
-                            Button(action: {
-                                audioManager.playKetteiSound()
-                                self.isPresentingQuizDatabase = true
-                            }) {
-                                //                    Image("データベース系の問題")
-                                Image("選択肢5")
-                                    .resizable()
-                                    .frame(height: 70)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal)
-                            .padding(.bottom)
-                            .shadow(radius: 3)
-                            .fullScreenCover(isPresented: $isPresentingQuizDatabase) {
-                                QuizDatabaseList(isPresenting: $isPresentingQuizDatabase)
-                            }
-//                            // ネットワーク系の問題
+//                            Button(action: {
+//                                audioManager.playKetteiSound()
+//                                self.isPresentingQuizGod = true
+//                            }) {
+//                                //                    Image("データベース系の問題")
+//                                Image("選択肢7")
+//                                    .resizable()
+//                                    .frame(height: isIPad() ? 200 : 70)
+//                            }
+//                            .frame(maxWidth: .infinity)
+//                            .padding(.horizontal)
+//                            .padding(.bottom)
+//                            .shadow(radius: 3)
+//                            .fullScreenCover(isPresented: $isPresentingQuizGod) {
+//                                            QuizGodList(isPresenting: $isPresentingQuizGod)
+//                                        }
+                            // ネットワーク系の問題
 //                            Button(action: {
 //                                audioManager.playKetteiSound()
 //                                self.isPresentingQuizNetwork = true
@@ -172,17 +217,17 @@ struct QuizManagerView: View {
 //                                //                    Image("ネットワーク系の問題")
 //                                Image("選択肢4")
 //                                    .resizable()
-//                                    .frame(height: 70)
+//                                    .frame(height: isIPad() ? 200 : 70)
 //                            }
 //                            .frame(maxWidth: .infinity)
 //                            .padding(.horizontal)
 //                            .padding(.bottom)
-//                            .shadow(radius: 3)
+//                            .shadow(radius: 1)
 //                            .fullScreenCover(isPresented: $isPresentingQuizNetwork) {
 //                                            QuizNetworkList(isPresenting: $isPresentingQuizNetwork)
 //                                        }
-//                            
-//                            // セキュリティ系の問題
+                            
+                            // セキュリティ系の問題
 //                            Button(action: {
 //                                audioManager.playKetteiSound()
 //                                self.isPresentingQuizSecurity = true
@@ -190,7 +235,7 @@ struct QuizManagerView: View {
 //                                //                    Image("セキュリティ系の問題")
 //                                Image("選択肢5")
 //                                    .resizable()
-//                                    .frame(height: 70)
+//                                    .frame(height: isIPad() ? 200 : 70)
 //                            }
 //                            .frame(maxWidth: .infinity)
 //                            .padding(.horizontal)
@@ -199,27 +244,72 @@ struct QuizManagerView: View {
 //                            .fullScreenCover(isPresented: $isPresentingQuizSecurity) {
 //                                            QuizSecurityList(isPresenting: $isPresentingQuizSecurity)
 //                                        }
-//                            
-//
+                            
+//                            // データベース系の問題
+                            Button(action: {
+                                audioManager.playKetteiSound()
+                                self.isPresentingQuizDatabase = true
+                            }) {
+                                //                    Image("データベース系の問題")
+                                Image("選択肢5")
+                                    .resizable()
+                                    .frame(height: isIPad() ? 200 : 70)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal)
+                            .padding(.bottom,120)
+                            .shadow(radius: 3)
+                            .fullScreenCover(isPresented: $isPresentingQuizDatabase) {
+                                            QuizDatabaseList(isPresenting: $isPresentingQuizDatabase)
+                                        }
                             
                         }
-//                        VStack{
-//                            Group{
-////                                NavigationLink("", destination: QuizDatabaseList(isPresenting: $isPresenting).navigationBarBackButtonHidden(true), isActive: $isPresentingQuizDatabase) // 適切な遷移先に変更してください
-//////                                NavigationLink("", destination: QuizBeginnerList(isPresenting: $isPresenting).navigationBarBackButtonHidden(true), isActive: $isPresentingQuizBeginner) // 適切な遷移先に変更してください
-////                                NavigationLink("", destination: QuizIntermediateList(isPresenting: $isPresenting).navigationBarBackButtonHidden(true), isActive: $isPresentingQuizIntermediate) // 適切な遷移先に変更してください
-////                                NavigationLink("", destination: QuizAdvancedList(isPresenting: $isPresenting).navigationBarBackButtonHidden(true), isActive: $isPresentingQuizAdvanced)
-////                                NavigationLink("", destination: QuizSecurityList(isPresenting: $isPresenting).navigationBarBackButtonHidden(true), isActive: $isPresentingQuizSecurity) // 適切な遷移先に変更してください
-////                                
-////                                NavigationLink("", destination: QuizNetworkList(isPresenting: $isPresenting).navigationBarBackButtonHidden(true), isActive: $isPresentingQuizNetwork)
-////                                NavigationLink("", destination: QuizGodList(isPresenting: $isPresenting).navigationBarBackButtonHidden(true), isActive: $isPresentingQuizGod)
-//                            }
-//                        }
-                        
                     }
-                    .padding(.top,-30)
+//                    .padding(.top,-30)
+                    .overlay(
+                        ZStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                VStack{
+                                    Spacer()
+                                    HStack {
+                                        Button(action: {
+//                                                self.showAnotherView_post = true
+                                            reward.ExAndMoReward()
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                self.showLoginModal = true
+                                            }
+                                        }, label: {
+                                            Image("倍ボタン")
+                                                .resizable()
+                                                .frame(width: 100, height: 100)
+                                        })
+                                            .shadow(radius: 5)
+                                            .disabled(!isButtonClickable)
+                                            .background(GeometryReader { geometry in
+                                                Color.clear.preference(key: ViewPositionKey.self, value: [geometry.frame(in: .global)])
+                                            })
+                                            .padding(.bottom)
+//                                                .fullScreenCover(isPresented: $showAnotherView_post, content: {
+//                                                    RewardRegistrationView()
+//                                                })
+                                        
+                                            Spacer()
+                                    }
+                                }
+                            }
+                        }
+                    )
                 .onPreferenceChange(ViewPositionKey.self) { positions in
                     self.buttonRect = positions.first ?? .zero
+                }
+                if showLoginModal {
+                    ZStack {
+                        Color.black.opacity(0.7)
+                            .edgesIgnoringSafeArea(.all)
+                        RewardTimesModal(audioManager: audioManager, isPresented: $showLoginModal)
+                    }
                 }
                 if tutorialNum == 2 {
                     GeometryReader { geometry in
@@ -261,18 +351,47 @@ struct QuizManagerView: View {
                         Spacer()
                     }
                     .ignoresSafeArea()
+                    VStack{
+                        HStack{
+                            Button(action: {
+                                tutorialNum = 0 // タップでチュートリアルを終了
+                                authManager.updateTutorialNum(userId: authManager.currentUserId ?? "", tutorialNum: 0) { success in
+                                }
+                            }) {
+                                Image("スキップ")
+                                    .resizable()
+                                    .frame(width:200,height:60)
+                                    .padding(.leading)
+                            }
+                            Spacer()
+                        }
+                        Spacer()
+                    }
+                }
+                    
+            }
+            
+            .onTapGesture {
+                if tutorialNum == 2 {
+                        audioManager.playSound()
+                    tutorialNum = 0
+                    authManager.updateTutorialNum(userId: authManager.currentUserId ?? "", tutorialNum: 3) { success in
+                        // データベースのアップデートが成功したかどうかをハンドリング
+                    }
                 }
             }
-            .onTapGesture {
-                audioManager.playSound()
-                tutorialNum = 0
-                authManager.updateTutorialNum(userId: authManager.currentUserId ?? "", tutorialNum: 3) { success in
-                       // データベースのアップデートが成功したかどうかをハンドリング
-                   }
-            }
             .frame(maxWidth:.infinity,maxHeight: .infinity)
-            .background(Color("Color2"))
+//            .background(Color(hue: 0.141, saturation: 0.058, brightness: 0.954))
+            .background(Color("backgroundColor"))
             .onAppear {
+                reward.LoadReward()
+                fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
+//                self.incorrectAnswerCount = count
+//                incorrectCount = count
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // 1秒後に
+                    self.isButtonClickable = true // ボタンをクリック可能に設定
+                }
                 authManager.fetchUserInfo { (name, avatar, money, hp, attack, tutorialNum) in
                     if let fetchedTutorialNum = tutorialNum {
                         self.tutorialNum = fetchedTutorialNum
@@ -305,25 +424,40 @@ struct QuizManagerView: View {
                     audioPlayerKettei?.volume = 1.0
                 }
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
-                audioManager.playCancelSound()
-            }) {
-                Image(systemName: "chevron.left")
-                    .foregroundColor(Color("fontGray"))
-                Text("戻る")
-                    .foregroundColor(Color("fontGray"))
-            })
-            .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text("ダンジョン一覧")
-                            .font(.system(size: 20)) // ここでフォントサイズを指定
-                    }
-                }
+//            .navigationBarBackButtonHidden(true)
+//            .navigationBarItems(leading: Button(action: {
+//                self.presentationMode.wrappedValue.dismiss()
+//                audioManager.playCancelSound()
+//            }) {
+//                Image(systemName: "chevron.left")
+//                    .foregroundColor(Color("fontGray"))
+//                Text("戻る")
+//                    .foregroundColor(Color("fontGray"))
+//            })
+//            .toolbar {
+//                    ToolbarItem(placement: .principal) {
+//                        Text("ダンジョン一覧")
+//                            .font(.system(size: 20)) // ここでフォントサイズを指定
+//                            .foregroundStyle(Color("fontGray"))
+//                    }
+//                }
             }
+        .navigationViewStyle(StackNavigationViewStyle())
         }
+    func isIPad() -> Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
+    func fetchNumberOfIncorrectAnswers(userId: String, completion: @escaping (Int) -> Void) {
+    let ref = Database.database().reference().child("IncorrectAnswers").child(userId)
+    ref.observeSingleEvent(of: .value) { snapshot in
         
+    let count = snapshot.childrenCount // 子ノードの数を取得
+    completion(Int(count))
+        print("count:\(count)")
+        self.isIncorrectAnswersEmpty = (count == 0)
+    }
+    }
     }
 
 

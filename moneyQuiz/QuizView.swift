@@ -114,10 +114,22 @@ struct IncorrectAnswer {
         @State private var elapsedTime: TimeInterval?
         @State private var navigateToQuizResult = false
         @ObservedObject var interstitial: Interstitial
+        @StateObject var appState = AppState()
+        @State private var rewardFlag: Int = 0
+        @State private var quizListCount: Int = 0
+        @State private var isLoading: Bool = true
         
         var currentQuiz: QuizQuestion {
             quizzes[currentQuizIndex]
         }
+//        var currentQuiz: QuizQuestion {
+//            if quizzes.indices.contains(currentQuizIndex) {
+//                return quizzes[currentQuizIndex]
+//            } else {
+//                // デフォルトのQuizQuestionを返す
+//                return QuizQuestion(question: "クイズがありません", choices: ["該当なし"], correctAnswerIndex: 0, explanation: "デフォルトの説明です。")
+//            }
+//        }
         
         func pauseTimer() {
             timer?.invalidate()
@@ -163,6 +175,28 @@ struct IncorrectAnswer {
                 completion(Int(count))
             }
         }
+        
+        func fetchNumberOfIncorrectTangoAnswers(userId: String, completion: @escaping (Int) -> Void) {
+            let ref = Database.database().reference().child("IncorrectTangoAnswers").child(userId)
+                ref.observeSingleEvent(of: .value) { snapshot in
+                let count = snapshot.childrenCount // 子ノードの数を取得
+                completion(Int(count))
+            }
+        }
+        func fetchNumberOfIncorrectJukugoAnswers(userId: String, completion: @escaping (Int) -> Void) {
+            let ref = Database.database().reference().child("IncorrectJukugoAnswers").child(userId)
+                ref.observeSingleEvent(of: .value) { snapshot in
+                let count = snapshot.childrenCount // 子ノードの数を取得
+                completion(Int(count))
+            }
+        }
+        func fetchNumberOfIncorrectBunpouAnswers(userId: String, completion: @escaping (Int) -> Void) {
+            let ref = Database.database().reference().child("IncorrectBunpouAnswers").child(userId)
+                ref.observeSingleEvent(of: .value) { snapshot in
+                let count = snapshot.childrenCount // 子ノードの数を取得
+                completion(Int(count))
+            }
+        }
 
         func startTimer() {
             // 現在のタイマーを止める
@@ -196,7 +230,9 @@ struct IncorrectAnswer {
                 timer?.invalidate()
                 playerExperience = 5
                 playerMoney = 5
-                navigateToQuizResultView = true  //ここで結果画面への遷移フラグをtrueに
+                navigateToQuizResultView = true
+                RateManager.shared.updateQuizData(userId: authManager.currentUserId!, quizType: quizLevel, newCorrectAnswers: correctAnswerCount, newTotalAnswers: answerCount)
+                RateManager.shared.updateAnswerData(userId: authManager.currentUserId!, quizType: quizLevel,  newTotalAnswers: answerCount)
                 
             } else if self.remainingSeconds == 0 {
                 currentQuizIndex += 1
@@ -213,6 +249,7 @@ struct IncorrectAnswer {
                 } else {
                     currentQuizIndex += 1
                    selectedAnswerIndex = nil
+                    startTimer()
                 }
 //                selectedAnswerIndex = nil
 //                startTimer()
@@ -226,44 +263,59 @@ struct IncorrectAnswer {
         }
         
         func answerSelectionAction(index: Int) {
+            print("hasAnswered:\(hasAnswered)")
             if !hasAnswered {
                 self.selectedAnswerIndex = index
                 self.timer?.invalidate() // 回答を選択したらタイマーを止める
                 
                 let isAnswerCorrect = (selectedAnswerIndex == currentQuiz.correctAnswerIndex)
-                if isAnswerCorrect {
-                    audioManager.playCorrectSound()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        audioManager.playAttackSound()
-                        
-                        self.showAttackImage = true
-                        //                                        }
-                        correctAnswerCount += 1 // 正解の場合、正解数をインクリメント
-                        incorrectCount -= 1
-                        answerCount += 1
-                        // DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        if quizLevel != .incorrectAnswer {
-                            monsterHP -= userAttack
-                        }
-                        if monsterHP <= 0 {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                audioManager.playDownSound()
-                                self.showMonsterDownImage = true
+                    if isAnswerCorrect {
+                        audioManager.playCorrectSound()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            audioManager.playAttackSound()
+                            
+                            self.showAttackImage = true
+                            //                                        }
+                            correctAnswerCount += 1 // 正解の場合、正解数をインクリメント
+                            incorrectCount -= 1
+                            answerCount += 1
+                            // DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            if quizLevel != .incorrectTangoAnswer && quizLevel != .incorrectJukugoAnswer && quizLevel != .incorrectBunpouAnswer {
+                                monsterHP -= userAttack
                             }
-                            // モンスターのHPが0以下になった場合の処理
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                self.showMonsterDownImage = false
-                                monsterType += 1
+                            if monsterHP <= 0 {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    audioManager.playDownSound()
+                                    self.showMonsterDownImage = true
+                                }
+                                // モンスターのHPが0以下になった場合の処理
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    self.showMonsterDownImage = false
+                                    monsterType += 1
+                                }
+                            } else if playerHP <= 0 {
+                                // プレイヤーのHPが0以下になった場合の処理
+                                showCompletionMessage = true
+                                timer?.invalidate()
                             }
-                        } else if playerHP <= 0 {
-                            // プレイヤーのHPが0以下になった場合の処理
-                            showCompletionMessage = true
-                            timer?.invalidate()
                         }
-                    }
+//                    guard let userId = authManager.currentUserId,
+//                          let questionId = currentQuiz.id else {
+//                        print("Error: userId または questionId が nil です。")
+//                        return
+//                    }
                     // IncorrectAnswersテーブルから正解したクイズを削除する
-                    if quizLevel == .incorrectAnswer {
-                        removeCorrectAnswer(for: authManager.currentUserId!, questionId: currentQuiz.id!)
+//                    if quizLevel != .incorrectTangoAnswer && quizLevel != .incorrectJukugoAnswer && quizLevel != .incorrectBunpouAnswer {
+//                        removeCorrectAnswer(for: authManager.currentUserId!, questionId: currentQuiz.id!)
+//                        print("authManager.currentUserId        :\(authManager.currentUserId!)")
+//                        print("currentQuiz.id        :\(currentQuiz.id!)")
+//                    }
+                    if quizLevel == .incorrectTangoAnswer{
+                        removeCorrectTangoAnswer(for: authManager.currentUserId!, questionId: currentQuiz.id!)
+                    }else if quizLevel == .incorrectJukugoAnswer {
+                        removeCorrectJukugoAnswer(for: authManager.currentUserId!, questionId: currentQuiz.id!)
+                    }else if quizLevel == .incorrectBunpouAnswer {
+                    removeCorrectBunpouAnswer(for: authManager.currentUserId!, questionId: currentQuiz.id!)
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         moveToNextQuiz()
@@ -275,7 +327,55 @@ struct IncorrectAnswer {
                         choices: currentQuiz.choices,
                         correctAnswerIndex: currentQuiz.correctAnswerIndex, explanation: currentQuiz.explanation
                     )
-                    // incorrectAnswer以外のクイズなら不正解の問題をincorrectAnswerテーブルに保存する
+                    if quizLevel != .incorrectTangoAnswer && quizLevel != .incorrectJukugoAnswer && quizLevel != .incorrectBunpouAnswer {
+                        switch quizLevel {
+                        case .Tango3,.TangoJun2,.Tango2, .TangoJun1,.Tango1,.ToeicTangoBeginner,.ToeicTangoIntermediate,.ToeicTangoAdvanced:
+                            saveIncorrectTangoAnswer(incorrectAnswer)
+                            break
+                           
+                        case .Jukugo3,.JukugoJun2,.Jukugo2,.JukugoJun1,.ToeicJukugoBeginner,.ToeicJukugoIntermediate,.ToeicJukugoAdvanced:
+                            saveIncorrectJukugoAnswer(incorrectAnswer)
+                            break
+                            
+                        case .BunpouBeginner,.BunpouIntermediate,.BunpouAdvanced:
+                            saveIncorrectBunpouAnswer(incorrectAnswer)
+                            break
+                        case .incorrectTangoAnswer,.incorrectJukugoAnswer,.incorrectBunpouAnswer:
+                            print("test")
+                        case .beginner:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .intermediate:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .advanced:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .network:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .security:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .database:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .daily:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .god:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .incorrectAnswer:
+                            print("test")
+                        case .timeBeginner:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .timeIntermediate:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .timeAdvanced:
+                            saveIncorrectAnswer(incorrectAnswer)
+                        case .BunpouJunBeginner:
+                            saveIncorrectBunpouAnswer(incorrectAnswer)
+                        case .BunpouJunIntermediate:
+                            saveIncorrectBunpouAnswer(incorrectAnswer)
+                        case .BunpouJunAdvanced:
+                            saveIncorrectBunpouAnswer(incorrectAnswer)
+                        case .JunBunpouBeginner:
+                            saveIncorrectBunpouAnswer(incorrectAnswer)
+                        }
+                    }
                     if quizLevel != .incorrectAnswer {
                         saveIncorrectAnswer(incorrectAnswer)
                     }
@@ -315,6 +415,41 @@ struct IncorrectAnswer {
             ])
         }
         
+        func saveIncorrectTangoAnswer(_ answer: IncorrectAnswer) {
+        // ユーザーIDを親ノードとして設定
+            let ref = Database.database().reference().child("IncorrectTangoAnswers").child(answer.userId).childByAutoId()
+            ref.setValue([
+                "quizQuestion": answer.quizQuestion,
+                "choices": answer.choices,
+                "correctAnswerIndex": answer.correctAnswerIndex,
+                "explanation": answer.explanation
+            ])
+        }
+        
+        func saveIncorrectJukugoAnswer(_ answer: IncorrectAnswer) {
+        // ユーザーIDを親ノードとして設定
+            let ref = Database.database().reference().child("IncorrectJukugoAnswers").child(answer.userId).childByAutoId()
+            ref.setValue([
+                "quizQuestion": answer.quizQuestion,
+                "choices": answer.choices,
+                "correctAnswerIndex": answer.correctAnswerIndex,
+                "explanation": answer.explanation
+            ])
+        }
+        
+        func saveIncorrectBunpouAnswer(_ answer: IncorrectAnswer) {
+            // ユーザーIDを親ノードとして設定
+            let ref = Database.database().reference().child("IncorrectBunpouAnswers").child(answer.userId).childByAutoId()
+            ref.setValue([
+                "quizQuestion": answer.quizQuestion,
+                "choices": answer.choices,
+                "correctAnswerIndex": answer.correctAnswerIndex,
+                "explanation": answer.explanation
+            ])
+        }
+        
+//answerSelectionAction
+        
         func removeCorrectAnswer(for userId: String, questionId: String) {
             let ref = Database.database().reference().child("IncorrectAnswers").child(userId).child(questionId)
             ref.removeValue { error, _ in
@@ -326,7 +461,41 @@ struct IncorrectAnswer {
             }
         }
 
-
+        func removeCorrectTangoAnswer(for userId: String, questionId: String) {
+            let ref = Database.database().reference().child("IncorrectTangoAnswers").child(userId).child(questionId)
+            print("removeCorrectTangoAnswer userId:\(userId)")
+            print("removeCorrectTangoAnswer questionId:\(questionId)")
+            ref.removeValue { error, _ in
+                if let error = error {
+                    print("Error removing correct answer: \(error.localizedDescription)")
+                } else {
+                    print("Correct answer removed successfully.")
+                }
+            }
+        }
+        
+        func removeCorrectJukugoAnswer(for userId: String, questionId: String) {
+            let ref = Database.database().reference().child("IncorrectJukugoAnswers").child(userId).child(questionId)
+            ref.removeValue { error, _ in
+                if let error = error {
+                    print("Error removing correct answer: \(error.localizedDescription)")
+                } else {
+                    print("Correct answer removed successfully.")
+                }
+            }
+        }
+        
+        func removeCorrectBunpouAnswer(for userId: String, questionId: String) {
+            let ref = Database.database().reference().child("IncorrectBunpouAnswers").child(userId).child(questionId)
+            ref.removeValue { error, _ in
+                if let error = error {
+                    print("Error removing correct answer: \(error.localizedDescription)")
+                } else {
+                    print("Correct answer removed successfully.")
+                }
+            }
+        }
+        
         var body: some View {
             NavigationView{
             ZStack{
@@ -344,10 +513,10 @@ struct IncorrectAnswer {
                         .foregroundColor(.gray)
                         Spacer()
                         if let selected = selectedAnswerIndex, selected != currentQuiz.correctAnswerIndex {
-                            Text("正解")
-                                .foregroundColor(Color("fontGray"))
-                            Text("\(currentQuiz.choices[currentQuiz.correctAnswerIndex])")
-                                .foregroundColor(Color("fontGray"))
+//                            Text("正解")
+//                                .foregroundColor(Color("fontGray"))
+//                            Text("\(currentQuiz.choices[currentQuiz.correctAnswerIndex])")
+//                                .foregroundColor(Color("fontGray"))
                         }
                         Spacer()
                         // 正解の場合の赤い円
@@ -365,7 +534,7 @@ struct IncorrectAnswer {
                             VStack{
                                 Text(currentQuiz.question)
                                     .font(.headline)
-                                    .frame(height: tutorialNum == 0 ? 70 : nil)
+                                    .frame(height: tutorialNum == 0 ? 120 : nil)
                                     .padding(.horizontal)
                                     .foregroundColor(Color("fontGray"))
                                 
@@ -393,7 +562,7 @@ struct IncorrectAnswer {
                         ZStack{
                             Image("\(monsterBackground)")
                                 .resizable()
-                                .frame(height:140)
+                                .frame(height:100)
                                 .opacity(1)
                             VStack() {
                                 //                            Spacer()
@@ -401,12 +570,12 @@ struct IncorrectAnswer {
                                     ZStack{
                                         Image("\(quizLevel)Monster\(monsterType)")
                                             .resizable()
-                                            .frame(width:100,height:100)
+                                            .frame(width:80,height:80)
                                         // 敵キャラを倒した
                                         if showMonsterDownImage && monsterHP <= 0 {
                                             Image("倒す")
                                                 .resizable()
-                                                .frame(width:130,height:130)
+                                                .frame(width:100,height:100)
                                         }
                                     }
                                     
@@ -423,7 +592,7 @@ struct IncorrectAnswer {
                                 }
                             }
                         }
-                        if quizLevel != .incorrectAnswer {
+                        if quizLevel != .incorrectTangoAnswer && quizLevel != .incorrectJukugoAnswer && quizLevel != .incorrectBunpouAnswer {
                             VStack{
                                 HStack{
                                     ProgressBar3(value: Double(monsterHP), maxValue: Double(monsterUnderHP), color: Color("hpMonsterColor"))
@@ -458,16 +627,32 @@ struct IncorrectAnswer {
                                 Color.clear.preference(key: ViewPositionKey2.self, value: [geometry.frame(in: .global)])
                             })
                         } else {
-                            HStack {
-                                VStack{
-                                    Text("問題数")
-                                    Text("\(incorrectCount)")
-                                        .font(.system(size: 24))
+                            if isLoading {
+                                ZStack{
+                                    HStack {
+                                        VStack{
+                                            Text("問題数")
+                                            Text("")
+                                                .font(.system(size: 24))
+                                        }
+                                        ProgressBar3(value: 0.0, maxValue: 10.0, color: Color("loading"))
+                                        .frame(height: 20)
+                                    }
+                                    ProgressView()
+                                        .scaleEffect(2)
                                 }
-                                ProgressBar3(value: Double(incorrectCount), maxValue: Double(self.incorrectAnswerCount), color: Color("loading"))
-                                    .frame(height: 20)
+                            } else {
+                                HStack {
+                                    VStack{
+                                        Text("問題数")
+                                        Text("\(incorrectCount)")
+                                            .font(.system(size: 24))
+                                    }
+                                    ProgressBar3(value: Double(incorrectCount), maxValue: Double(self.incorrectAnswerCount), color: Color("loading"))
+                                        .frame(height: 20)
+                                }
+                                .padding()
                             }
-                            .padding()
                         }
                     }
                     Spacer()
@@ -481,7 +666,6 @@ struct IncorrectAnswer {
                             .background(GeometryReader { geometry in
                                 Color.clear.preference(key: ViewPositionKey1.self, value: [geometry.frame(in: .global)])
                             })
-                            
                             Spacer()
                             
                             if showCompletionMessage {
@@ -570,38 +754,62 @@ struct IncorrectAnswer {
                             .background(.clear)
                     }
                     VStack {
-                    Spacer()
-                        .frame(height: buttonRect.minY - bubbleHeight)
+                        Spacer()
+                            .frame(height: buttonRect.minY - bubbleHeight)
                         VStack(alignment: .trailing, spacing: .zero) {
-                            Image("上矢印")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .padding(.trailing, 206.0)
+                            //                            Image("上矢印")
+                            //                                .resizable()
+                            //                                .frame(width: 20, height: 20)
+                            //                                .padding(.trailing, 206.0)
                             Text("問題が出題されます。")
+                                .font(.callout)
+                                .padding(5)
                                 .font(.system(size: 24.0))
                                 .padding(.all, 16.0)
-                                .background(Color.white)
-                                .cornerRadius(4.0)
+                                .background(Color("Color2"))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.gray, lineWidth: 15)
+                                )
+                                .cornerRadius(20)
                                 .padding(.horizontal, 16)
                                 .foregroundColor(Color("fontGray"))
+                                .shadow(radius: 10)
                         }
-                            .background(GeometryReader { geometry in
-                                Path { _ in
-                                    DispatchQueue.main.async {
-                                        print(currentQuiz.question.count)
-                                        if currentQuiz.question.count <= 19{
-                                            self.bubbleHeight = geometry.size.height - 130
-                                        }else if currentQuiz.question.count <= 38{
-                                            self.bubbleHeight = geometry.size.height - 150
-                                        }else{
-                                            self.bubbleHeight = geometry.size.height - 170
-                                        }
+                        .background(GeometryReader { geometry in
+                            Path { _ in
+                                DispatchQueue.main.async {
+                                    //                                        print(currentQuiz.question.count)
+                                    if currentQuiz.question.count <= 19{
+                                        self.bubbleHeight = geometry.size.height - 130
+                                    }else if currentQuiz.question.count <= 38{
+                                        self.bubbleHeight = geometry.size.height - 150
+                                    }else{
+                                        self.bubbleHeight = geometry.size.height - 170
                                     }
                                 }
-                            })
+                            }
+                        })
+                        Spacer()
+                    }
+                    .ignoresSafeArea()
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Button(action: {
+                                tutorialNum = 0 // タップでチュートリアルを終了
+                                authManager.updateTutorialNum(userId: authManager.currentUserId ?? "", tutorialNum: 0) { success in
+                                    // データベースのアップデートが成功したかどうかをハンドリング
+                                }
+                            }) {
+                                Image("スキップ")
+                                    .resizable()
+                                    .frame(width:200,height:60)
+                            }
                             Spacer()
                         }
-                        .ignoresSafeArea()
+                        .padding()
+                    }
                 }
                 if tutorialNum == 4 && showTutorial == true{
                     GeometryReader { geometry in
@@ -620,36 +828,57 @@ struct IncorrectAnswer {
                     }
                     VStack {
                         Spacer()
-                            .frame(height: buttonRect.minY - bubbleHeight)
+                            .frame(height: buttonRect.minY - bubbleHeight - 50)
                         VStack(alignment: .trailing, spacing: .zero) {
-                        Text("選択肢の中から正解と思うものをクリックしてください。")
-                            .font(.system(size: 23.0))
-                            .padding(.all, 16.0)
-                            .background(Color.white)
-                            .cornerRadius(4.0)
-                            .padding(.horizontal, 18)
-                            .foregroundColor(Color("fontGray"))
-                        Image("下矢印")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .padding(.trailing, 236.0)
-                    }
+                            Text("選択肢の中から正解と思うものをクリックしてください。")
+                                .font(.callout)
+                                .padding(5)
+                                .font(.system(size: 24.0))
+                                .padding(.all, 16.0)
+                                .background(Color("Color2"))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.gray, lineWidth: 15)
+                                )
+                                .cornerRadius(20)
+                                .padding(.horizontal, 16)
+                                .foregroundColor(Color("fontGray"))
+                                .shadow(radius: 10)
+                        }
                         .background(GeometryReader { geometry in
-                        Path { _ in
-                            DispatchQueue.main.async {
-                                if currentQuiz.question.count <= 19{
-                                    self.bubbleHeight = geometry.size.height - 240
-                                }else if currentQuiz.question.count <= 38{
-                                    self.bubbleHeight = geometry.size.height - 260
-                                }else{
-                                    self.bubbleHeight = geometry.size.height - 290
+                            Path { _ in
+                                DispatchQueue.main.async {
+                                    if currentQuiz.question.count <= 19{
+                                        self.bubbleHeight = geometry.size.height - 240
+                                    }else if currentQuiz.question.count <= 38{
+                                        self.bubbleHeight = geometry.size.height - 260
+                                    }else{
+                                        self.bubbleHeight = geometry.size.height - 290
+                                    }
                                 }
                             }
+                        })
+                        Spacer()
+                    }
+                    .ignoresSafeArea()
+                    VStack{
+                        HStack{
+                            Button(action: {
+                                tutorialNum = 0 // タップでチュートリアルを終了
+                                authManager.updateTutorialNum(userId: authManager.currentUserId ?? "", tutorialNum: 0) { success in
+                                    // データベースのアップデートが成功したかどうかをハンドリング
+                                }
+                            }) {
+                                Image("スキップ")
+                                    .resizable()
+                                    .frame(width:200,height:60)
+                                    .padding(.top,20)
+                            }
+                            Spacer()
                         }
-                    })
-                    Spacer()
-                }
-                .ignoresSafeArea()
+                        .padding(.leading)
+                        Spacer()
+                    }
                 }
                 if tutorialNum == 5 && showTutorial == true{
                     GeometryReader { geometry in
@@ -667,35 +896,60 @@ struct IncorrectAnswer {
                     }
                     VStack {
                         Spacer()
-                            .frame(height: buttonRect.minY - bubbleHeight)
-                    VStack(alignment: .trailing, spacing: .zero) {
-                        Text("正解すると相手モンスターにダメージ、不正解だと自分がダメージを受けます。\n相手のHPが０になれば次の相手に、自分のHPが０になればゲームオーバーです。")
-                            .font(.system(size: 18.0))
-                            .padding(.all, 16.0)
-                            .background(Color.white)
-                            .cornerRadius(4.0)
-                            .padding(.horizontal, 18)
-                            .foregroundColor(Color("fontGray"))
-                        Image("下矢印")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .padding(.trailing, 236.0)
-                    }  .background(GeometryReader { geometry in
-                        Path { _ in
-                            DispatchQueue.main.async {
-                                if currentQuiz.question.count <= 19{
-                                    self.bubbleHeight = geometry.size.height - 150
-                                }else if currentQuiz.question.count <= 38{
-                                    self.bubbleHeight = geometry.size.height - 180
-                                }else{
-                                    self.bubbleHeight = geometry.size.height - 190
+                            .frame(height: buttonRect.minY + 250)
+                        VStack(alignment: .trailing, spacing: .zero) {
+                            Text("正解すると相手モンスターにダメージ、不正解だと自分がダメージを受けます。\n相手のHPが０になれば次の相手に、自分のHPが０になればゲームオーバーです。")
+                                .font(.callout)
+                                .padding(5)
+                                .font(.system(size: 24.0))
+                                .padding(.all, 16.0)
+                                .background(Color("Color2"))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.gray, lineWidth: 15)
+                                )
+                                .cornerRadius(20)
+                                .padding(.horizontal, 16)
+                                .foregroundColor(Color("fontGray"))
+                                .shadow(radius: 10)
+                            //                        Image("下矢印")
+                            //                            .resizable()
+                            //                            .frame(width: 20, height: 20)
+                            //                            .padding(.trailing, 236.0)
+                        }  .background(GeometryReader { geometry in
+                            Path { _ in
+                                DispatchQueue.main.async {
+                                    if currentQuiz.question.count <= 19{
+                                        self.bubbleHeight = geometry.size.height - 150
+                                    }else if currentQuiz.question.count <= 38{
+                                        self.bubbleHeight = geometry.size.height - 180
+                                    }else{
+                                        self.bubbleHeight = geometry.size.height - 190
+                                    }
                                 }
                             }
+                        })
+                        Spacer()
+                    }
+                    .ignoresSafeArea()
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Button(action: {
+                                tutorialNum = 0 // タップでチュートリアルを終了
+                                authManager.updateTutorialNum(userId: authManager.currentUserId ?? "", tutorialNum: 0) { success in
+                                    // データベースのアップデートが成功したかどうかをハンドリング
+                                }
+                            }) {
+                                Image("スキップ")
+                                    .resizable()
+                                    .frame(width:200,height:60)
+                                    .padding(.top,20)
+                            }
+                            Spacer()
                         }
-                    })
-                    Spacer()
-                }
-                .ignoresSafeArea()
+                        .padding()
+                    }
                 }
                 if tutorialNum == 6 && showTutorial == true{
                     GeometryReader { geometry in
@@ -706,9 +960,9 @@ struct IncorrectAnswer {
                                     .frame(width: buttonRect3.width, height: buttonRect3.height+20)
                                     .frame(
                                         width: currentQuiz.question.count <= 19 ? buttonRect3.width : buttonRect3.width,
-//                                        height: currentQuiz.question.count <= 19 ? buttonRect3.height + 20 : buttonRect3.height+20
+                                        //                                        height: currentQuiz.question.count <= 19 ? buttonRect3.height + 20 : buttonRect3.height+20
                                         height: currentQuiz.question.count <= 19 ? buttonRect3.height + 20 :
-                                                (currentQuiz.question.count <= 29 ? buttonRect3.height - 20 : buttonRect3.height + 40)
+                                            (currentQuiz.question.count <= 29 ? buttonRect3.height - 20 : buttonRect3.height + 40)
                                     )
                                     .position(x: buttonRect3.midX+8, y: buttonRect3.midY+1)
                                     .blendMode(.destinationOut)
@@ -719,42 +973,51 @@ struct IncorrectAnswer {
                     }
                     VStack {
                         Spacer()
-                            .frame(height: buttonRect.minY - bubbleHeight)
-                    VStack(alignment: .trailing, spacing: .zero) {
-                        Image("上矢印")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .padding(.trailing, 46.0)
-                        Text("30秒経つと自分がダメージを受けることになります。")
-                            .font(.system(size: 24.0))
-                            .padding(.all, 16.0)
-                            .background(Color.white)
-                            .cornerRadius(4.0)
-                            .padding(.horizontal, 18)
-                            .foregroundColor(Color("fontGray"))
-                    } .background(GeometryReader { geometry in
-                        Path { _ in
-                            DispatchQueue.main.async {
-                                self.bubbleHeight = geometry.size.height - 130
+                            .frame(height: buttonRect.minY - bubbleHeight - 30)
+                        VStack(alignment: .trailing, spacing: .zero) {
+                            Text("30秒経つと自分がダメージを受けることになります。")
+                                .font(.callout)
+                                .padding(5)
+                                .font(.system(size: 24.0))
+                                .padding(.all, 16.0)
+                                .background(Color("Color2"))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.gray, lineWidth: 15)
+                                )
+                                .cornerRadius(20)
+                                .padding(.horizontal, 16)
+                                .foregroundColor(Color("fontGray"))
+                                .shadow(radius: 10)
+                        } .background(GeometryReader { geometry in
+                            Path { _ in
+                                DispatchQueue.main.async {
+                                    self.bubbleHeight = geometry.size.height - 130
+                                }
                             }
+                        })
+                        Spacer()
+                    }
+                    .ignoresSafeArea()
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Button(action: {
+                                tutorialNum = 0 // タップでチュートリアルを終了
+                                authManager.updateTutorialNum(userId: authManager.currentUserId ?? "", tutorialNum: 0) { success in
+                                    // データベースのアップデートが成功したかどうかをハンドリング
+                                }
+                            }) {
+                                Image("スキップ")
+                                    .resizable()
+                                    .frame(width:200,height:60)
+                                
+                            }
+                            Spacer()
                         }
-                    })
-                    Spacer()
+                        .padding()
+                    }
                 }
-                .ignoresSafeArea()
-                }
-//                if showCountdown {
-//                       ZStack {
-//                           // 背景
-//                           Color.black.opacity(0.7)
-//                               .edgesIgnoringSafeArea(.all)
-//                           // カウントダウンの数字
-//                           Text("\(countdownValue)")
-//                               .font(.system(size: 100))
-//                               .foregroundColor(.white)
-//                               .bold()
-//                       }
-//                   }
         }
             
             .onTapGesture {
@@ -819,13 +1082,39 @@ struct IncorrectAnswer {
                 fetchNumberOfIncorrectAnswers(userId: authManager.currentUserId!) { count in
                     self.incorrectAnswerCount = count
                     incorrectCount = count
+                    isLoading = false
                 }
-                if quizLevel == .incorrectAnswer {
+                if quizLevel == .incorrectTangoAnswer{
+                    fetchNumberOfIncorrectTangoAnswers(userId: authManager.currentUserId!) { count in
+                    self.incorrectAnswerCount = count
+                    incorrectCount = count
+                    }
+                    authManager.fetchIncorrectTangoAnswers() { quizList in
+                        quizListCount = quizList.count
+                    }
+                }else if quizLevel == .incorrectJukugoAnswer {
+                    fetchNumberOfIncorrectJukugoAnswers(userId: authManager.currentUserId!) { count in
+                    self.incorrectAnswerCount = count
+                    incorrectCount = count
+                    }
+                    authManager.fetchIncorrectJukugoAnswers() { quizList in
+                        quizListCount = quizList.count
+                    }
+                }else if quizLevel == .incorrectBunpouAnswer {
+                    fetchNumberOfIncorrectBunpouAnswers(userId: authManager.currentUserId!) { count in
+                    self.incorrectAnswerCount = count
+                    incorrectCount = count
+                    }
+                    authManager.fetchIncorrectBunpouAnswers() { quizList in
+                        quizListCount = quizList.count
+                    }
+                }
+                if quizLevel != .incorrectTangoAnswer && quizLevel != .incorrectJukugoAnswer && quizLevel != .incorrectBunpouAnswer {
                     userAttack = 0
                 }
                 authManager.fetchUserFlag()
                 print("onAppear authManager.userFlag:\(authManager.userFlag)")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     userFlag = authManager.userFlag
                     print("onAppear userFlag:\(userFlag)")
                 }
@@ -840,14 +1129,14 @@ struct IncorrectAnswer {
                     // QuizResultViewへの遷移フラグを設定
                     self.navigateToQuizResult = true
                     // ここで経過時間を表示または保存する
-                    print("経過時間: \(self.elapsedTime!) 秒")
-                    authManager.saveElapsedTime(category: quizLevel.description, elapsedTime: elapsedTime!) { success in
-                        if success {
-                            print("経過時間を保存しました。")
-                        } else {
-                            print("経過時間の保存に失敗しました。")
-                        }
-                    }
+//                    print("経過時間: \(self.elapsedTime!) 秒")
+//                    authManager.saveElapsedTime(category: quizLevel.description, elapsedTime: elapsedTime!) { success in
+//                        if success {
+//                            print("経過時間を保存しました。")
+//                        } else {
+//                            print("経過時間の保存に失敗しました。")
+//                        }
+//                    }
                 }
             }
             .alert(isPresented: $showAlert) {
@@ -857,6 +1146,7 @@ struct IncorrectAnswer {
                     dismissButton: .default(Text("OK"), action: {
 //                        isPresented = false
                         selectedAnswerIndex = nil
+                        startTimer()
                     })
                 )
             }
@@ -889,12 +1179,12 @@ struct IncorrectAnswer {
                     }
                 } else {
                     DispatchQueue.global(qos: .background).async {
-                        authManager.addExperience(points: playerExperience, onSuccess: {
+                        authManager.addExperience(points: playerExperience * authManager.rewardFlag, onSuccess: {
                             // 成功した時の処理をここに書きます
                         }, onFailure: { error in
                             // 失敗した時の処理をここに書きます。`error`は失敗の原因を示す情報が含まれている可能性があります。
                         })
-                        authManager.addMoney(amount: playerMoney)
+                        authManager.addMoney(amount: playerMoney * authManager.rewardFlag)
                         DispatchQueue.main.async {
                             // ここでUIの更新を行います。
                         }
@@ -911,7 +1201,6 @@ struct IncorrectAnswer {
                     monsterBackground = "beginnerBackground"
                     playerExperience = 20
                     playerMoney = 10
-                    print(playerExperience)
                     if playerHP <= 0 {
                         playerExperience = 5
                         playerMoney = 5
@@ -933,7 +1222,7 @@ struct IncorrectAnswer {
                         monsterHP = 30
                     }
                 case .intermediate:
-                    monsterBackground = "intermediateBackground"
+                    monsterBackground = "intermediateTango2JunBackground"
                     playerExperience = 30
                     playerMoney = 20
                     if userHp <= 0 {
@@ -1078,8 +1367,8 @@ struct IncorrectAnswer {
                     }
                 case .god:
                 monsterBackground = "godBackground"
-                playerExperience = 200
-                playerMoney = 200
+                playerExperience = 50
+                playerMoney = 60
                 if userHp <= 0 {
                     playerExperience = 5
                     playerMoney = 5
@@ -1196,7 +1485,1045 @@ struct IncorrectAnswer {
                 default:
                     monsterHP = 1000
                 }
-            }
+                case .incorrectTangoAnswer:
+                    monsterBackground = "incorrectAnswerBackground"
+                    playerExperience = 0
+                    playerMoney = 0
+                    if playerHP <= 0 {
+                        playerExperience = 5
+                        playerMoney = 5
+                    }
+                    switch newMonsterType {
+                    case 1:
+                        monsterHP = 10
+                        monsterUnderHP = 10
+                        monsterAttack = 0
+                    case 2:
+                        monsterHP = 10
+                        monsterUnderHP = 10
+                        monsterAttack = 0
+//                    case 3:
+//                        monsterHP = 10
+//                        monsterUnderHP = 10
+//                        monsterAttack = 0
+                    default:
+                        monsterHP = 10
+                    }
+                case .incorrectJukugoAnswer:
+                    monsterBackground = "incorrectAnswerBackground"
+                    playerExperience = 0
+                    playerMoney = 0
+                    if playerHP <= 0 {
+                        playerExperience = 5
+                        playerMoney = 5
+                    }
+                    switch newMonsterType {
+                    case 1:
+                        monsterHP = 10
+                        monsterUnderHP = 10
+                        monsterAttack = 0
+                    case 2:
+                        monsterHP = 10
+                        monsterUnderHP = 10
+                        monsterAttack = 0
+//                    case 3:
+//                        monsterHP = 10
+//                        monsterUnderHP = 10
+//                        monsterAttack = 0
+                    default:
+                        monsterHP = 10
+                    }
+                case .incorrectBunpouAnswer:
+                    monsterBackground = "incorrectAnswerBackground"
+                    playerExperience = 0
+                    playerMoney = 0
+                    if playerHP <= 0 {
+                        playerExperience = 5
+                        playerMoney = 5
+                    }
+                    switch newMonsterType {
+                    case 1:
+                        monsterHP = 10
+                        monsterUnderHP = 10
+                        monsterAttack = 0
+                    case 2:
+                        monsterHP = 10
+                        monsterUnderHP = 10
+                        monsterAttack = 0
+//                    case 3:
+//                        monsterHP = 10
+//                        monsterUnderHP = 10
+//                        monsterAttack = 0
+                    default:
+                        monsterHP = 10
+                    }
+                    // 新しいケースの追加と修正
+//                    case .Tango1:
+//                        monsterBackground = "Tango1Background"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 80
+//                                monsterUnderHP = 80
+//                                monsterAttack = 20
+//                            case 2:
+//                                monsterHP = 120
+//                                monsterUnderHP = 120
+//                                monsterAttack = 30
+//                            case 3:
+//                                monsterHP = 160
+//                                monsterUnderHP = 160
+//                                monsterAttack = 40
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .TangoJun1:
+//                        monsterBackground = "TangoJun1Background"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 100
+//                                monsterUnderHP = 100
+//                                monsterAttack = 25
+//                            case 2:
+//                                monsterHP = 140
+//                                monsterUnderHP = 140
+//                                monsterAttack = 35
+//                            case 3:
+//                                monsterHP = 180
+//                                monsterUnderHP = 180
+//                                monsterAttack = 45
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .Tango2:
+//                        monsterBackground = "Tango2Background"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 120
+//                                monsterUnderHP = 120
+//                                monsterAttack = 30
+//                            case 2:
+//                                monsterHP = 160
+//                                monsterUnderHP = 160
+//                                monsterAttack = 40
+//                            case 3:
+//                                monsterHP = 200
+//                                monsterUnderHP = 200
+//                                monsterAttack = 50
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .TangoJun2:
+//                        monsterBackground = "TangoJun2Background"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 140
+//                                monsterUnderHP = 140
+//                                monsterAttack = 35
+//                            case 2:
+//                                monsterHP = 180
+//                                monsterUnderHP = 180
+//                                monsterAttack = 45
+//                            case 3:
+//                                monsterHP = 200
+//                                monsterUnderHP = 200
+//                                monsterAttack = 50
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .Tango3:
+//                        monsterBackground = "Tango3Background"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 160
+//                                monsterUnderHP = 160
+//                                monsterAttack = 40
+//                            case 2:
+//                                monsterHP = 200
+//                                monsterUnderHP = 200
+//                                monsterAttack = 50
+//                            case 3:
+//                                monsterHP = 200
+//                                monsterUnderHP = 200
+//                                monsterAttack = 50
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .ToeicTangoBeginner:
+//                        monsterBackground = "ToeicTangoBeginnerBackground"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 80
+//                                monsterUnderHP = 80
+//                                monsterAttack = 20
+//                            case 2:
+//                                monsterHP = 120
+//                                monsterUnderHP = 120
+//                                monsterAttack = 30
+//                            case 3:
+//                                monsterHP = 160
+//                                monsterUnderHP = 160
+//                                monsterAttack = 40
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .ToeicTangoIntermediate:
+//                        monsterBackground = "ToeicTangoIntermediateBackground"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 100
+//                                monsterUnderHP = 100
+//                                monsterAttack = 25
+//                            case 2:
+//                                monsterHP = 140
+//                                monsterUnderHP = 140
+//                                monsterAttack = 35
+//                            case 3:
+//                                monsterHP = 180
+//                                monsterUnderHP = 180
+//                                monsterAttack = 45
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .ToeicTangoAdvanced:
+//                        monsterBackground = "ToeicTangoAdvancedBackground"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 120
+//                                monsterUnderHP = 120
+//                                monsterAttack = 30
+//                            case 2:
+//                                monsterHP = 160
+//                                monsterUnderHP = 160
+//                                monsterAttack = 40
+//                            case 3:
+//                                monsterHP = 200
+//                                monsterUnderHP = 200
+//                                monsterAttack = 50
+//                            default:
+//                                monsterHP = 30
+//                        }
+
+                case .Tango3:
+                       monsterBackground = "Tango3Background"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 60
+                               monsterUnderHP = 60
+                               monsterAttack = 15
+                           case 2:
+                               monsterHP = 80
+                               monsterUnderHP = 80
+                               monsterAttack = 20
+                           case 3:
+                               monsterHP = 100
+                               monsterUnderHP = 100
+                               monsterAttack = 25
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .TangoJun2:
+                       monsterBackground = "TangoJun2Background"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 80
+                               monsterUnderHP = 80
+                               monsterAttack = 20
+                           case 2:
+                               monsterHP = 100
+                               monsterUnderHP = 100
+                               monsterAttack = 25
+                           case 3:
+                               monsterHP = 120
+                               monsterUnderHP = 120
+                               monsterAttack = 30
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .Tango2:
+                       monsterBackground = "Tango2Background"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 100
+                               monsterUnderHP = 100
+                               monsterAttack = 25
+                           case 2:
+                               monsterHP = 120
+                               monsterUnderHP = 120
+                               monsterAttack = 30
+                           case 3:
+                               monsterHP = 140
+                               monsterUnderHP = 140
+                               monsterAttack = 35
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .TangoJun1:
+                       monsterBackground = "TangoJun1Background"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 120
+                               monsterUnderHP = 120
+                               monsterAttack = 30
+                           case 2:
+                               monsterHP = 140
+                               monsterUnderHP = 140
+                               monsterAttack = 35
+                           case 3:
+                               monsterHP = 160
+                               monsterUnderHP = 160
+                               monsterAttack = 40
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .Tango1:
+                       monsterBackground = "Tango1Background"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 140
+                               monsterUnderHP = 140
+                               monsterAttack = 35
+                           case 2:
+                               monsterHP = 160
+                               monsterUnderHP = 160
+                               monsterAttack = 40
+                           case 3:
+                               monsterHP = 180
+                               monsterUnderHP = 180
+                               monsterAttack = 45
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .ToeicTangoBeginner:
+                       monsterBackground = "ToeicTangoBeginnerBackground"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 160
+                               monsterUnderHP = 160
+                               monsterAttack = 40
+                           case 2:
+                               monsterHP = 180
+                               monsterUnderHP = 180
+                               monsterAttack = 45
+                           case 3:
+                               monsterHP = 200
+                               monsterUnderHP = 200
+                               monsterAttack = 50
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .ToeicTangoIntermediate:
+                       monsterBackground = "ToeicTangoIntermediateBackground"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 180
+                               monsterUnderHP = 180
+                               monsterAttack = 45
+                           case 2:
+                               monsterHP = 200
+                               monsterUnderHP = 200
+                               monsterAttack = 50
+                           case 3:
+                               monsterHP = 220
+                               monsterUnderHP = 220
+                               monsterAttack = 55
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .ToeicTangoAdvanced:
+                       monsterBackground = "ToeicTangoAdvancedBackground"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 200
+                               monsterUnderHP = 200
+                               monsterAttack = 50
+                           case 2:
+                               monsterHP = 220
+                               monsterUnderHP = 220
+                               monsterAttack = 55
+                           case 3:
+                               monsterHP = 240
+                               monsterUnderHP = 240
+                               monsterAttack = 60
+                           default:
+                               monsterHP = 30
+                       }
+                    
+//                    case .JukugoJun1:
+//                        monsterBackground = "JukugoJun1Background"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 100
+//                                monsterUnderHP = 100
+//                                monsterAttack = 25
+//                            case 2:
+//                                monsterHP = 140
+//                                monsterUnderHP = 140
+//                                monsterAttack = 35
+//                            case 3:
+//                                monsterHP = 180
+//                                monsterUnderHP = 180
+//                                monsterAttack = 45
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .Jukugo2:
+//                        monsterBackground = "Jukugo2Background"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 120
+//                                monsterUnderHP = 120
+//                                monsterAttack = 30
+//                            case 2:
+//                                monsterHP = 160
+//                                monsterUnderHP = 160
+//                                monsterAttack = 40
+//                            case 3:
+//                                monsterHP = 200
+//                                monsterUnderHP = 200
+//                                monsterAttack = 50
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .JukugoJun2:
+//                        monsterBackground = "JukugoJun2Background"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 140
+//                                monsterUnderHP = 140
+//                                monsterAttack = 35
+//                            case 2:
+//                                monsterHP = 180
+//                                monsterUnderHP = 180
+//                                monsterAttack = 45
+//                            case 3:
+//                                monsterHP = 200
+//                                monsterUnderHP = 200
+//                                monsterAttack = 50
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .Jukugo3:
+//                        monsterBackground = "Jukugo3Background"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 160
+//                                monsterUnderHP = 160
+//                                monsterAttack = 40
+//                            case 2:
+//                                monsterHP = 200
+//                                monsterUnderHP = 200
+//                                monsterAttack = 50
+//                            case 3:
+//                                monsterHP = 200
+//                                monsterUnderHP = 200
+//                                monsterAttack = 50
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .ToeicJukugoBeginner:
+//                        monsterBackground = "ToeicJukugoBeginnerBackground"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 80
+//                                monsterUnderHP = 80
+//                                monsterAttack = 20
+//                            case 2:
+//                                monsterHP = 120
+//                                monsterUnderHP = 120
+//                                monsterAttack = 30
+//                            case 3:
+//                                monsterHP = 160
+//                                monsterUnderHP = 160
+//                                monsterAttack = 40
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .ToeicJukugoIntermediate:
+//                        monsterBackground = "ToeicJukugoIntermediateBackground"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 100
+//                                monsterUnderHP = 100
+//                                monsterAttack = 25
+//                            case 2:
+//                                monsterHP = 140
+//                                monsterUnderHP = 140
+//                                monsterAttack = 35
+//                            case 3:
+//                                monsterHP = 180
+//                                monsterUnderHP = 180
+//                                monsterAttack = 45
+//                            default:
+//                                monsterHP = 30
+//                        }
+//
+//                    case .ToeicJukugoAdvanced:
+//                        monsterBackground = "ToeicJukugoAdvancedBackground"
+//                        playerExperience = 20
+//                        playerMoney = 10
+//                        print(playerExperience)
+//                        if playerHP <= 0 {
+//                            playerExperience = 5
+//                            playerMoney = 5
+//                        }
+//                        switch newMonsterType {
+//                            case 1:
+//                                monsterHP = 120
+//                                monsterUnderHP = 120
+//                                monsterAttack = 30
+//                            case 2:
+//                                monsterHP = 160
+//                                monsterUnderHP = 160
+//                                monsterAttack = 40
+//                            case 3:
+//                                monsterHP = 200
+//                                monsterUnderHP = 200
+//                                monsterAttack = 50
+//                            default:
+//                                monsterHP = 30
+//                        }
+                    
+                case .Jukugo3:
+                       monsterBackground = "Jukugo3Background"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 60
+                               monsterUnderHP = 60
+                               monsterAttack = 15
+                           case 2:
+                               monsterHP = 100
+                               monsterUnderHP = 100
+                               monsterAttack = 25
+                           case 3:
+                               monsterHP = 140
+                               monsterUnderHP = 140
+                               monsterAttack = 35
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .JukugoJun2:
+                       monsterBackground = "JukugoJun2Background"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 80
+                               monsterUnderHP = 80
+                               monsterAttack = 20
+                           case 2:
+                               monsterHP = 120
+                               monsterUnderHP = 120
+                               monsterAttack = 30
+                           case 3:
+                               monsterHP = 160
+                               monsterUnderHP = 160
+                               monsterAttack = 40
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .Jukugo2:
+                       monsterBackground = "Jukugo2Background"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 100
+                               monsterUnderHP = 100
+                               monsterAttack = 25
+                           case 2:
+                               monsterHP = 140
+                               monsterUnderHP = 140
+                               monsterAttack = 35
+                           case 3:
+                               monsterHP = 180
+                               monsterUnderHP = 180
+                               monsterAttack = 45
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .JukugoJun1:
+                       monsterBackground = "JukugoJun1Background"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 120
+                               monsterUnderHP = 120
+                               monsterAttack = 30
+                           case 2:
+                               monsterHP = 160
+                               monsterUnderHP = 160
+                               monsterAttack = 40
+                           case 3:
+                               monsterHP = 200
+                               monsterUnderHP = 200
+                               monsterAttack = 50
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .ToeicJukugoBeginner:
+                       monsterBackground = "ToeicJukugoBeginnerBackground"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 140
+                               monsterUnderHP = 140
+                               monsterAttack = 35
+                           case 2:
+                               monsterHP = 180
+                               monsterUnderHP = 180
+                               monsterAttack = 45
+                           case 3:
+                               monsterHP = 220
+                               monsterUnderHP = 220
+                               monsterAttack = 55
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .ToeicJukugoIntermediate:
+                       monsterBackground = "ToeicJukugoIntermediateBackground"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 160
+                               monsterUnderHP = 160
+                               monsterAttack = 40
+                           case 2:
+                               monsterHP = 200
+                               monsterUnderHP = 200
+                               monsterAttack = 50
+                           case 3:
+                               monsterHP = 240
+                               monsterUnderHP = 240
+                               monsterAttack = 60
+                           default:
+                               monsterHP = 30
+                       }
+                   
+                   case .ToeicJukugoAdvanced:
+                       monsterBackground = "ToeicJukugoAdvancedBackground"
+                       playerExperience = 20
+                       playerMoney = 10
+                       print(playerExperience)
+                       if playerHP <= 0 {
+                           playerExperience = 5
+                           playerMoney = 5
+                       }
+                       switch newMonsterType {
+                           case 1:
+                               monsterHP = 180
+                               monsterUnderHP = 180
+                               monsterAttack = 45
+                           case 2:
+                               monsterHP = 220
+                               monsterUnderHP = 220
+                               monsterAttack = 55
+                           case 3:
+                               monsterHP = 260
+                               monsterUnderHP = 260
+                               monsterAttack = 65
+                           default:
+                               monsterHP = 30
+                       }
+
+                    case .BunpouBeginner:
+                        monsterBackground = "BunpouBeginnerBackground"
+                        playerExperience = 20
+                        playerMoney = 10
+                        print(playerExperience)
+                        if playerHP <= 0 {
+                            playerExperience = 5
+                            playerMoney = 5
+                        }
+                        switch newMonsterType {
+                            case 1:
+                                monsterHP = 80
+                                monsterUnderHP = 80
+                                monsterAttack = 20
+                            case 2:
+                                monsterHP = 120
+                                monsterUnderHP = 120
+                                monsterAttack = 30
+                            case 3:
+                                monsterHP = 160
+                                monsterUnderHP = 160
+                                monsterAttack = 40
+                            default:
+                                monsterHP = 30
+                        }
+
+                    case .BunpouIntermediate:
+                        monsterBackground = "BunpouIntermediateBackground"
+                        playerExperience = 20
+                        playerMoney = 10
+                        print(playerExperience)
+                        if playerHP <= 0 {
+                            playerExperience = 5
+                            playerMoney = 5
+                        }
+                        switch newMonsterType {
+                            case 1:
+                                monsterHP = 100
+                                monsterUnderHP = 100
+                                monsterAttack = 25
+                            case 2:
+                                monsterHP = 140
+                                monsterUnderHP = 140
+                                monsterAttack = 35
+                            case 3:
+                                monsterHP = 180
+                                monsterUnderHP = 180
+                                monsterAttack = 45
+                            default:
+                                monsterHP = 30
+                        }
+
+                    case .BunpouAdvanced:
+                        monsterBackground = "BunpouAdvancedBackground"
+                        playerExperience = 20
+                        playerMoney = 10
+                        print(playerExperience)
+                        if playerHP <= 0 {
+                            playerExperience = 5
+                            playerMoney = 5
+                        }
+                        switch newMonsterType {
+                            case 1:
+                                monsterHP = 120
+                                monsterUnderHP = 120
+                                monsterAttack = 30
+                            case 2:
+                                monsterHP = 160
+                                monsterUnderHP = 160
+                                monsterAttack = 40
+                            case 3:
+                                monsterHP = 200
+                                monsterUnderHP = 200
+                                monsterAttack = 50
+                            default:
+                                monsterHP = 30
+                        }
+
+                    case .BunpouJunBeginner:
+                        monsterBackground = "BunpouJunBeginnerBackground"
+                        playerExperience = 20
+                        playerMoney = 10
+                        print(playerExperience)
+                        if playerHP <= 0 {
+                            playerExperience = 5
+                            playerMoney = 5
+                        }
+                        switch newMonsterType {
+                            case 1:
+                                monsterHP = 80
+                                monsterUnderHP = 80
+                                monsterAttack = 20
+                            case 2:
+                                monsterHP = 120
+                                monsterUnderHP = 120
+                                monsterAttack = 30
+                            case 3:
+                                monsterHP = 160
+                                monsterUnderHP = 160
+                                monsterAttack = 40
+                            default:
+                                monsterHP = 30
+                        }
+
+                    case .BunpouJunIntermediate:
+                        monsterBackground = "BunpouJunIntermediateBackground"
+                        playerExperience = 20
+                        playerMoney = 10
+                        print(playerExperience)
+                        if playerHP <= 0 {
+                            playerExperience = 5
+                            playerMoney = 5
+                        }
+                        switch newMonsterType {
+                            case 1:
+                                monsterHP = 100
+                                monsterUnderHP = 100
+                                monsterAttack = 25
+                            case 2:
+                                monsterHP = 140
+                                monsterUnderHP = 140
+                                monsterAttack = 35
+                            case 3:
+                                monsterHP = 180
+                                monsterUnderHP = 180
+                                monsterAttack = 45
+                            default:
+                                monsterHP = 30
+                        }
+
+                    case .BunpouJunAdvanced:
+                        monsterBackground = "BunpouJunAdvancedBackground"
+                        playerExperience = 20
+                        playerMoney = 10
+                        print(playerExperience)
+                        if playerHP <= 0 {
+                            playerExperience = 5
+                            playerMoney = 5
+                        }
+                        switch newMonsterType {
+                            case 1:
+                                monsterHP = 120
+                                monsterUnderHP = 120
+                                monsterAttack = 30
+                            case 2:
+                                monsterHP = 160
+                                monsterUnderHP = 160
+                                monsterAttack = 40
+                            case 3:
+                                monsterHP = 200
+                                monsterUnderHP = 200
+                                monsterAttack = 50
+                            default:
+                                monsterHP = 30
+                        }
+
+                    case .JunBunpouBeginner:
+                        monsterBackground = "JunBunpouBeginnerBackground"
+                        playerExperience = 20
+                        playerMoney = 10
+                        print(playerExperience)
+                        if playerHP <= 0 {
+                            playerExperience = 5
+                            playerMoney = 5
+                        }
+                        switch newMonsterType {
+                            case 1:
+                                monsterHP = 80
+                                monsterUnderHP = 80
+                                monsterAttack = 20
+                            case 2:
+                                monsterHP = 120
+                                monsterUnderHP = 120
+                                monsterAttack = 30
+                            case 3:
+                                monsterHP = 160
+                                monsterUnderHP = 160
+                                monsterAttack = 40
+                            default:
+                                monsterHP = 30
+                        }
+
+                    default:
+                        // 必要に応じてデフォルトの処理をここに追加
+                        break
+                }
         }
     }
 //            .navigationViewStyle(StackNavigationViewStyle())

@@ -29,64 +29,79 @@ struct GraphManagerView: View {
     @State private var buttonRect: CGRect = .zero
     @State private var bubbleHeight: CGFloat = 0.0
     let sampleData = createSampleData()
-    
-//    init(isPresenting: Binding<Bool>) {
-//        _isPresenting = isPresenting
-//        _lastClickedDate = State(initialValue: Date())
-//    }
-
+    let list: [String] = ["回答数(月間)","正答率"]
+    @State private var selectedTab: Int = 0
+    @State private var preFlag: Bool = false
+    @State private var userPreFlag: Int = 0
+    @State private var isLoading: Bool = true
 
     var body: some View {
-        NavigationView{
-            VStack {
-                Spacer()
-                Image("グラフ説明")
-                    .resizable()
-                    .frame(height: 300)
-                Spacer()
-                    Button(action: {
-                        audioManager.playSound()
-                        // 画面遷移のトリガーをオンにする
-                        self.isPresentingQuizBeginner = true
-                    }) {
-                        //                        Image("IT基礎知識の問題の初級")
-                        Image("グラフ選択肢1")
-                            .resizable()
-                            .frame(height: 70)
+        ZStack{
+            if isLoading {
+                VStack{
+                    ActivityIndicator()
+                }
+                .background(Color("Color2"))
+                .frame(maxWidth: .infinity,maxHeight: .infinity)
+            } else {
+                if userPreFlag != 1 {
+                    VStack{
+                        TopTabView(list: list, selectedTab: $selectedTab)
+                        TabView(selection: $selectedTab,
+                                content: {
+                            
+                            BarChartView(authManager: authManager, data: sampleData)
+                                .navigationViewStyle(StackNavigationViewStyle())
+                                .tag(0)
+                            
+                            PentagonManagerView(authManager: authManager)
+                            //                            .padding(.top)
+                                .tag(1)
+                        })
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal)
-                    .padding(.bottom)
-                    .shadow(radius: 10)
-                    
-                    Spacer()
-                    Button(action: {
-                        audioManager.playSound()
-                        self.isPresentingQuizIntermediate = true
-                    }) {
-                        //                    Image("IT基礎知識の問題の中級")
-                        Image("グラフ選択肢2")
-                            .resizable()
-                            .frame(height: 70)
+                    Color.black.opacity(0.6)
+                        .onTapGesture {
+                            preFlag = true
+                        }
+                    VStack{
+                        Image(systemName: "lock.fill")
+                            .font(.system(size: 44))
+                            .foregroundStyle(.white)
+                        Text("プレミアムプランに登録すると\n毎日の回答数や問題の正答率をグラフで確認することができます")
+                            .bold()
+                            .foregroundStyle(.white)
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal)
-                    .padding(.bottom)
-                    .shadow(radius: 10)
-                    
-                    Spacer()
-                    NavigationLink("", destination: PentagonView(authManager: authManager, flag: .constant(false)).navigationBarBackButtonHidden(true), isActive: $isPresentingQuizBeginner) // 適切な遷移先に変更してください
-                    NavigationLink("", destination: BarChartView(authManager: authManager, data: sampleData).navigationBarBackButtonHidden(true), isActive: $isPresentingQuizIntermediate) // 適切な遷移先に変更してください
+                }else{
+                    VStack{
+                        TopTabView(list: list, selectedTab: $selectedTab)
+                        TabView(selection: $selectedTab,
+                                content: {
+                            
+                            BarChartView(authManager: authManager, data: sampleData)
+                                .navigationViewStyle(StackNavigationViewStyle())
+                                .tag(0)
+                            
+                            PentagonManagerView(authManager: authManager)
+                            //                            .padding(.top)
+                                .tag(1)
+                        })
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                    }
                 }
             }
-            //        .onTapGesture {
-            //            audioManager.playSound()
-            //        }
-        
+        }
+        .sheet(isPresented: $preFlag) {
+            PreView(audioManager: audioManager)
+        }
         .frame(maxWidth:.infinity,maxHeight: .infinity)
         .background(Color("Color2"))
         .onAppear {
-          
+            authManager.fetchPreFlag()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                userPreFlag = authManager.userPreFlag
+                isLoading = false
+            }
             if let soundURL = Bundle.main.url(forResource: "soundKettei", withExtension: "mp3") {
                 do {
                     audioPlayerKettei = try AVAudioPlayer(contentsOf: soundURL)
@@ -100,22 +115,6 @@ struct GraphManagerView: View {
                 audioPlayerKettei?.volume = 1.0
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            audioManager.playCancelSound()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color("fontGray"))
-            Text("戻る")
-                .foregroundColor(Color("fontGray"))
-        })
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("ガチャ一覧")
-                    .font(.system(size: 20)) // ここでフォントサイズを指定
-            }
-        }
     }
     static func createSampleData() -> [DailyData] {
         let dateFormatter = DateFormatter()
@@ -127,7 +126,6 @@ struct GraphManagerView: View {
         ]
     }
 }
-
 
 struct GraphManagerView_Previews: PreviewProvider {
     static var previews: some View {

@@ -7,42 +7,99 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1820AE022B516F6D00BBA679 /* RewardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AE012B516F6D00BBA679 /* RewardModalView.swift */; };
+		181F7DD22B7349B10013629C /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F7DD12B7349B10013629C /* RankingView.swift */; };
 		1820AE072B518A5B00BBA679 /* AppVersionMonitorSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1820AE062B518A5B00BBA679 /* AppVersionMonitorSwiftUI */; };
-		1820AE252B518DF200BBA679 /* GachaManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AE242B518DF200BBA679 /* GachaManagerView.swift */; };
-		1820AE2B2B518E7900BBA679 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AE2A2B518E7900BBA679 /* ModalView.swift */; };
-		18C80E5F2B51245200B7E6F7 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E5E2B51245200B7E6F7 /* AuthManager.swift */; };
-		18C80E612B51246100B7E6F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E602B51246100B7E6F7 /* ContentView.swift */; };
-		18C80E632B51247800B7E6F7 /* PentagonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E622B51247800B7E6F7 /* PentagonShape.swift */; };
-		18C80E652B51248300B7E6F7 /* AnswerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E642B51248300B7E6F7 /* AnswerSelectionView.swift */; };
-		18C80E672B51249000B7E6F7 /* RateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E662B51249000B7E6F7 /* RateManager.swift */; };
-		18C80E692B51249C00B7E6F7 /* AvatarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E682B51249C00B7E6F7 /* AvatarListView.swift */; };
-		18C80E6B2B5124A900B7E6F7 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E6A2B5124A800B7E6F7 /* SettingView.swift */; };
-		18C80E6D2B5124C400B7E6F7 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E6C2B5124C400B7E6F7 /* Interstitial.swift */; };
-		18C80E6F2B5124CD00B7E6F7 /* IllustratedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E6E2B5124CD00B7E6F7 /* IllustratedView.swift */; };
-		18C80E712B5124D400B7E6F7 /* TimeAdvancedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E702B5124D400B7E6F7 /* TimeAdvancedList.swift */; };
-		18C80E732B5124DB00B7E6F7 /* TimeBeginnerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E722B5124DB00B7E6F7 /* TimeBeginnerList.swift */; };
-		18C80E752B5124F500B7E6F7 /* TimeIntermediateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E742B5124F500B7E6F7 /* TimeIntermediateList.swift */; };
-		18C80E772B51250600B7E6F7 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E762B51250600B7E6F7 /* AudioManager.swift */; };
-		18C80E792B51251300B7E6F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E782B51251300B7E6F7 /* LoadingView.swift */; };
-		18C80E7B2B51251D00B7E6F7 /* LoginModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E7A2B51251D00B7E6F7 /* LoginModalView.swift */; };
-		18C80E7D2B51253200B7E6F7 /* ProgressBar3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E7C2B51253200B7E6F7 /* ProgressBar3.swift */; };
-		18C80E7F2B51253E00B7E6F7 /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E7E2B51253E00B7E6F7 /* MemoView.swift */; };
-		18C80E812B5127B900B7E6F7 /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E802B5127B900B7E6F7 /* RewardView.swift */; };
-		18C80E832B5127C400B7E6F7 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E822B5127C400B7E6F7 /* TimerView.swift */; };
-		18C80E852B5127CE00B7E6F7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E842B5127CE00B7E6F7 /* RootView.swift */; };
-		18C80E872B5127D700B7E6F7 /* RareGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E862B5127D700B7E6F7 /* RareGachaView.swift */; };
-		18C80E892B5127EB00B7E6F7 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E882B5127EB00B7E6F7 /* SignUp.swift */; };
-		18C80E8B2B5127F100B7E6F7 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E8A2B5127F100B7E6F7 /* TopView.swift */; };
-		18C80E8D2B5127F900B7E6F7 /* GachaAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E8C2B5127F900B7E6F7 /* GachaAnimationView.swift */; };
-		18C80E8F2B5127FF00B7E6F7 /* GachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80E8E2B5127FF00B7E6F7 /* GachaView.swift */; };
+		18236D622BC17AB5009C6CEB /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18236D612BC17AB5009C6CEB /* ContactView.swift */; };
+		1823945B2CBB54FB00A875BF /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823945A2CBB54FB00A875BF /* ReviewView.swift */; };
+		1823945D2CBB558D00A875BF /* StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823945C2CBB558D00A875BF /* StoreKit.swift */; };
+		182534342CCE6164001CFE16 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182534332CCE6164001CFE16 /* SplashScreenView.swift */; };
+		183A77852CB3EB630000B839 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183A77842CB3EB630000B839 /* StoreKit.framework */; };
+		183A77892CB40F420000B839 /* HelpModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A77882CB40F420000B839 /* HelpModalView.swift */; };
+		18996F062B63742900B72123 /* RewardTimesModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18996F052B63742900B72123 /* RewardTimesModal.swift */; };
+		18A44FF82CA7A4D200907CF6 /* StoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 18A44FF72CA7A4D200907CF6 /* StoreKit.storekit */; };
+		18A44FFA2CA7A52900907CF6 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A44FF92CA7A52900907CF6 /* SubscriptionView.swift */; };
+		18A44FFC2CA7A55100907CF6 /* PreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A44FFB2CA7A55100907CF6 /* PreView.swift */; };
+		18B87A8D2B660178007EAA25 /* キャンセル.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A7F2B660178007EAA25 /* キャンセル.mp3 */; };
+		18B87A8E2B660178007EAA25 /* soundKettei.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A802B660178007EAA25 /* soundKettei.mp3 */; };
+		18B87A8F2B660178007EAA25 /* ホームに戻る.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A812B660178007EAA25 /* ホームに戻る.mp3 */; };
+		18B87A922B660178007EAA25 /* 不正解.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A842B660178007EAA25 /* 不正解.mp3 */; };
+		18B87A932B660178007EAA25 /* レベルアップ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A852B660178007EAA25 /* レベルアップ.mp3 */; };
+		18B87A942B660178007EAA25 /* おとも切り替え.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A862B660178007EAA25 /* おとも切り替え.mp3 */; };
+		18B87A952B660178007EAA25 /* 敵攻撃.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A872B660178007EAA25 /* 敵攻撃.mp3 */; };
+		18B87A962B660178007EAA25 /* カウントダウン.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A882B660178007EAA25 /* カウントダウン.mp3 */; };
+		18B87A982B660178007EAA25 /* 味方攻撃.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A8A2B660178007EAA25 /* 味方攻撃.mp3 */; };
+		18B87A992B660178007EAA25 /* 倒れる.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A8B2B660178007EAA25 /* 倒れる.mp3 */; };
+		18B87A9A2B660178007EAA25 /* 正解.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B87A8C2B660178007EAA25 /* 正解.mp3 */; };
+		18B9DFB52B66A5F000E5AEFD /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18B9DFB42B66A5F000E5AEFD /* sound.mp3 */; };
+		18CE116A2BC9730A001C1016 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11692BC9730A001C1016 /* ContentView.swift */; };
+		18CE116C2BC97349001C1016 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE116B2BC97348001C1016 /* AuthManager.swift */; };
+		18CE116E2BC97363001C1016 /* PentagonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE116D2BC97363001C1016 /* PentagonShape.swift */; };
+		18CE11702BC97374001C1016 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE116F2BC97374001C1016 /* ModalView.swift */; };
+		18CE11722BC9738A001C1016 /* GachaManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11712BC9738A001C1016 /* GachaManagerView.swift */; };
+		18CE11742BC973D3001C1016 /* AnswerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11732BC973D3001C1016 /* AnswerSelectionView.swift */; };
+		18CE11762BC973E7001C1016 /* RateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11752BC973E7001C1016 /* RateManager.swift */; };
+		18CE11782BC983E3001C1016 /* AvatarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11772BC983E3001C1016 /* AvatarListView.swift */; };
+		18CE117A2BC983F6001C1016 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11792BC983F6001C1016 /* SettingView.swift */; };
+		18CE117C2BC98406001C1016 /* IllustratedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE117B2BC98406001C1016 /* IllustratedView.swift */; };
+		18CE117E2BC9841A001C1016 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE117D2BC9841A001C1016 /* Interstitial.swift */; };
+		18CE11802BC98441001C1016 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE117F2BC98441001C1016 /* AudioManager.swift */; };
+		18CE11822BC9844D001C1016 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11812BC9844D001C1016 /* LoadingView.swift */; };
+		18CE11842BC9845A001C1016 /* LoginModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11832BC9845A001C1016 /* LoginModalView.swift */; };
+		18CE11862BC98466001C1016 /* ProgressBar3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11852BC98466001C1016 /* ProgressBar3.swift */; };
+		18CE11882BC98473001C1016 /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11872BC98473001C1016 /* MemoView.swift */; };
+		18CE118A2BC98481001C1016 /* RewardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11892BC98481001C1016 /* RewardModalView.swift */; };
+		18CE118C2BC98499001C1016 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE118B2BC98499001C1016 /* TimerView.swift */; };
+		18CE118E2BC984A5001C1016 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE118D2BC984A5001C1016 /* RootView.swift */; };
+		18CE11952BC984C8001C1016 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE118F2BC984C8001C1016 /* TopView.swift */; };
+		18CE11962BC984C8001C1016 /* GachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11902BC984C8001C1016 /* GachaView.swift */; };
+		18CE11972BC984C8001C1016 /* GachaAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11912BC984C8001C1016 /* GachaAnimationView.swift */; };
+		18CE11982BC984C8001C1016 /* RareGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11922BC984C8001C1016 /* RareGachaView.swift */; };
+		18CE11992BC984C8001C1016 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11932BC984C8001C1016 /* SignUp.swift */; };
+		18CE119A2BC984C8001C1016 /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE11942BC984C8001C1016 /* RewardView.swift */; };
+		18CE119D2BC984E4001C1016 /* ゲームクリア.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18CE119B2BC984E4001C1016 /* ゲームクリア.mp3 */; };
+		18CE119E2BC984E4001C1016 /* ゲームオーバー.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18CE119C2BC984E4001C1016 /* ゲームオーバー.mp3 */; };
+		18D090682CA7F46800F8B8D8 /* ManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090672CA7F46800F8B8D8 /* ManagerView.swift */; };
+		18D0906A2CA7FC2800F8B8D8 /* QuizFPManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090692CA7FC2800F8B8D8 /* QuizFPManagerView.swift */; };
+		18D090702CA81C5600F8B8D8 /* QuizTangoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0906D2CA81C5600F8B8D8 /* QuizTangoManager.swift */; };
+		18D090712CA81C5600F8B8D8 /* QuizJukugoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0906E2CA81C5600F8B8D8 /* QuizJukugoManager.swift */; };
+		18D090722CA81C5600F8B8D8 /* QuizBunpouManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0906F2CA81C5600F8B8D8 /* QuizBunpouManager.swift */; };
+		18D090782CA81C9500F8B8D8 /* QuizTango2List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090732CA81C9500F8B8D8 /* QuizTango2List.swift */; };
+		18D090792CA81C9500F8B8D8 /* QuizTango1List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090742CA81C9500F8B8D8 /* QuizTango1List.swift */; };
+		18D0907B2CA81C9500F8B8D8 /* QuizTangoJun1List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090762CA81C9500F8B8D8 /* QuizTangoJun1List.swift */; };
+		18D0907C2CA81C9500F8B8D8 /* QuizTangoJun2List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090772CA81C9500F8B8D8 /* QuizTangoJun2List.swift */; };
+		18D090802CA81CAA00F8B8D8 /* QuizIncorrectTangoAnswerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0907D2CA81CAA00F8B8D8 /* QuizIncorrectTangoAnswerListView.swift */; };
+		18D090812CA81CAA00F8B8D8 /* QuizIncorrectBunpouAnswerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0907E2CA81CAA00F8B8D8 /* QuizIncorrectBunpouAnswerListView.swift */; };
+		18D090822CA81CAA00F8B8D8 /* QuizIncorrectJukugoAnswerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0907F2CA81CAA00F8B8D8 /* QuizIncorrectJukugoAnswerListView.swift */; };
+		18D090872CA81CF200F8B8D8 /* QuizJukugoJun2List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090832CA81CF200F8B8D8 /* QuizJukugoJun2List.swift */; };
+		18D090882CA81CF200F8B8D8 /* QuizJukugo3List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090842CA81CF200F8B8D8 /* QuizJukugo3List.swift */; };
+		18D090892CA81CF200F8B8D8 /* QuizJukugo2List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090852CA81CF200F8B8D8 /* QuizJukugo2List.swift */; };
+		18D0908A2CA81CF200F8B8D8 /* QuizJukugoJun1List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090862CA81CF200F8B8D8 /* QuizJukugoJun1List.swift */; };
+		18D090922CA81D1E00F8B8D8 /* QuizBunpouJunAdvancedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0908B2CA81D1E00F8B8D8 /* QuizBunpouJunAdvancedList.swift */; };
+		18D090932CA81D1E00F8B8D8 /* QuizBunpouBeginnerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0908C2CA81D1E00F8B8D8 /* QuizBunpouBeginnerList.swift */; };
+		18D090942CA81D1E00F8B8D8 /* QuizJunBunpouBeginnerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0908D2CA81D1E00F8B8D8 /* QuizJunBunpouBeginnerList.swift */; };
+		18D090952CA81D1E00F8B8D8 /* QuizBunpouJunIntermediateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0908E2CA81D1E00F8B8D8 /* QuizBunpouJunIntermediateList.swift */; };
+		18D090962CA81D1E00F8B8D8 /* QuizBunpouJunBeginnerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0908F2CA81D1E00F8B8D8 /* QuizBunpouJunBeginnerList.swift */; };
+		18D090972CA81D1E00F8B8D8 /* QuizBunpouAdvancedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090902CA81D1E00F8B8D8 /* QuizBunpouAdvancedList.swift */; };
+		18D090982CA81D1E00F8B8D8 /* QuizBunpouIntermediateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090912CA81D1E00F8B8D8 /* QuizBunpouIntermediateList.swift */; };
+		18D0909A2CA862B500F8B8D8 /* QuizToeicJukugoBeginnerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090992CA862B500F8B8D8 /* QuizToeicJukugoBeginnerList.swift */; };
+		18D0909C2CA8630A00F8B8D8 /* QuizToeicJukugoIntermediateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0909B2CA8630A00F8B8D8 /* QuizToeicJukugoIntermediateList.swift */; };
+		18D090A02CA8684400F8B8D8 /* QuizToeicTangoAdvancedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0909D2CA8684400F8B8D8 /* QuizToeicTangoAdvancedList.swift */; };
+		18D090A12CA8684400F8B8D8 /* QuizToeicTangoBeginnerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0909E2CA8684400F8B8D8 /* QuizToeicTangoBeginnerList.swift */; };
+		18D090A22CA8684400F8B8D8 /* QuizToeicTangoIntermediateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0909F2CA8684400F8B8D8 /* QuizToeicTangoIntermediateList.swift */; };
+		18D090A42CA9908300F8B8D8 /* QuizTango3List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090A32CA9908300F8B8D8 /* QuizTango3List.swift */; };
+		18D090A82CB0BC8700F8B8D8 /* QuizFPTabManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090A72CB0BC8700F8B8D8 /* QuizFPTabManagerView.swift */; };
+		18D090AC2CB2273000F8B8D8 /* PentagonTangoShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090AB2CB2273000F8B8D8 /* PentagonTangoShape.swift */; };
+		18D090B22CB2318E00F8B8D8 /* PentagonJukugoShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090B12CB2318E00F8B8D8 /* PentagonJukugoShape.swift */; };
+		18D090B42CB231A900F8B8D8 /* PentagonBunpouShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090B32CB231A900F8B8D8 /* PentagonBunpouShape.swift */; };
+		18D090B62CB2396A00F8B8D8 /* PentagonManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090B52CB2396A00F8B8D8 /* PentagonManagerView.swift */; };
+		18D090B82CB2D84000F8B8D8 /* QuizTangoTabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D090B72CB2D84000F8B8D8 /* QuizTangoTabManager.swift */; };
+		18E818552B5ADDD000595669 /* QuizManagerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E818542B5ADDD000595669 /* QuizManagerTabView.swift */; };
 		26071BDF2B25EB290012B836 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD22B25EA800012B836 /* QuizView.swift */; };
 		26071BE02B25EB290012B836 /* QuizResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD52B25EA860012B836 /* QuizResultView.swift */; };
 		26071BE12B25EB290012B836 /* QuizDailyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD12B25EA7E0012B836 /* QuizDailyList.swift */; };
 		26071BE22B25EB290012B836 /* QuizIntermediateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD32B25EA810012B836 /* QuizIntermediateList.swift */; };
 		26071BE32B25EB290012B836 /* QuizManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD72B25EA8B0012B836 /* QuizManagerView.swift */; };
 		26071BE52B25EB290012B836 /* QuizDatabaseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD42B25EA830012B836 /* QuizDatabaseList.swift */; };
-		26071BE62B25EB290012B836 /* QuizManagerTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD82B25EA8C0012B836 /* QuizManagerTimerView.swift */; };
 		26071BE72B25EB290012B836 /* QuizHtmlCssView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BDA2B25EA920012B836 /* QuizHtmlCssView.swift */; };
 		26071BE82B25EB290012B836 /* QuizGodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BDC2B25EA930012B836 /* QuizGodList.swift */; };
 		26071BE92B25EB290012B836 /* QuizBeginnerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26071BD02B25EA750012B836 /* QuizBeginnerList.swift */; };
@@ -71,34 +128,92 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1820AE012B516F6D00BBA679 /* RewardModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardModalView.swift; path = "../../名称未設定フォルダ/RewardModalView.swift"; sourceTree = "<group>"; };
-		1820AE242B518DF200BBA679 /* GachaManagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaManagerView.swift; path = "../../名称未設定フォルダ/GachaManagerView.swift"; sourceTree = "<group>"; };
-		1820AE2A2B518E7900BBA679 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalView.swift; path = "../../名称未設定フォルダ/ModalView.swift"; sourceTree = "<group>"; };
-		18C80E5E2B51245200B7E6F7 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthManager.swift; path = "../../名称未設定フォルダ/AuthManager.swift"; sourceTree = "<group>"; };
-		18C80E602B51246100B7E6F7 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "../../名称未設定フォルダ/ContentView.swift"; sourceTree = "<group>"; };
-		18C80E622B51247800B7E6F7 /* PentagonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PentagonShape.swift; path = "../../名称未設定フォルダ/PentagonShape.swift"; sourceTree = "<group>"; };
-		18C80E642B51248300B7E6F7 /* AnswerSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnswerSelectionView.swift; path = "../../名称未設定フォルダ/AnswerSelectionView.swift"; sourceTree = "<group>"; };
-		18C80E662B51249000B7E6F7 /* RateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RateManager.swift; path = "../../名称未設定フォルダ/RateManager.swift"; sourceTree = "<group>"; };
-		18C80E682B51249C00B7E6F7 /* AvatarListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvatarListView.swift; path = "../../名称未設定フォルダ/AvatarListView.swift"; sourceTree = "<group>"; };
-		18C80E6A2B5124A800B7E6F7 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = "../../名称未設定フォルダ/SettingView.swift"; sourceTree = "<group>"; };
-		18C80E6C2B5124C400B7E6F7 /* Interstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interstitial.swift; path = "../../名称未設定フォルダ/Interstitial.swift"; sourceTree = "<group>"; };
-		18C80E6E2B5124CD00B7E6F7 /* IllustratedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllustratedView.swift; path = "../../名称未設定フォルダ/IllustratedView.swift"; sourceTree = "<group>"; };
-		18C80E702B5124D400B7E6F7 /* TimeAdvancedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeAdvancedList.swift; path = "../../名称未設定フォルダ/TimeAdvancedList.swift"; sourceTree = "<group>"; };
-		18C80E722B5124DB00B7E6F7 /* TimeBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeBeginnerList.swift; path = "../../名称未設定フォルダ/TimeBeginnerList.swift"; sourceTree = "<group>"; };
-		18C80E742B5124F500B7E6F7 /* TimeIntermediateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeIntermediateList.swift; path = "../../名称未設定フォルダ/TimeIntermediateList.swift"; sourceTree = "<group>"; };
-		18C80E762B51250600B7E6F7 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioManager.swift; path = "../../名称未設定フォルダ/AudioManager.swift"; sourceTree = "<group>"; };
-		18C80E782B51251300B7E6F7 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = "../../名称未設定フォルダ/LoadingView.swift"; sourceTree = "<group>"; };
-		18C80E7A2B51251D00B7E6F7 /* LoginModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModalView.swift; path = "../../名称未設定フォルダ/LoginModalView.swift"; sourceTree = "<group>"; };
-		18C80E7C2B51253200B7E6F7 /* ProgressBar3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressBar3.swift; path = "../../名称未設定フォルダ/ProgressBar3.swift"; sourceTree = "<group>"; };
-		18C80E7E2B51253E00B7E6F7 /* MemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoView.swift; path = "../../名称未設定フォルダ/MemoView.swift"; sourceTree = "<group>"; };
-		18C80E802B5127B900B7E6F7 /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardView.swift; path = "../../名称未設定フォルダ/RewardView.swift"; sourceTree = "<group>"; };
-		18C80E822B5127C400B7E6F7 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = "../../名称未設定フォルダ/TimerView.swift"; sourceTree = "<group>"; };
-		18C80E842B5127CE00B7E6F7 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootView.swift; path = "../../名称未設定フォルダ/RootView.swift"; sourceTree = "<group>"; };
-		18C80E862B5127D700B7E6F7 /* RareGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RareGachaView.swift; path = "../../名称未設定フォルダ/RareGachaView.swift"; sourceTree = "<group>"; };
-		18C80E882B5127EB00B7E6F7 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp.swift; path = "../../名称未設定フォルダ/SignUp.swift"; sourceTree = "<group>"; };
-		18C80E8A2B5127F100B7E6F7 /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopView.swift; path = "../../名称未設定フォルダ/TopView.swift"; sourceTree = "<group>"; };
-		18C80E8C2B5127F900B7E6F7 /* GachaAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaAnimationView.swift; path = "../../名称未設定フォルダ/GachaAnimationView.swift"; sourceTree = "<group>"; };
-		18C80E8E2B5127FF00B7E6F7 /* GachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaView.swift; path = "../../名称未設定フォルダ/GachaView.swift"; sourceTree = "<group>"; };
+		181F7DD12B7349B10013629C /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
+		18236D612BC17AB5009C6CEB /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		1823945A2CBB54FB00A875BF /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		1823945C2CBB558D00A875BF /* StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKit.swift; sourceTree = "<group>"; };
+		182534332CCE6164001CFE16 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		183A77842CB3EB630000B839 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		183A77882CB40F420000B839 /* HelpModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpModalView.swift; sourceTree = "<group>"; };
+		18996F052B63742900B72123 /* RewardTimesModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardTimesModal.swift; sourceTree = "<group>"; };
+		18A44FF72CA7A4D200907CF6 /* StoreKit.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = StoreKit.storekit; path = ../drill/StoreKit.storekit; sourceTree = "<group>"; };
+		18A44FF92CA7A52900907CF6 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		18A44FFB2CA7A55100907CF6 /* PreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreView.swift; sourceTree = "<group>"; };
+		18B87A7F2B660178007EAA25 /* キャンセル.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "キャンセル.mp3"; path = "../../../Downloads/it 効果音/キャンセル.mp3"; sourceTree = "<group>"; };
+		18B87A802B660178007EAA25 /* soundKettei.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = soundKettei.mp3; path = "../../../Downloads/it 効果音/soundKettei.mp3"; sourceTree = "<group>"; };
+		18B87A812B660178007EAA25 /* ホームに戻る.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "ホームに戻る.mp3"; path = "../../../Downloads/it 効果音/ホームに戻る.mp3"; sourceTree = "<group>"; };
+		18B87A842B660178007EAA25 /* 不正解.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "不正解.mp3"; path = "../../../Downloads/it 効果音/不正解.mp3"; sourceTree = "<group>"; };
+		18B87A852B660178007EAA25 /* レベルアップ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "レベルアップ.mp3"; path = "../../../Downloads/it 効果音/レベルアップ.mp3"; sourceTree = "<group>"; };
+		18B87A862B660178007EAA25 /* おとも切り替え.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "おとも切り替え.mp3"; path = "../../../Downloads/it 効果音/おとも切り替え.mp3"; sourceTree = "<group>"; };
+		18B87A872B660178007EAA25 /* 敵攻撃.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "敵攻撃.mp3"; path = "../../../Downloads/it 効果音/敵攻撃.mp3"; sourceTree = "<group>"; };
+		18B87A882B660178007EAA25 /* カウントダウン.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "カウントダウン.mp3"; path = "../../../Downloads/it 効果音/カウントダウン.mp3"; sourceTree = "<group>"; };
+		18B87A8A2B660178007EAA25 /* 味方攻撃.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "味方攻撃.mp3"; path = "../../../Downloads/it 効果音/味方攻撃.mp3"; sourceTree = "<group>"; };
+		18B87A8B2B660178007EAA25 /* 倒れる.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "倒れる.mp3"; path = "../../../Downloads/it 効果音/倒れる.mp3"; sourceTree = "<group>"; };
+		18B87A8C2B660178007EAA25 /* 正解.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "正解.mp3"; path = "../../../Downloads/it 効果音/正解.mp3"; sourceTree = "<group>"; };
+		18B9DFB42B66A5F000E5AEFD /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sound.mp3; path = ../../../Downloads/sound.mp3; sourceTree = "<group>"; };
+		18CE11692BC9730A001C1016 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "../../その他/名称未設定フォルダ/ContentView.swift"; sourceTree = "<group>"; };
+		18CE116B2BC97348001C1016 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthManager.swift; path = "../../その他/名称未設定フォルダ/AuthManager.swift"; sourceTree = "<group>"; };
+		18CE116D2BC97363001C1016 /* PentagonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PentagonShape.swift; path = "../../その他/名称未設定フォルダ/PentagonShape.swift"; sourceTree = "<group>"; };
+		18CE116F2BC97374001C1016 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalView.swift; path = "../../その他/名称未設定フォルダ/ModalView.swift"; sourceTree = "<group>"; };
+		18CE11712BC9738A001C1016 /* GachaManagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaManagerView.swift; path = "../../その他/名称未設定フォルダ/GachaManagerView.swift"; sourceTree = "<group>"; };
+		18CE11732BC973D3001C1016 /* AnswerSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnswerSelectionView.swift; path = "../../その他/名称未設定フォルダ/AnswerSelectionView.swift"; sourceTree = "<group>"; };
+		18CE11752BC973E7001C1016 /* RateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RateManager.swift; path = "../../その他/名称未設定フォルダ/RateManager.swift"; sourceTree = "<group>"; };
+		18CE11772BC983E3001C1016 /* AvatarListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvatarListView.swift; path = "../../その他/名称未設定フォルダ/AvatarListView.swift"; sourceTree = "<group>"; };
+		18CE11792BC983F6001C1016 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = "../../その他/名称未設定フォルダ/SettingView.swift"; sourceTree = "<group>"; };
+		18CE117B2BC98406001C1016 /* IllustratedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllustratedView.swift; path = "../../その他/名称未設定フォルダ/IllustratedView.swift"; sourceTree = "<group>"; };
+		18CE117D2BC9841A001C1016 /* Interstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interstitial.swift; path = "../../その他/名称未設定フォルダ/Interstitial.swift"; sourceTree = "<group>"; };
+		18CE117F2BC98441001C1016 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioManager.swift; path = "../../その他/名称未設定フォルダ/AudioManager.swift"; sourceTree = "<group>"; };
+		18CE11812BC9844D001C1016 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = "../../その他/名称未設定フォルダ/LoadingView.swift"; sourceTree = "<group>"; };
+		18CE11832BC9845A001C1016 /* LoginModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModalView.swift; path = "../../その他/名称未設定フォルダ/LoginModalView.swift"; sourceTree = "<group>"; };
+		18CE11852BC98466001C1016 /* ProgressBar3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressBar3.swift; path = "../../その他/名称未設定フォルダ/ProgressBar3.swift"; sourceTree = "<group>"; };
+		18CE11872BC98473001C1016 /* MemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoView.swift; path = "../../その他/名称未設定フォルダ/MemoView.swift"; sourceTree = "<group>"; };
+		18CE11892BC98481001C1016 /* RewardModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardModalView.swift; path = "../../その他/名称未設定フォルダ/RewardModalView.swift"; sourceTree = "<group>"; };
+		18CE118B2BC98499001C1016 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = "../../その他/名称未設定フォルダ/TimerView.swift"; sourceTree = "<group>"; };
+		18CE118D2BC984A5001C1016 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootView.swift; path = "../../その他/名称未設定フォルダ/RootView.swift"; sourceTree = "<group>"; };
+		18CE118F2BC984C8001C1016 /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopView.swift; path = "../../その他/名称未設定フォルダ/TopView.swift"; sourceTree = "<group>"; };
+		18CE11902BC984C8001C1016 /* GachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaView.swift; path = "../../その他/名称未設定フォルダ/GachaView.swift"; sourceTree = "<group>"; };
+		18CE11912BC984C8001C1016 /* GachaAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaAnimationView.swift; path = "../../その他/名称未設定フォルダ/GachaAnimationView.swift"; sourceTree = "<group>"; };
+		18CE11922BC984C8001C1016 /* RareGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RareGachaView.swift; path = "../../その他/名称未設定フォルダ/RareGachaView.swift"; sourceTree = "<group>"; };
+		18CE11932BC984C8001C1016 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp.swift; path = "../../その他/名称未設定フォルダ/SignUp.swift"; sourceTree = "<group>"; };
+		18CE11942BC984C8001C1016 /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardView.swift; path = "../../その他/名称未設定フォルダ/RewardView.swift"; sourceTree = "<group>"; };
+		18CE119B2BC984E4001C1016 /* ゲームクリア.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "ゲームクリア.mp3"; path = "../../その他/音声/ゲームクリア.mp3"; sourceTree = "<group>"; };
+		18CE119C2BC984E4001C1016 /* ゲームオーバー.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "ゲームオーバー.mp3"; path = "../../その他/音声/ゲームオーバー.mp3"; sourceTree = "<group>"; };
+		18D090672CA7F46800F8B8D8 /* ManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerView.swift; sourceTree = "<group>"; };
+		18D090692CA7FC2800F8B8D8 /* QuizFPManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFPManagerView.swift; sourceTree = "<group>"; };
+		18D0906D2CA81C5600F8B8D8 /* QuizTangoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTangoManager.swift; path = ../../sukimaFP/sukimaZatugaku/QuizTangoManager.swift; sourceTree = "<group>"; };
+		18D0906E2CA81C5600F8B8D8 /* QuizJukugoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugoManager.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJukugoManager.swift; sourceTree = "<group>"; };
+		18D0906F2CA81C5600F8B8D8 /* QuizBunpouManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouManager.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouManager.swift; sourceTree = "<group>"; };
+		18D090732CA81C9500F8B8D8 /* QuizTango2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTango2List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizTango2List.swift; sourceTree = "<group>"; };
+		18D090742CA81C9500F8B8D8 /* QuizTango1List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTango1List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizTango1List.swift; sourceTree = "<group>"; };
+		18D090762CA81C9500F8B8D8 /* QuizTangoJun1List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTangoJun1List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizTangoJun1List.swift; sourceTree = "<group>"; };
+		18D090772CA81C9500F8B8D8 /* QuizTangoJun2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTangoJun2List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizTangoJun2List.swift; sourceTree = "<group>"; };
+		18D0907D2CA81CAA00F8B8D8 /* QuizIncorrectTangoAnswerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizIncorrectTangoAnswerListView.swift; path = ../../sukimaFP/sukimaZatugaku/QuizIncorrectTangoAnswerListView.swift; sourceTree = "<group>"; };
+		18D0907E2CA81CAA00F8B8D8 /* QuizIncorrectBunpouAnswerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizIncorrectBunpouAnswerListView.swift; path = ../../sukimaFP/sukimaZatugaku/QuizIncorrectBunpouAnswerListView.swift; sourceTree = "<group>"; };
+		18D0907F2CA81CAA00F8B8D8 /* QuizIncorrectJukugoAnswerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizIncorrectJukugoAnswerListView.swift; path = ../../sukimaFP/sukimaZatugaku/QuizIncorrectJukugoAnswerListView.swift; sourceTree = "<group>"; };
+		18D090832CA81CF200F8B8D8 /* QuizJukugoJun2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugoJun2List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJukugoJun2List.swift; sourceTree = "<group>"; };
+		18D090842CA81CF200F8B8D8 /* QuizJukugo3List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugo3List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJukugo3List.swift; sourceTree = "<group>"; };
+		18D090852CA81CF200F8B8D8 /* QuizJukugo2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugo2List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJukugo2List.swift; sourceTree = "<group>"; };
+		18D090862CA81CF200F8B8D8 /* QuizJukugoJun1List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugoJun1List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJukugoJun1List.swift; sourceTree = "<group>"; };
+		18D0908B2CA81D1E00F8B8D8 /* QuizBunpouJunAdvancedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouJunAdvancedList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouJunAdvancedList.swift; sourceTree = "<group>"; };
+		18D0908C2CA81D1E00F8B8D8 /* QuizBunpouBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouBeginnerList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouBeginnerList.swift; sourceTree = "<group>"; };
+		18D0908D2CA81D1E00F8B8D8 /* QuizJunBunpouBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJunBunpouBeginnerList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJunBunpouBeginnerList.swift; sourceTree = "<group>"; };
+		18D0908E2CA81D1E00F8B8D8 /* QuizBunpouJunIntermediateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouJunIntermediateList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouJunIntermediateList.swift; sourceTree = "<group>"; };
+		18D0908F2CA81D1E00F8B8D8 /* QuizBunpouJunBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouJunBeginnerList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouJunBeginnerList.swift; sourceTree = "<group>"; };
+		18D090902CA81D1E00F8B8D8 /* QuizBunpouAdvancedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouAdvancedList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouAdvancedList.swift; sourceTree = "<group>"; };
+		18D090912CA81D1E00F8B8D8 /* QuizBunpouIntermediateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouIntermediateList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouIntermediateList.swift; sourceTree = "<group>"; };
+		18D090992CA862B500F8B8D8 /* QuizToeicJukugoBeginnerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizToeicJukugoBeginnerList.swift; sourceTree = "<group>"; };
+		18D0909B2CA8630A00F8B8D8 /* QuizToeicJukugoIntermediateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizToeicJukugoIntermediateList.swift; sourceTree = "<group>"; };
+		18D0909D2CA8684400F8B8D8 /* QuizToeicTangoAdvancedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizToeicTangoAdvancedList.swift; sourceTree = "<group>"; };
+		18D0909E2CA8684400F8B8D8 /* QuizToeicTangoBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizToeicTangoBeginnerList.swift; sourceTree = "<group>"; };
+		18D0909F2CA8684400F8B8D8 /* QuizToeicTangoIntermediateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizToeicTangoIntermediateList.swift; sourceTree = "<group>"; };
+		18D090A32CA9908300F8B8D8 /* QuizTango3List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTango3List.swift; sourceTree = "<group>"; };
+		18D090A72CB0BC8700F8B8D8 /* QuizFPTabManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFPTabManagerView.swift; sourceTree = "<group>"; };
+		18D090AB2CB2273000F8B8D8 /* PentagonTangoShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PentagonTangoShape.swift; sourceTree = "<group>"; };
+		18D090B12CB2318E00F8B8D8 /* PentagonJukugoShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PentagonJukugoShape.swift; sourceTree = "<group>"; };
+		18D090B32CB231A900F8B8D8 /* PentagonBunpouShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PentagonBunpouShape.swift; sourceTree = "<group>"; };
+		18D090B52CB2396A00F8B8D8 /* PentagonManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PentagonManagerView.swift; sourceTree = "<group>"; };
+		18D090B72CB2D84000F8B8D8 /* QuizTangoTabManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTangoTabManager.swift; sourceTree = "<group>"; };
+		18E818542B5ADDD000595669 /* QuizManagerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManagerTabView.swift; sourceTree = "<group>"; };
 		26071BCE2B25D3D30012B836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		26071BD02B25EA750012B836 /* QuizBeginnerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBeginnerList.swift; sourceTree = "<group>"; };
 		26071BD12B25EA7E0012B836 /* QuizDailyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDailyList.swift; sourceTree = "<group>"; };
@@ -108,7 +223,6 @@
 		26071BD52B25EA860012B836 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
 		26071BD62B25EA880012B836 /* QuizNetworkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizNetworkList.swift; sourceTree = "<group>"; };
 		26071BD72B25EA8B0012B836 /* QuizManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManagerView.swift; sourceTree = "<group>"; };
-		26071BD82B25EA8C0012B836 /* QuizManagerTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManagerTimerView.swift; sourceTree = "<group>"; };
 		26071BD92B25EA8E0012B836 /* QuizAdvancedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAdvancedList.swift; sourceTree = "<group>"; };
 		26071BDA2B25EA920012B836 /* QuizHtmlCssView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHtmlCssView.swift; sourceTree = "<group>"; };
 		26071BDC2B25EA930012B836 /* QuizGodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGodList.swift; sourceTree = "<group>"; };
@@ -146,6 +260,7 @@
 				263086232B3AD84800D8BD76 /* Charts.framework in Frameworks */,
 				1820AE072B518A5B00BBA679 /* AppVersionMonitorSwiftUI in Frameworks */,
 				7D745C106B339DF249B98095 /* Pods_moneyQuiz.framework in Frameworks */,
+				183A77852CB3EB630000B839 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +270,7 @@
 		261F44AB2B25B93C00080669 = {
 			isa = PBXGroup;
 			children = (
+				18A44FF72CA7A4D200907CF6 /* StoreKit.storekit */,
 				261F44B62B25B93C00080669 /* moneyQuiz */,
 				261F44B52B25B93C00080669 /* Products */,
 				2C13CE95877EB0EB6450C86B /* Pods */,
@@ -175,60 +291,115 @@
 			children = (
 				26071BCE2B25D3D30012B836 /* Info.plist */,
 				261F44B72B25B93C00080669 /* moneyQuizApp.swift */,
-				18C80E602B51246100B7E6F7 /* ContentView.swift */,
+				18A44FF92CA7A52900907CF6 /* SubscriptionView.swift */,
+				18A44FFB2CA7A55100907CF6 /* PreView.swift */,
+				182534332CCE6164001CFE16 /* SplashScreenView.swift */,
+				18CE11692BC9730A001C1016 /* ContentView.swift */,
+				1823945A2CBB54FB00A875BF /* ReviewView.swift */,
+				1823945C2CBB558D00A875BF /* StoreKit.swift */,
+				183A77882CB40F420000B839 /* HelpModalView.swift */,
+				18236D612BC17AB5009C6CEB /* ContactView.swift */,
 				267D0C962B33388600A8D4ED /* BarChartView.swift */,
-				18C80E5E2B51245200B7E6F7 /* AuthManager.swift */,
-				18C80E622B51247800B7E6F7 /* PentagonShape.swift */,
+				18CE116B2BC97348001C1016 /* AuthManager.swift */,
+				181F7DD12B7349B10013629C /* RankingView.swift */,
+				18CE116D2BC97363001C1016 /* PentagonShape.swift */,
+				18D090AB2CB2273000F8B8D8 /* PentagonTangoShape.swift */,
+				18D090B12CB2318E00F8B8D8 /* PentagonJukugoShape.swift */,
+				18D090B32CB231A900F8B8D8 /* PentagonBunpouShape.swift */,
+				18D090B52CB2396A00F8B8D8 /* PentagonManagerView.swift */,
 				26071BD52B25EA860012B836 /* QuizResultView.swift */,
 				26071BD22B25EA800012B836 /* QuizView.swift */,
 				26071BD72B25EA8B0012B836 /* QuizManagerView.swift */,
+				18D090672CA7F46800F8B8D8 /* ManagerView.swift */,
+				18D0906F2CA81C5600F8B8D8 /* QuizBunpouManager.swift */,
+				18D0906E2CA81C5600F8B8D8 /* QuizJukugoManager.swift */,
+				18D0906D2CA81C5600F8B8D8 /* QuizTangoManager.swift */,
+				18D090B72CB2D84000F8B8D8 /* QuizTangoTabManager.swift */,
+				18D090692CA7FC2800F8B8D8 /* QuizFPManagerView.swift */,
+				18D090A72CB0BC8700F8B8D8 /* QuizFPTabManagerView.swift */,
+				18996F052B63742900B72123 /* RewardTimesModal.swift */,
 				26071BD92B25EA8E0012B836 /* QuizAdvancedList.swift */,
-				1820AE2A2B518E7900BBA679 /* ModalView.swift */,
+				18CE116F2BC97374001C1016 /* ModalView.swift */,
 				26071BD12B25EA7E0012B836 /* QuizDailyList.swift */,
 				26071BD42B25EA830012B836 /* QuizDatabaseList.swift */,
 				26071BDC2B25EA930012B836 /* QuizGodList.swift */,
-				1820AE242B518DF200BBA679 /* GachaManagerView.swift */,
+				18CE11712BC9738A001C1016 /* GachaManagerView.swift */,
 				26071BDA2B25EA920012B836 /* QuizHtmlCssView.swift */,
 				26071BD32B25EA810012B836 /* QuizIntermediateList.swift */,
-				18C80E642B51248300B7E6F7 /* AnswerSelectionView.swift */,
+				18CE11732BC973D3001C1016 /* AnswerSelectionView.swift */,
 				265DDFFE2B3D1A73004BF2B2 /* AppState.swift */,
 				26F229042B3173AC00760F40 /* Banner.swift */,
 				26071BD62B25EA880012B836 /* QuizNetworkList.swift */,
-				26071BD82B25EA8C0012B836 /* QuizManagerTimerView.swift */,
 				26071BDD2B25EA950012B836 /* QuizSecurityList.swift */,
 				26071BD02B25EA750012B836 /* QuizBeginnerList.swift */,
 				26F229002B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift */,
-				18C80E662B51249000B7E6F7 /* RateManager.swift */,
-				18C80E682B51249C00B7E6F7 /* AvatarListView.swift */,
-				18C80E6A2B5124A800B7E6F7 /* SettingView.swift */,
+				18CE11752BC973E7001C1016 /* RateManager.swift */,
+				18CE11792BC983F6001C1016 /* SettingView.swift */,
+				18CE11772BC983E3001C1016 /* AvatarListView.swift */,
 				264CE41E2B3EFE5B00CFC826 /* GraphManagerView.swift */,
 				26071BEF2B2746B60012B836 /* ModalExplanationView.swift */,
 				26F229022B302B0600760F40 /* ModalReturnView.swift */,
 				26071BF12B2A73AD0012B836 /* ModalTimeoutView.swift */,
-				18C80E6E2B5124CD00B7E6F7 /* IllustratedView.swift */,
-				18C80E702B5124D400B7E6F7 /* TimeAdvancedList.swift */,
-				18C80E722B5124DB00B7E6F7 /* TimeBeginnerList.swift */,
-				18C80E6C2B5124C400B7E6F7 /* Interstitial.swift */,
-				18C80E742B5124F500B7E6F7 /* TimeIntermediateList.swift */,
+				18CE117B2BC98406001C1016 /* IllustratedView.swift */,
+				18CE117D2BC9841A001C1016 /* Interstitial.swift */,
 				26280CFB2B47D02A006D96B6 /* ModalTittleView.swift */,
-				18C80E762B51250600B7E6F7 /* AudioManager.swift */,
-				18C80E782B51251300B7E6F7 /* LoadingView.swift */,
-				18C80E7A2B51251D00B7E6F7 /* LoginModalView.swift */,
-				18C80E7C2B51253200B7E6F7 /* ProgressBar3.swift */,
-				18C80E7E2B51253E00B7E6F7 /* MemoView.swift */,
+				18CE117F2BC98441001C1016 /* AudioManager.swift */,
+				18CE11812BC9844D001C1016 /* LoadingView.swift */,
+				18CE11832BC9845A001C1016 /* LoginModalView.swift */,
+				18CE11852BC98466001C1016 /* ProgressBar3.swift */,
+				18CE11872BC98473001C1016 /* MemoView.swift */,
 				261F45172B25BE8C00080669 /* PrivacyView.swift */,
-				1820AE012B516F6D00BBA679 /* RewardModalView.swift */,
+				18CE11892BC98481001C1016 /* RewardModalView.swift */,
+				18D090742CA81C9500F8B8D8 /* QuizTango1List.swift */,
+				18D090732CA81C9500F8B8D8 /* QuizTango2List.swift */,
+				18D090762CA81C9500F8B8D8 /* QuizTangoJun1List.swift */,
+				18D090A32CA9908300F8B8D8 /* QuizTango3List.swift */,
+				18D090772CA81C9500F8B8D8 /* QuizTangoJun2List.swift */,
 				261F45182B25BE8C00080669 /* TermsOfServiceView.swift */,
-				18C80E822B5127C400B7E6F7 /* TimerView.swift */,
-				18C80E842B5127CE00B7E6F7 /* RootView.swift */,
-				18C80E862B5127D700B7E6F7 /* RareGachaView.swift */,
-				18C80E802B5127B900B7E6F7 /* RewardView.swift */,
-				18C80E882B5127EB00B7E6F7 /* SignUp.swift */,
-				18C80E8A2B5127F100B7E6F7 /* TopView.swift */,
-				18C80E8C2B5127F900B7E6F7 /* GachaAnimationView.swift */,
-				18C80E8E2B5127FF00B7E6F7 /* GachaView.swift */,
+				18D0907E2CA81CAA00F8B8D8 /* QuizIncorrectBunpouAnswerListView.swift */,
+				18D0907F2CA81CAA00F8B8D8 /* QuizIncorrectJukugoAnswerListView.swift */,
+				18D0907D2CA81CAA00F8B8D8 /* QuizIncorrectTangoAnswerListView.swift */,
+				18D090902CA81D1E00F8B8D8 /* QuizBunpouAdvancedList.swift */,
+				18D0908C2CA81D1E00F8B8D8 /* QuizBunpouBeginnerList.swift */,
+				18D090912CA81D1E00F8B8D8 /* QuizBunpouIntermediateList.swift */,
+				18D0908B2CA81D1E00F8B8D8 /* QuizBunpouJunAdvancedList.swift */,
+				18D0908F2CA81D1E00F8B8D8 /* QuizBunpouJunBeginnerList.swift */,
+				18D0908E2CA81D1E00F8B8D8 /* QuizBunpouJunIntermediateList.swift */,
+				18D0909D2CA8684400F8B8D8 /* QuizToeicTangoAdvancedList.swift */,
+				18D0909E2CA8684400F8B8D8 /* QuizToeicTangoBeginnerList.swift */,
+				18D0909F2CA8684400F8B8D8 /* QuizToeicTangoIntermediateList.swift */,
+				18D0908D2CA81D1E00F8B8D8 /* QuizJunBunpouBeginnerList.swift */,
+				18D090992CA862B500F8B8D8 /* QuizToeicJukugoBeginnerList.swift */,
+				18D0909B2CA8630A00F8B8D8 /* QuizToeicJukugoIntermediateList.swift */,
+				18D090852CA81CF200F8B8D8 /* QuizJukugo2List.swift */,
+				18D090842CA81CF200F8B8D8 /* QuizJukugo3List.swift */,
+				18D090862CA81CF200F8B8D8 /* QuizJukugoJun1List.swift */,
+				18D090832CA81CF200F8B8D8 /* QuizJukugoJun2List.swift */,
+				18CE118B2BC98499001C1016 /* TimerView.swift */,
+				18CE118D2BC984A5001C1016 /* RootView.swift */,
+				18CE11942BC984C8001C1016 /* RewardView.swift */,
+				18CE11912BC984C8001C1016 /* GachaAnimationView.swift */,
+				18CE11902BC984C8001C1016 /* GachaView.swift */,
+				18CE11922BC984C8001C1016 /* RareGachaView.swift */,
+				18CE11932BC984C8001C1016 /* SignUp.swift */,
+				18CE118F2BC984C8001C1016 /* TopView.swift */,
+				18E818542B5ADDD000595669 /* QuizManagerTabView.swift */,
 				26228EE92B463016009D59ED /* TittlesView.swift */,
 				26502AA02B43181A00ACFBF1 /* HelpView.swift */,
+				18B9DFB42B66A5F000E5AEFD /* sound.mp3 */,
+				18B87A802B660178007EAA25 /* soundKettei.mp3 */,
+				18B87A862B660178007EAA25 /* おとも切り替え.mp3 */,
+				18B87A882B660178007EAA25 /* カウントダウン.mp3 */,
+				18B87A7F2B660178007EAA25 /* キャンセル.mp3 */,
+				18CE119C2BC984E4001C1016 /* ゲームオーバー.mp3 */,
+				18CE119B2BC984E4001C1016 /* ゲームクリア.mp3 */,
+				18B87A812B660178007EAA25 /* ホームに戻る.mp3 */,
+				18B87A852B660178007EAA25 /* レベルアップ.mp3 */,
+				18B87A8C2B660178007EAA25 /* 正解.mp3 */,
+				18B87A872B660178007EAA25 /* 敵攻撃.mp3 */,
+				18B87A8B2B660178007EAA25 /* 倒れる.mp3 */,
+				18B87A842B660178007EAA25 /* 不正解.mp3 */,
+				18B87A8A2B660178007EAA25 /* 味方攻撃.mp3 */,
 				261F44BB2B25B93E00080669 /* Assets.xcassets */,
 				261F44BD2B25B93E00080669 /* Preview Content */,
 				26507AA62B4477D4001A7F9E /* GoogleService-Info.plist */,
@@ -256,6 +427,7 @@
 		3537C3590AEC75E539D83CB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				183A77842CB3EB630000B839 /* StoreKit.framework */,
 				2630861E2B3AD63900D8BD76 /* Charts.framework */,
 				263086222B3AD84800D8BD76 /* Charts.framework */,
 				CD72B6F6625FF739A1731D87 /* Pods_moneyQuiz.framework */,
@@ -329,9 +501,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B87A952B660178007EAA25 /* 敵攻撃.mp3 in Resources */,
+				18B87A922B660178007EAA25 /* 不正解.mp3 in Resources */,
+				18B87A8D2B660178007EAA25 /* キャンセル.mp3 in Resources */,
+				18A44FF82CA7A4D200907CF6 /* StoreKit.storekit in Resources */,
+				18B87A8E2B660178007EAA25 /* soundKettei.mp3 in Resources */,
+				18B87A962B660178007EAA25 /* カウントダウン.mp3 in Resources */,
+				18CE119D2BC984E4001C1016 /* ゲームクリア.mp3 in Resources */,
+				18B9DFB52B66A5F000E5AEFD /* sound.mp3 in Resources */,
+				18CE119E2BC984E4001C1016 /* ゲームオーバー.mp3 in Resources */,
+				18B87A932B660178007EAA25 /* レベルアップ.mp3 in Resources */,
 				261F44BF2B25B93E00080669 /* Preview Assets.xcassets in Resources */,
 				26507AA72B4477D4001A7F9E /* GoogleService-Info.plist in Resources */,
+				18B87A982B660178007EAA25 /* 味方攻撃.mp3 in Resources */,
+				18B87A942B660178007EAA25 /* おとも切り替え.mp3 in Resources */,
+				18B87A8F2B660178007EAA25 /* ホームに戻る.mp3 in Resources */,
+				18B87A992B660178007EAA25 /* 倒れる.mp3 in Resources */,
 				261F44BC2B25B93E00080669 /* Assets.xcassets in Resources */,
+				18B87A9A2B660178007EAA25 /* 正解.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,61 +571,102 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D090B22CB2318E00F8B8D8 /* PentagonJukugoShape.swift in Sources */,
+				18D090782CA81C9500F8B8D8 /* QuizTango2List.swift in Sources */,
 				26071BEA2B25EB290012B836 /* QuizSecurityList.swift in Sources */,
-				18C80E5F2B51245200B7E6F7 /* AuthManager.swift in Sources */,
+				18E818552B5ADDD000595669 /* QuizManagerTabView.swift in Sources */,
 				26F229052B3173AC00760F40 /* Banner.swift in Sources */,
 				26071BE82B25EB290012B836 /* QuizGodList.swift in Sources */,
-				18C80E672B51249000B7E6F7 /* RateManager.swift in Sources */,
+				18D090A02CA8684400F8B8D8 /* QuizToeicTangoAdvancedList.swift in Sources */,
+				18A44FFC2CA7A55100907CF6 /* PreView.swift in Sources */,
+				18236D622BC17AB5009C6CEB /* ContactView.swift in Sources */,
+				18D0909A2CA862B500F8B8D8 /* QuizToeicJukugoBeginnerList.swift in Sources */,
 				265DDFFF2B3D1A73004BF2B2 /* AppState.swift in Sources */,
-				18C80E612B51246100B7E6F7 /* ContentView.swift in Sources */,
-				18C80E7F2B51253E00B7E6F7 /* MemoView.swift in Sources */,
+				18CE11762BC973E7001C1016 /* RateManager.swift in Sources */,
 				26228EEA2B463016009D59ED /* TittlesView.swift in Sources */,
+				18D090A42CA9908300F8B8D8 /* QuizTango3List.swift in Sources */,
 				267D0C972B33388600A8D4ED /* BarChartView.swift in Sources */,
-				18C80E892B5127EB00B7E6F7 /* SignUp.swift in Sources */,
+				18CE118A2BC98481001C1016 /* RewardModalView.swift in Sources */,
+				18D0908A2CA81CF200F8B8D8 /* QuizJukugoJun1List.swift in Sources */,
+				18D090A22CA8684400F8B8D8 /* QuizToeicTangoIntermediateList.swift in Sources */,
+				18D090B82CB2D84000F8B8D8 /* QuizTangoTabManager.swift in Sources */,
 				261F44B82B25B93C00080669 /* moneyQuizApp.swift in Sources */,
 				26071BE12B25EB290012B836 /* QuizDailyList.swift in Sources */,
-				18C80E712B5124D400B7E6F7 /* TimeAdvancedList.swift in Sources */,
-				18C80E752B5124F500B7E6F7 /* TimeIntermediateList.swift in Sources */,
-				18C80E632B51247800B7E6F7 /* PentagonShape.swift in Sources */,
+				18CE11742BC973D3001C1016 /* AnswerSelectionView.swift in Sources */,
+				18D090702CA81C5600F8B8D8 /* QuizTangoManager.swift in Sources */,
+				182534342CCE6164001CFE16 /* SplashScreenView.swift in Sources */,
+				18D090872CA81CF200F8B8D8 /* QuizJukugoJun2List.swift in Sources */,
 				26071BEB2B25EB290012B836 /* QuizAdvancedList.swift in Sources */,
+				18CE11782BC983E3001C1016 /* AvatarListView.swift in Sources */,
+				18D090AC2CB2273000F8B8D8 /* PentagonTangoShape.swift in Sources */,
+				18D090802CA81CAA00F8B8D8 /* QuizIncorrectTangoAnswerListView.swift in Sources */,
 				26071BE22B25EB290012B836 /* QuizIntermediateList.swift in Sources */,
-				18C80E6D2B5124C400B7E6F7 /* Interstitial.swift in Sources */,
+				18CE11972BC984C8001C1016 /* GachaAnimationView.swift in Sources */,
+				18CE11822BC9844D001C1016 /* LoadingView.swift in Sources */,
+				18D090962CA81D1E00F8B8D8 /* QuizBunpouJunBeginnerList.swift in Sources */,
 				26071BE92B25EB290012B836 /* QuizBeginnerList.swift in Sources */,
+				18D090712CA81C5600F8B8D8 /* QuizJukugoManager.swift in Sources */,
+				18D090B62CB2396A00F8B8D8 /* PentagonManagerView.swift in Sources */,
+				18D090942CA81D1E00F8B8D8 /* QuizJunBunpouBeginnerList.swift in Sources */,
+				18D090932CA81D1E00F8B8D8 /* QuizBunpouBeginnerList.swift in Sources */,
+				18CE117A2BC983F6001C1016 /* SettingView.swift in Sources */,
 				26071BE32B25EB290012B836 /* QuizManagerView.swift in Sources */,
-				18C80E6F2B5124CD00B7E6F7 /* IllustratedView.swift in Sources */,
-				18C80E832B5127C400B7E6F7 /* TimerView.swift in Sources */,
-				18C80E812B5127B900B7E6F7 /* RewardView.swift in Sources */,
+				18CE11802BC98441001C1016 /* AudioManager.swift in Sources */,
+				18CE11722BC9738A001C1016 /* GachaManagerView.swift in Sources */,
+				18CE11882BC98473001C1016 /* MemoView.swift in Sources */,
+				18CE116A2BC9730A001C1016 /* ContentView.swift in Sources */,
+				18CE117C2BC98406001C1016 /* IllustratedView.swift in Sources */,
+				18D090A82CB0BC8700F8B8D8 /* QuizFPTabManagerView.swift in Sources */,
+				18D090792CA81C9500F8B8D8 /* QuizTango1List.swift in Sources */,
 				261F45192B25BE8C00080669 /* PrivacyView.swift in Sources */,
 				26071BDF2B25EB290012B836 /* QuizView.swift in Sources */,
-				18C80E7D2B51253200B7E6F7 /* ProgressBar3.swift in Sources */,
-				18C80E692B51249C00B7E6F7 /* AvatarListView.swift in Sources */,
+				18D090A12CA8684400F8B8D8 /* QuizToeicTangoBeginnerList.swift in Sources */,
 				26071BE52B25EB290012B836 /* QuizDatabaseList.swift in Sources */,
-				1820AE252B518DF200BBA679 /* GachaManagerView.swift in Sources */,
-				18C80E8D2B5127F900B7E6F7 /* GachaAnimationView.swift in Sources */,
-				18C80E652B51248300B7E6F7 /* AnswerSelectionView.swift in Sources */,
+				18CE116E2BC97363001C1016 /* PentagonShape.swift in Sources */,
+				18CE11962BC984C8001C1016 /* GachaView.swift in Sources */,
+				18D090952CA81D1E00F8B8D8 /* QuizBunpouJunIntermediateList.swift in Sources */,
+				18CE11952BC984C8001C1016 /* TopView.swift in Sources */,
 				26F229032B302B0600760F40 /* ModalReturnView.swift in Sources */,
-				18C80E6B2B5124A900B7E6F7 /* SettingView.swift in Sources */,
+				18D090682CA7F46800F8B8D8 /* ManagerView.swift in Sources */,
+				18D090722CA81C5600F8B8D8 /* QuizBunpouManager.swift in Sources */,
+				18A44FFA2CA7A52900907CF6 /* SubscriptionView.swift in Sources */,
 				26280CFC2B47D02A006D96B6 /* ModalTittleView.swift in Sources */,
-				1820AE022B516F6D00BBA679 /* RewardModalView.swift in Sources */,
+				18D090882CA81CF200F8B8D8 /* QuizJukugo3List.swift in Sources */,
+				18D0907C2CA81C9500F8B8D8 /* QuizTangoJun2List.swift in Sources */,
+				18D0909C2CA8630A00F8B8D8 /* QuizToeicJukugoIntermediateList.swift in Sources */,
+				18CE11992BC984C8001C1016 /* SignUp.swift in Sources */,
+				18D090822CA81CAA00F8B8D8 /* QuizIncorrectJukugoAnswerListView.swift in Sources */,
 				264CE41F2B3EFE5B00CFC826 /* GraphManagerView.swift in Sources */,
+				18CE119A2BC984C8001C1016 /* RewardView.swift in Sources */,
+				18CE11842BC9845A001C1016 /* LoginModalView.swift in Sources */,
+				18D090892CA81CF200F8B8D8 /* QuizJukugo2List.swift in Sources */,
+				18D090812CA81CAA00F8B8D8 /* QuizIncorrectBunpouAnswerListView.swift in Sources */,
+				18D090972CA81D1E00F8B8D8 /* QuizBunpouAdvancedList.swift in Sources */,
+				18D090982CA81D1E00F8B8D8 /* QuizBunpouIntermediateList.swift in Sources */,
 				261F451A2B25BE8C00080669 /* TermsOfServiceView.swift in Sources */,
 				26071BE02B25EB290012B836 /* QuizResultView.swift in Sources */,
+				18CE117E2BC9841A001C1016 /* Interstitial.swift in Sources */,
+				1823945D2CBB558D00A875BF /* StoreKit.swift in Sources */,
 				26071BEC2B25EB290012B836 /* QuizNetworkList.swift in Sources */,
-				18C80E8B2B5127F100B7E6F7 /* TopView.swift in Sources */,
 				26F229012B2D8CA600760F40 /* QuizIncorrectAnswerListView.swift in Sources */,
-				18C80E732B5124DB00B7E6F7 /* TimeBeginnerList.swift in Sources */,
-				26071BE62B25EB290012B836 /* QuizManagerTimerView.swift in Sources */,
-				1820AE2B2B518E7900BBA679 /* ModalView.swift in Sources */,
-				18C80E772B51250600B7E6F7 /* AudioManager.swift in Sources */,
 				26071BE72B25EB290012B836 /* QuizHtmlCssView.swift in Sources */,
+				18D090B42CB231A900F8B8D8 /* PentagonBunpouShape.swift in Sources */,
+				18D0906A2CA7FC2800F8B8D8 /* QuizFPManagerView.swift in Sources */,
+				18CE118E2BC984A5001C1016 /* RootView.swift in Sources */,
+				1823945B2CBB54FB00A875BF /* ReviewView.swift in Sources */,
+				183A77892CB40F420000B839 /* HelpModalView.swift in Sources */,
+				18CE116C2BC97349001C1016 /* AuthManager.swift in Sources */,
+				18996F062B63742900B72123 /* RewardTimesModal.swift in Sources */,
 				26071BF02B2746B60012B836 /* ModalExplanationView.swift in Sources */,
+				18D0907B2CA81C9500F8B8D8 /* QuizTangoJun1List.swift in Sources */,
+				18CE118C2BC98499001C1016 /* TimerView.swift in Sources */,
+				18D090922CA81D1E00F8B8D8 /* QuizBunpouJunAdvancedList.swift in Sources */,
 				26071BF22B2A73AD0012B836 /* ModalTimeoutView.swift in Sources */,
-				18C80E8F2B5127FF00B7E6F7 /* GachaView.swift in Sources */,
-				18C80E7B2B51251D00B7E6F7 /* LoginModalView.swift in Sources */,
-				18C80E872B5127D700B7E6F7 /* RareGachaView.swift in Sources */,
+				18CE11702BC97374001C1016 /* ModalView.swift in Sources */,
+				18CE11982BC984C8001C1016 /* RareGachaView.swift in Sources */,
 				26502AA12B43181A00ACFBF1 /* HelpView.swift in Sources */,
-				18C80E792B51251300B7E6F7 /* LoadingView.swift in Sources */,
-				18C80E852B5127CE00B7E6F7 /* RootView.swift in Sources */,
+				181F7DD22B7349B10013629C /* RankingView.swift in Sources */,
+				18CE11862BC98466001C1016 /* ProgressBar3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,15 +799,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2.1;
 				DEVELOPMENT_ASSET_PATHS = "\"moneyQuiz/Preview Content\"";
 				DEVELOPMENT_TEAM = F3XS565TSX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = moneyQuiz/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "FPクエスト";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -587,7 +815,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.moneyQuiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -604,15 +832,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2.1;
 				DEVELOPMENT_ASSET_PATHS = "\"moneyQuiz/Preview Content\"";
 				DEVELOPMENT_TEAM = F3XS565TSX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = moneyQuiz/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "FPクエスト";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -620,7 +848,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.moneyQuiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -57,6 +57,7 @@ struct ModalTittleView: View {
                         .fontWeight(.medium)
                 }
             }
+            .foregroundColor(Color("fontGray"))
             .padding()
             .background(Color.white)
             .cornerRadius(20)

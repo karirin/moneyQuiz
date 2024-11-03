@@ -119,6 +119,8 @@ struct TittlesView: View {
                                 .frame(height:180)
                             Text(selected.health)
                                 .font(.system(size:24))
+                                .frame(height:60)
+                                .padding(.horizontal)
                                 .foregroundColor(Color("fontGray"))
 //                            HStack{
 //                                Image("ハート")
@@ -157,6 +159,8 @@ struct TittlesView: View {
                                 .frame(height:180)
                             Text(selected.health)
                                 .font(.system(size:24))
+                                .frame(height:60)
+                                .padding(.horizontal)
                                 .foregroundColor(Color("fontGray"))
 //                            HStack{
 //                                Image("ハート")
@@ -230,7 +234,7 @@ Spacer()
         .onAppear {
             self.selectedItem = Item(name: "レベル３", attack: 10, probability: 25,health: "レベル３を達成したことを讃える称号", rarity: .normal)
         }
-        .background(Color("purple2"))
+        .background(Color(hue: 0.557, saturation: 0.098, brightness: 1.0))
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action: {
             self.presentationMode.wrappedValue.dismiss()
@@ -243,8 +247,9 @@ Spacer()
         })
         .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("おとも図鑑")
+                    Text("称号一覧")
                         .font(.system(size: 20)) // ここでフォントサイズを指定
+                        .foregroundStyle(Color("fontGray"))
                 }
             }
         }

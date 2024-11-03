@@ -20,11 +20,13 @@ struct HelpView: View {
                 Button(action: {
                     self.isSheetPresented = true
                 }, label:  {
-                    Image(systemName: "questionmark.circle")
-                        .cornerRadius(30.0)
-                        .foregroundColor(.gray)
-                        .font(.system(size: 40))
-                    
+//                    Image(systemName: "questionmark.circle")
+//                        .cornerRadius(30.0)
+//                        .foregroundColor(Color("fontGray"))
+//                        .font(.system(size: 40))
+                    Image("ハテナ")
+                        .resizable()
+                        .frame(width:60,height: 55)
                 })
                 
                 
@@ -58,7 +60,7 @@ struct SwipeableView: View {
             
             CustomPageIndicator2(numberOfPages: 2, currentPage: $selectedTab)
                 .padding(.bottom)
-        }
+        }.background(Color("Color2"))
     }
 }
 
@@ -101,7 +103,7 @@ struct FirstView: View {
                 .opacity(0)
                 Spacer()
             }
-            .background(.gray)
+            .background(Color("fontGray"))
             .foregroundColor(.white)
             Spacer()
             Image("トップ画面チュートリアル")
@@ -112,35 +114,36 @@ struct FirstView: View {
                 HStack{
                     Image("レベル").resizable()
                         .frame(width:20,height:20)
-                    Text("：ユーザーのレベルを表示しています")
+                    Text("：ユーザーのレベルになります")
                     Spacer()
                 }
                 HStack{
                     Image("ハート").resizable()
                         .frame(width:20,height:20)
-                    Text("：ユーザーの体力を表示しています")
+                    Text("：ユーザーの体力になります")
                     Spacer()
                 }
                 HStack{
                 Image("ソード").resizable()
                     .frame(width:20,height:20)
-                    Text("：ユーザーの攻撃力を表示しています")
+                    Text("：ユーザーの攻撃力になります")
                     Spacer()
                 }
                 HStack{
                     HStack{
                         Text("( + 20")
-                        Image("ネッキー")
+                        Image("ポチータ")
                             .resizable()
                             .frame(width: 20,height:20)
                         Text(")：")
                     }
                     Spacer()
                 }
-                Text("選択中のおともの体力と攻撃力がプラスされていることを表示しています")
+                Text("選択中のおともの体力と攻撃力がプラスされていることを表しています")
             }.padding()
                 .padding(.bottom,20)
             }
+        .foregroundColor(Color("fontGray"))
     }
 }
 
@@ -168,7 +171,7 @@ struct SecondView: View {
                 .opacity(0)
                 Spacer()
             }
-            .background(.gray)
+            .background(Color("fontGray"))
             .foregroundColor(.white)
             HStack{
                 Text("各メニュー説明")
@@ -177,46 +180,71 @@ struct SecondView: View {
             }
             .padding(.leading)
             ScrollView{
-                Image("ダンジョン一覧")
-                    .resizable()
-                    .frame(height:70)
-                    .padding(.horizontal)
+                VStack{
+                HStack{
+                    Image("ダンジョンボタン")
+                        .resizable()
+                        .frame(width:70, height:70)
+                        .padding(.horizontal)
+                    Spacer()
+                }
                 Text("難易度、種類別のクイズを選ぶことができます　")
-                Image("ガチャトップ")
-                    .resizable()
-                    .frame(height:70)
-                    .padding(.horizontal)
+                
+                HStack{
+                    Image("ガチャボタン")
+                        .resizable()
+                        .frame(width:200, height:70)
+                        .padding(.horizontal)
+                    Spacer()
+                }
                 Text("ガチャを回すことがで新しいおともを手に入れることができます")
-                    .padding(.horizontal,5)
-                Image("おとも図鑑")
-                    .resizable()
-                    .frame(height:70)
-                    .padding(.horizontal)
-                Text("手に入れたおともを確認することができます　　")
+                
                 HStack{
-                    Image(systemName: "square.grid.2x2")
+                    Image("おとも図鑑ボタン")
                         .resizable()
-                        .frame(width:30, height:30)
-                    Text("おとも一覧")
-                        .font(.system(size: 24))
+                        .frame(width:200, height:70)
+                        .padding(.horizontal)
                     Spacer()
-                }.padding(.horizontal)
-                    .padding(.top,5)
-                Text("選択中のおともを変えることができます　　　　")
+                }
+                Text("手に入れたおともを確認することができます")
+                    
                 HStack{
-                    Image(systemName: "chart.pie")
+                    Image("称号ボタン")
                         .resizable()
-                        .frame(width:30, height:30)
-                    Text("分析")
-                        .font(.system(size: 24))
+                        .frame(width:200, height:70)
+                        .padding(.horizontal)
                     Spacer()
-                }.padding(.horizontal)
-                    .padding(.top,5)
-                Text("日々の回答数や正答率をグラフで確認することができます")
-                    .padding(.horizontal)
-                Spacer()
+                }
+                Text("手に入れた称号を確認することができます")
+                
+                        HStack{
+                            Image(systemName: "square.grid.2x2")
+                                .resizable()
+                                .frame(width:30, height:30)
+                            Text("おとも一覧")
+                                .font(.system(size: 24))
+                            Spacer()
+                        }
+                        .padding(.leading)
+                        .padding(.top)
+                        Text("選択中のおともを変えることができます　　　　　　　　　　　　　　")
+                            .padding(.leading)
+                        HStack{
+                            Image(systemName: "chart.pie")
+                                .resizable()
+                                .frame(width:30, height:30)
+                            Text("分析")
+                                .font(.system(size: 24))
+                            Spacer()
+                        }.padding(.leading).padding(.top)
+                        Text("日々の回答数や正答率をグラフで確認することができます")
+                            .padding(.leading,11)
+                    }
+            
+                .padding(.horizontal)
             }
         }
+        .foregroundColor(Color("fontGray"))
     }
 }
 
@@ -238,7 +266,7 @@ struct ThirdView: View {
                 Text("")
                 Spacer()
             }
-            .background(Color(red: 0.2, green: 0.68, blue: 0.9, opacity: 1.0))
+            .background(Color("lightYelleow"))
             .foregroundColor(.white)
             Spacer()
             Image("チュートリアル３")
@@ -273,7 +301,7 @@ struct FourthView: View {
                 Text("")
                 Spacer()
             }
-            .background(Color(red: 0.2, green: 0.68, blue: 0.9, opacity: 1.0))
+            .background(Color("lightYelleow"))
             .foregroundColor(.white)
             Spacer()
             VStack{
@@ -303,4 +331,3 @@ struct HelpView_Previews: PreviewProvider {
 //        SecondView()
     }
 }
-

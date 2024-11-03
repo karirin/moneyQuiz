@@ -9,6 +9,19 @@ import SwiftUI
 
 struct QuizGodList: View {
     @Binding var isPresenting: Bool
+//    let QuizGodList: [QuizQuestion] = [
+//    QuizQuestion(
+//           question: "日本で個人が住宅を新築または購入する際、適用される住宅ローン減税の対象となる住宅ローンの最大額はいくらですか？ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ",
+//           choices: [
+//               "1,000万円",
+//               "2,000万円",
+//               "3,000万円",
+//               "4,000万円"
+//           ],
+//           correctAnswerIndex: 2,
+//           explanation: "日本の住宅ローン減税（住宅ローン控除）では、最大3,000万円までの住宅ローンが対象となります。この制度により、ローンの利子部分に対して一定の税額控除が受けられます。"
+//       )
+//    ]
     let QuizGodList: [QuizQuestion] = [
         QuizQuestion(
                question: "日本における消費税の還付を受けることができるのはどのような場合ですか？",

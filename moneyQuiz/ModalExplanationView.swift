@@ -35,7 +35,7 @@ struct ModalExplanationView: View {
                             Button(action: {
                                 currentQuizIndex += 1
 //                                selectedAnswerIndex = nil
-                                startTimer()
+//                                startTimer()
                                 audioManager.playCancelSound()
                                 userFlag = 1
                                 authManager.updateUserFlag(userId: authManager.currentUserId!, userFlag: 1)
@@ -46,7 +46,7 @@ struct ModalExplanationView: View {
                                     Image(systemName: "eye.slash")
                                         .foregroundColor(.black)
                                     Text("解説画面を非表示にする")
-                                        .foregroundColor(.black)
+                                        .foregroundColor(Color("fontGray"))
                                 }
                             }
                         }
@@ -66,6 +66,7 @@ struct ModalExplanationView: View {
                                     .frame(width: 25)
                                 Text("正解")
                                     .font(.system(size:26))
+                                    .foregroundColor(Color("fontGray"))
                             } else {
                                 Image(systemName: "xmark")
                                     .resizable()
@@ -74,52 +75,62 @@ struct ModalExplanationView: View {
                                     .frame(width: 25,height:25)
                                 Text("不正解")
                                     .font(.system(size:26))
+                                    .foregroundColor(Color("fontGray"))
                             }
                         }
                         HStack{
                             Text(" ")
-                                .background(.gray)
+                                .background(Color("fontGray"))
                                 .frame(width:10,height: 20)
                             Text("問題内容")
+                                .foregroundColor(Color("fontGray"))
                             Spacer()
                         }
                         HStack {
                             Text(question)
+                                .foregroundColor(Color("fontGray"))
                             Spacer()
                         }
                         Spacer()
                             .frame(height:10)
                         HStack{
                             Text(" ")
-                                .background(.gray)
+                                .background(Color("fontGray"))
                                 .frame(width:10,height: 20)
                             Text("あなたの回答")
+                                .foregroundColor(Color("fontGray"))
                             Spacer()
                         }
                         HStack {
                             Text("\(userAnswer)")
+                                .foregroundColor(Color("fontGray"))
                             Spacer()
                         }
                         HStack{
                             Text(" ")
-                                .background(.gray)
+                                .background(Color("fontGray"))
                                 .frame(width:10,height: 20)
                             Text("正解")
+                                .foregroundColor(Color("fontGray"))
                             Spacer()
                         }
                         HStack {
                             Text("\(correctAnswer)")
+                                .foregroundColor(Color("fontGray"))
                             Spacer()
                         }
                         HStack{
                             Text(" ")
-                                .background(.gray)
+                                .background(Color("fontGray"))
                                 .frame(width:10,height: 20)
                             Text("解説")
                             Spacer()
                         }
                         HStack {
-                            Text("\(explanation)")
+                            ScrollView{
+                                Text("\(explanation)")
+                                    .foregroundColor(Color("fontGray"))
+                            }
                             Spacer()
                         }
                         
@@ -137,7 +148,7 @@ struct ModalExplanationView: View {
                                     
                                 }
                                 .padding()
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("fontGray"))
                                 .background(Color.white)
                                 .cornerRadius(8)
                                 .shadow(radius: 5)

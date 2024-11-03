@@ -38,6 +38,9 @@ struct QuizResultView: View {
     @State var results: [QuizResult]
     @State private var isShow: Bool = true
     @State private var flag: Bool = false
+    @State private var level3flag: Bool = false
+    @State private var level5flag: Bool = false
+    @State private var level10flag: Bool = false
     @State private var answer30flag: Bool = false
     @State private var answer50flag: Bool = false
     @State private var answer100flag: Bool = false
@@ -48,6 +51,8 @@ struct QuizResultView: View {
     @State private var isHidden = false
     @ObservedObject var interstitial = Interstitial()
     @Environment(\.presentationMode) var presentationMode
+    private let adViewControllerRepresentable = AdViewControllerRepresentable()
+    @State private var userPreFlag: Int = 0
 
     // QuizResultView.swift
     init(results: [QuizResult], authManager: AuthManager, isPresenting: Binding<Bool>, navigateToQuizResultView: Binding<Bool>, playerExperience: Int, playerMoney: Int, elapsedTime: TimeInterval) {
@@ -199,9 +204,15 @@ struct QuizResultView: View {
                             }
                             .padding(5)
                         }
-                        .foregroundColor(Color("fontGray"))
+                        .foregroundColor(Color("fontGray1"))
                     }
 //                    Spacer()
+                }
+                .background {
+                    if userPreFlag != 1 {
+                    adViewControllerRepresentable
+                        .frame(width: .zero, height: .zero)
+                    }
                 }
                 .onChange(of: authManager.didLevelUp) { newValue in
                     if newValue {
@@ -225,7 +236,9 @@ struct QuizResultView: View {
                         }
                     }
                 }
-                .onAppear {                    authManager.fetchTotalAnswersData(userId: authManager.currentUserId!) { (totalData, totalAnswers) in
+                .onAppear {   
+                    authManager.fetchPreFlag()
+                    authManager.fetchTotalAnswersData(userId: authManager.currentUserId!) { (totalData, totalAnswers) in
                     // ここでtotalDataやtotalAnswersを使用する
                     if totalAnswers > 30 {
                         authManager.checkTitles(userId: authManager.currentUserId!, title: "回答数３０") { exists in
@@ -252,16 +265,25 @@ struct QuizResultView: View {
                         }
                     }
                     }
-                    if !interstitial.interstitialAdLoaded {
-                        interstitial.loadInterstitial()
-                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    print("onAppear interstitial.interstitialAdLoaded:\(interstitial.interstitialAdLoaded)")
-                    print("onAppear interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
-                        if !interstitial.wasAdDismissed {
-                          interstitial.presentInterstitial()
-                      }
+//                    if !interstitial.interstitialAdLoaded {
+//                        interstitial.loadInterstitial()
 //                    }
+////                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//                    print("onAppear interstitial.interstitialAdLoaded:\(interstitial.interstitialAdLoaded)")
+//                    print("onAppear interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
+//                        if !interstitial.wasAdDismissed {
+//                          interstitial.presentInterstitial()
+//                      }
+//                    }
+                    if !interstitial.interstitialAdLoaded {
+                        interstitial.loadInterstitial(completion: { isLoaded in
+                            if isLoaded {
+                                self.interstitial.presentInterstitial(from: adViewControllerRepresentable.viewController)
+                            }
+                        })
+                    } else if !interstitial.wasAdDismissed {
+                        interstitial.presentInterstitial(from: adViewControllerRepresentable.viewController)
+                    }
                     if elapsedTime != 0 {
                         authManager.saveElapsedTime(category: "Beginner", elapsedTime: elapsedTime) { success in
                             if success {
@@ -272,13 +294,13 @@ struct QuizResultView: View {
                         }
                     }
                 }
-                .onChange(of: interstitial.interstitialAdLoaded) { isLoaded in
-                    print("onChange isLoaded:\(isLoaded)")
-                    print("onChange interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
-                      if isLoaded && !interstitial.wasAdDismissed {
-                          interstitial.presentInterstitial()
-                      }
-                  }
+//                .onChange(of: interstitial.interstitialAdLoaded) { isLoaded in
+//                    print("onChange isLoaded:\(isLoaded)")
+//                    print("onChange interstitial.wasAdDismissed:\(interstitial.wasAdDismissed)")
+//                      if isLoaded && !interstitial.wasAdDismissed {
+//                          interstitial.presentInterstitial()
+//                      }
+//                  }
 
                 if showMemoView {
                     MemoView(memo: $currentMemo, question: selectedQuestion)
@@ -292,9 +314,9 @@ struct QuizResultView: View {
                 audioManager.playCancelSound()
             }) {
                 Image(systemName: "chevron.left")
-                    .foregroundColor(Color("fontGray"))
+                    .foregroundColor(Color("fontGray1"))
                 Text("戻る")
-                    .foregroundColor(Color("fontGray"))
+                    .foregroundColor(Color("fontGray1"))
             })
             .toolbar {
                     ToolbarItem(placement: .principal) {
@@ -384,8 +406,8 @@ struct ExperienceModalView: View {
             .foregroundColor(Color("fontGray"))
             .onAppear {
                 withAnimation {
-                    currentExperience += Double(addedExperience)
-                    currentMoney += Double(addedMoney)
+                    currentExperience = Double(addedExperience) * Double(authManager.rewardFlag)
+                    currentMoney = Double(addedMoney) * Double(authManager.rewardFlag)
                 }
                 if currentExperience != 5 {
                     audioManager.playGameClearSound()
@@ -510,6 +532,6 @@ struct QuizResultView_Previews: PreviewProvider {
         let authManager = AuthManager() // 適切なダミーまたはモックオブジェクトで置き換えてください
 
         // プレビュー用にビューを初期化
-        QuizResultView(results: dummyResults, authManager: authManager, isPresenting: $isPresenting, navigateToQuizResultView: $navigateToQuizResultView, playerExperience: 10, playerMoney: 10, elapsedTime: 1)
+        QuizResultView(results: dummyResults, authManager: authManager, isPresenting: $isPresenting, navigateToQuizResultView: $navigateToQuizResultView, playerExperience: 10, playerMoney: 10, elapsedTime: 0)
     }
 }
