@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180A9FBF2CD71BCD00B35C83 /* ChangeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A9FBE2CD71BCD00B35C83 /* ChangeNameView.swift */; };
+		180A9FC32CD71BF800B35C83 /* TutorialModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A9FC22CD71BF800B35C83 /* TutorialModalView.swift */; };
+		180A9FCB2CE21DA000B35C83 /* StampAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A9FCA2CE21DA000B35C83 /* StampAnimationView.swift */; };
+		180A9FCD2CE21F3500B35C83 /* 称号.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 180A9FCC2CE21F3400B35C83 /* 称号.mp3 */; };
 		181F7DD22B7349B10013629C /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F7DD12B7349B10013629C /* RankingView.swift */; };
 		1820AE072B518A5B00BBA679 /* AppVersionMonitorSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1820AE062B518A5B00BBA679 /* AppVersionMonitorSwiftUI */; };
 		18236D622BC17AB5009C6CEB /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18236D612BC17AB5009C6CEB /* ContactView.swift */; };
@@ -128,6 +132,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180A9FBE2CD71BCD00B35C83 /* ChangeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameView.swift; sourceTree = "<group>"; };
+		180A9FC22CD71BF800B35C83 /* TutorialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModalView.swift; sourceTree = "<group>"; };
+		180A9FCA2CE21DA000B35C83 /* StampAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampAnimationView.swift; sourceTree = "<group>"; };
+		180A9FCC2CE21F3400B35C83 /* 称号.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "称号.mp3"; path = "Assets.xcassets/称号.mp3"; sourceTree = "<group>"; };
 		181F7DD12B7349B10013629C /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
 		18236D612BC17AB5009C6CEB /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		1823945A2CBB54FB00A875BF /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
@@ -295,6 +303,9 @@
 				18A44FFB2CA7A55100907CF6 /* PreView.swift */,
 				182534332CCE6164001CFE16 /* SplashScreenView.swift */,
 				18CE11692BC9730A001C1016 /* ContentView.swift */,
+				180A9FCA2CE21DA000B35C83 /* StampAnimationView.swift */,
+				180A9FBE2CD71BCD00B35C83 /* ChangeNameView.swift */,
+				180A9FC22CD71BF800B35C83 /* TutorialModalView.swift */,
 				1823945A2CBB54FB00A875BF /* ReviewView.swift */,
 				1823945C2CBB558D00A875BF /* StoreKit.swift */,
 				183A77882CB40F420000B839 /* HelpModalView.swift */,
@@ -400,6 +411,7 @@
 				18B87A8B2B660178007EAA25 /* 倒れる.mp3 */,
 				18B87A842B660178007EAA25 /* 不正解.mp3 */,
 				18B87A8A2B660178007EAA25 /* 味方攻撃.mp3 */,
+				180A9FCC2CE21F3400B35C83 /* 称号.mp3 */,
 				261F44BB2B25B93E00080669 /* Assets.xcassets */,
 				261F44BD2B25B93E00080669 /* Preview Content */,
 				26507AA62B4477D4001A7F9E /* GoogleService-Info.plist */,
@@ -504,6 +516,7 @@
 				18B87A952B660178007EAA25 /* 敵攻撃.mp3 in Resources */,
 				18B87A922B660178007EAA25 /* 不正解.mp3 in Resources */,
 				18B87A8D2B660178007EAA25 /* キャンセル.mp3 in Resources */,
+				180A9FCD2CE21F3500B35C83 /* 称号.mp3 in Resources */,
 				18A44FF82CA7A4D200907CF6 /* StoreKit.storekit in Resources */,
 				18B87A8E2B660178007EAA25 /* soundKettei.mp3 in Resources */,
 				18B87A962B660178007EAA25 /* カウントダウン.mp3 in Resources */,
@@ -593,6 +606,7 @@
 				261F44B82B25B93C00080669 /* moneyQuizApp.swift in Sources */,
 				26071BE12B25EB290012B836 /* QuizDailyList.swift in Sources */,
 				18CE11742BC973D3001C1016 /* AnswerSelectionView.swift in Sources */,
+				180A9FBF2CD71BCD00B35C83 /* ChangeNameView.swift in Sources */,
 				18D090702CA81C5600F8B8D8 /* QuizTangoManager.swift in Sources */,
 				182534342CCE6164001CFE16 /* SplashScreenView.swift in Sources */,
 				18D090872CA81CF200F8B8D8 /* QuizJukugoJun2List.swift in Sources */,
@@ -610,6 +624,7 @@
 				18D090942CA81D1E00F8B8D8 /* QuizJunBunpouBeginnerList.swift in Sources */,
 				18D090932CA81D1E00F8B8D8 /* QuizBunpouBeginnerList.swift in Sources */,
 				18CE117A2BC983F6001C1016 /* SettingView.swift in Sources */,
+				180A9FC32CD71BF800B35C83 /* TutorialModalView.swift in Sources */,
 				26071BE32B25EB290012B836 /* QuizManagerView.swift in Sources */,
 				18CE11802BC98441001C1016 /* AudioManager.swift in Sources */,
 				18CE11722BC9738A001C1016 /* GachaManagerView.swift in Sources */,
@@ -655,6 +670,7 @@
 				18CE118E2BC984A5001C1016 /* RootView.swift in Sources */,
 				1823945B2CBB54FB00A875BF /* ReviewView.swift in Sources */,
 				183A77892CB40F420000B839 /* HelpModalView.swift in Sources */,
+				180A9FCB2CE21DA000B35C83 /* StampAnimationView.swift in Sources */,
 				18CE116C2BC97349001C1016 /* AuthManager.swift in Sources */,
 				18996F062B63742900B72123 /* RewardTimesModal.swift in Sources */,
 				26071BF02B2746B60012B836 /* ModalExplanationView.swift in Sources */,
@@ -799,7 +815,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.1;
+				CURRENT_PROJECT_VERSION = 2.6;
 				DEVELOPMENT_ASSET_PATHS = "\"moneyQuiz/Preview Content\"";
 				DEVELOPMENT_TEAM = F3XS565TSX;
 				ENABLE_PREVIEWS = YES;
@@ -815,7 +831,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.moneyQuiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -832,7 +848,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.1;
+				CURRENT_PROJECT_VERSION = 2.6;
 				DEVELOPMENT_ASSET_PATHS = "\"moneyQuiz/Preview Content\"";
 				DEVELOPMENT_TEAM = F3XS565TSX;
 				ENABLE_PREVIEWS = YES;
@@ -848,7 +864,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.6;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.moneyQuiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";

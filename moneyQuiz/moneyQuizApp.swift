@@ -35,6 +35,7 @@ struct moneyQuizApp: App {
     
     var body: some Scene {
         WindowGroup {
+//            TopView(authManager: authManager)
             RootView(authManager: authManager)
                 .onAppear{
                     if let userId = authManager.currentUserId {
@@ -44,10 +45,10 @@ struct moneyQuizApp: App {
                                 }
                             }
                         }
+                    } else {
+                        authManager.anonymousSignIn(){}
                     }
                 }
-//            RewardView()
-//            GachaView()
         }
     }
 }
