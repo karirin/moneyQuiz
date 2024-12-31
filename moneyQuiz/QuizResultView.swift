@@ -53,6 +53,8 @@ struct QuizResultView: View {
     @Environment(\.presentationMode) var presentationMode
     private let adViewControllerRepresentable = AdViewControllerRepresentable()
     @State private var userPreFlag: Int = 0
+    @State private var preFlag: Bool = false
+    @State private var showSubFlag: Bool = false
 
     // QuizResultView.swift
     init(results: [QuizResult], authManager: AuthManager, isPresenting: Binding<Bool>, navigateToQuizResultView: Binding<Bool>, playerExperience: Int, playerMoney: Int, elapsedTime: TimeInterval) {
@@ -106,6 +108,22 @@ struct QuizResultView: View {
 //                    }
 //                    .foregroundColor(Color("fontGray"))
 //                    Spacer()
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            showSubFlag = true
+                            audioManager.playSound()
+                        }) {
+                            Image("プレミアムプランボタン")
+                                .resizable()
+                                .frame(width:250,height:80)
+                        }
+                        .shadow(radius: 3)
+                        .fullScreenCover(isPresented: $showSubFlag) {
+                            PreView(audioManager: audioManager)
+                        }
+                        Spacer()
+                    }.padding(5)
                         if elapsedTime != 0 {
 //                            Spacer()
                             Spacer()
@@ -208,6 +226,9 @@ struct QuizResultView: View {
                     }
 //                    Spacer()
                 }
+                .sheet(isPresented: $preFlag) {
+                    PreView(audioManager: audioManager)
+                }
                 .background {
                     if userPreFlag != 1 {
                     adViewControllerRepresentable
@@ -238,6 +259,12 @@ struct QuizResultView: View {
                 }
                 .onAppear {   
                     authManager.fetchPreFlag()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        userPreFlag = authManager.userPreFlag
+                        if userPreFlag != 1 {
+                            executeProcessEveryFortyTimes()
+                        }
+                    }
                     authManager.fetchTotalAnswersData(userId: authManager.currentUserId!) { (totalData, totalAnswers) in
                     // ここでtotalDataやtotalAnswersを使用する
                     if totalAnswers > 30 {
@@ -349,6 +376,19 @@ struct QuizResultView: View {
         formatter.allowedUnits = [.hour, .minute, .second]
         formatter.zeroFormattingBehavior = .pad
         return formatter.string(from: duration) ?? ""
+    }
+    
+    func executeProcessEveryFortyTimes() {
+        // UserDefaultsからカウンターを取得
+        let count = UserDefaults.standard.integer(forKey: "launchPreCount") + 1
+        
+        // カウンターを更新
+        UserDefaults.standard.set(count, forKey: "launchPreCount")
+        
+        // 3回に1回の割合で処理を実行
+        if count % 5 == 0 {
+            preFlag = true
+        }
     }
 
 }
