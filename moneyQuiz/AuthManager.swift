@@ -46,9 +46,16 @@ class AuthManager: ObservableObject {
     @Published var level: Int = 1
     @Published var money: Int = 0
     @Published var userFlag: Int = 0
+    @Published var userPreFlag: Int = 0
+    @Published var userStoryCsFlag: Int = 0
+    @Published var rewardFlag: Int = 1
+    @Published var story: Int = 0
     @Published var avatars: [Avatar] = []
     @Published var didLevelUp: Bool = false
     @Published var userAvatars: [Avatar] = []
+    @Published var hasIncorrectTangoAnswers: Bool = false
+    @Published var hasIncorrectJukugoAnswers: Bool = false
+    @Published var hasIncorrectBunpouAnswers: Bool = false
     
     init() {
         user = Auth.auth().currentUser
@@ -134,7 +141,7 @@ class AuthManager: ObservableObject {
         }
     }
     
-    func anonymousSignIn() {
+    func anonymousSignIn(completion: (() -> Void)? = nil) {
         Auth.auth().signInAnonymously { result, error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
@@ -142,6 +149,7 @@ class AuthManager: ObservableObject {
                 print("Signed in anonymously with user ID: \(result.user.uid)")
                 self.user = result.user
                 self.onLoginCompleted?()
+                completion?()
             }
         }
     }
@@ -150,7 +158,7 @@ class AuthManager: ObservableObject {
         guard let userId = user?.uid else { return }
         
         let userRef = Database.database().reference().child("users").child(userId)
-        let userData: [String: Any] = ["userName": userName, "userMoney": 0, "userHp": 100, "userAttack": 20, "tutorialNum": 1, "userFlag": 0]
+        let userData: [String: Any] = ["userName": userName, "userMoney": 0, "userHp": 100, "userAttack": 20, "tutorialNum": 1, "userFlag": 0, "rewardFlag": 1]
         
         userRef.setValue(userData) { (error, ref) in
             if let error = error {
@@ -199,6 +207,37 @@ class AuthManager: ObservableObject {
                 print("Error updating tutorialNum: \(error)")
                 completion(false)
             } else {
+                completion(true)
+            }
+        }
+    }
+
+    func fetchUserStory() {
+        guard let userId = user?.uid else { return }
+
+        let userRef = Database.database().reference().child("users").child(userId)
+        userRef.child("story").observeSingleEvent(of: .value) { snapshot in
+            if let story = snapshot.value as? Int {
+                DispatchQueue.main.async {
+                    self.story = story
+                }
+            }
+        }
+    }
+
+    func updateUserName(userName: String, completion: @escaping (Bool) -> Void) {
+        guard let userId = user?.uid else {
+            completion(false)
+            return
+        }
+
+        let userRef = Database.database().reference().child("users").child(userId)
+        userRef.updateChildValues(["userName": userName]) { error, _ in
+            if let error = error {
+                print("Failed to update userName: \(error.localizedDescription)")
+                completion(false)
+            } else {
+                print("Successfully updated userName.")
                 completion(true)
             }
         }
@@ -459,7 +498,19 @@ class AuthManager: ObservableObject {
                 print("data:\(data)")
 //                self.experience = data["experience"] as? Int ?? 0
                 self.userFlag = data["userFlag"] as? Int ?? 0
+                self.rewardFlag = data["rewardFlag"] as? Int ?? 1
                 print("self.userFlag:\(self.userFlag)")
+            }
+        }
+    }
+
+    func fetchUserRewardFlag() {
+        guard let userId = user?.uid else { return }
+
+        let userRef = Database.database().reference().child("users").child(userId)
+        userRef.observeSingleEvent(of: .value) { snapshot in
+            if let data = snapshot.value as? [String: Any] {
+                self.rewardFlag = data["rewardFlag"] as? Int ?? 1
             }
         }
     }
@@ -707,7 +758,79 @@ class AuthManager: ObservableObject {
             }
         }
     }
-    
+
+    func updateRewardFlag(userId: String, userFlag: Int) {
+        let userRef = Database.database().reference().child("users").child(userId)
+        userRef.updateChildValues(["rewardFlag": userFlag]) { error, _ in
+            if let error = error {
+                print("Error updating rewardFlag: \(error)")
+            } else {
+                self.rewardFlag = userFlag
+                print("rewardFlag successfully updated")
+            }
+        }
+    }
+
+    private func fetchIncorrectQuizAnswers(
+        nodeName: String,
+        completion: @escaping ([QuizQuestion]) -> Void
+    ) {
+        guard let userId = user?.uid else {
+            completion([])
+            return
+        }
+
+        let ref = Database.database().reference().child(nodeName).child(userId)
+        ref.observeSingleEvent(of: .value) { snapshot in
+            var quizList = [QuizQuestion]()
+
+            for child in snapshot.children {
+                guard
+                    let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String: Any],
+                    let question = dict["quizQuestion"] as? String,
+                    let choices = dict["choices"] as? [String],
+                    let correctAnswerIndex = dict["correctAnswerIndex"] as? Int
+                else {
+                    continue
+                }
+
+                let explanation = dict["explanation"] as? String ?? ""
+                let quiz = QuizQuestion(
+                    id: childSnapshot.key,
+                    question: question,
+                    choices: choices,
+                    correctAnswerIndex: correctAnswerIndex,
+                    explanation: explanation
+                )
+                quizList.append(quiz)
+            }
+
+            completion(quizList)
+        }
+    }
+
+    func fetchIncorrectTangoAnswers(completion: @escaping ([QuizQuestion]) -> Void) {
+        fetchIncorrectQuizAnswers(nodeName: "IncorrectTangoAnswers") { quizList in
+            self.hasIncorrectTangoAnswers = !quizList.isEmpty
+            completion(quizList)
+        }
+    }
+
+    func fetchIncorrectJukugoAnswers(completion: @escaping ([QuizQuestion]) -> Void) {
+        fetchIncorrectQuizAnswers(nodeName: "IncorrectJukugoAnswers") { quizList in
+            self.hasIncorrectJukugoAnswers = !quizList.isEmpty
+            completion(quizList)
+        }
+    }
+
+    func fetchIncorrectBunpouAnswers(completion: @escaping ([QuizQuestion]) -> Void) {
+        fetchIncorrectQuizAnswers(nodeName: "IncorrectBunpouAnswers") { quizList in
+            self.hasIncorrectBunpouAnswers = !quizList.isEmpty
+            completion(quizList)
+        }
+    }
+
     func saveElapsedTime(category: String, elapsedTime: TimeInterval, completion: @escaping (Bool) -> Void) {
         guard let userId = user?.uid else {
             completion(false) // ユーザーIDがnilの場合、失敗としてfalseを返す
@@ -768,6 +891,98 @@ class AuthManager: ObservableObject {
         })
     }
 
+    func fetchPreFlag() {
+        guard let userId = user?.uid else { return }
+
+        let userRef = Database.database().reference().child("users").child(userId)
+        userRef.observeSingleEvent(of: .value) { snapshot in
+            if let data = snapshot.value as? [String: Any] {
+                self.userPreFlag = data["userPreFlag"] as? Int ?? 0
+            }
+        }
+    }
+
+    func updateUserCsFlag(userId: String, userCsFlag: Int, completion: @escaping (Bool) -> Void) {
+        let userRef = Database.database().reference().child("users").child(userId)
+        userRef.updateChildValues(["userCsFlag": userCsFlag]) { error, _ in
+            completion(error == nil)
+        }
+    }
+
+    func updateUserStoryCsFlag(userId: String, userCsFlag: Int, completion: @escaping (Bool) -> Void) {
+        let userRef = Database.database().reference().child("users").child(userId)
+        userRef.updateChildValues(["userStoryCsFlag": userCsFlag]) { error, _ in
+            if error == nil {
+                self.userStoryCsFlag = userCsFlag
+            }
+            completion(error == nil)
+        }
+    }
+
+    func updatePreFlag(userId: String, userPreFlag: Int, completion: @escaping (Bool) -> Void) {
+        let userRef = Database.database().reference().child("users").child(userId)
+        userRef.updateChildValues(["userPreFlag": userPreFlag]) { error, _ in
+            if error == nil {
+                self.userPreFlag = userPreFlag
+            }
+            completion(error == nil)
+        }
+    }
+
+    func updateContact(userId: String, newContact: String, completion: @escaping (Bool) -> Void) {
+        let contactRef = Database.database().reference().child("contacts").child(userId)
+        contactRef.observeSingleEvent(of: .value) { snapshot in
+            var contacts = snapshot.value as? [String] ?? []
+            contacts.append(newContact)
+            contactRef.setValue(contacts) { error, _ in
+                completion(error == nil)
+            }
+        }
+    }
+
+    func saveLastActiveTimeToFirebase(completion: @escaping (Bool) -> Void) {
+        guard let userId = currentUserId else {
+            completion(false)
+            return
+        }
+
+        let lastActiveRef = Database.database().reference()
+            .child("storys")
+            .child(userId)
+            .child("lastActiveTime")
+
+        lastActiveRef.setValue(Date().timeIntervalSince1970) { error, _ in
+            completion(error == nil)
+        }
+    }
+
+    func fetchLastActiveTimeFromFirebase(completion: @escaping (TimeInterval?) -> Void) {
+        guard let userId = currentUserId else {
+            completion(nil)
+            return
+        }
+
+        let lastActiveRef = Database.database().reference()
+            .child("storys")
+            .child(userId)
+            .child("lastActiveTime")
+
+        lastActiveRef.observeSingleEvent(of: .value) { snapshot in
+            completion(snapshot.value as? TimeInterval)
+        }
+    }
+
+    func fetchUserStoryCsFlag() {
+        guard let userId = user?.uid else { return }
+
+        let userRef = Database.database().reference().child("users").child(userId)
+        userRef.observeSingleEvent(of: .value) { snapshot in
+            if let data = snapshot.value as? [String: Any] {
+                self.userStoryCsFlag = data["userStoryCsFlag"] as? Int ?? 0
+            }
+        }
+    }
+
 }
 
 struct AuthManager1: View {
@@ -796,4 +1011,3 @@ struct AuthManager_Previews: PreviewProvider {
         AuthManager1()
     }
 }
-

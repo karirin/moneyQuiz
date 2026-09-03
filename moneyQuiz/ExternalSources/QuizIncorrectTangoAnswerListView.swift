@@ -1,36 +1,14 @@
 //
-//  QuizIncorrectAnswerListView.swift
-//  moneyQuiz
+//  QuizIncorrectJukugoAnswerListView.swift
+//  egQuiz
 //
-//  Created by hashimo ryoya on 2023/12/16.
+//  Created by Apple on 2024/02/11.
 //
 
 import SwiftUI
 import Firebase
 
-struct QuizQuestion {
-    var id: String?
-    var question: String
-    var choices: [String]
-    var correctAnswerIndex: Int
-    var explanation: String
-
-    init(
-        id: String? = nil,
-        question: String,
-        choices: [String],
-        correctAnswerIndex: Int,
-        explanation: String = ""
-    ) {
-        self.id = id
-        self.question = question
-        self.choices = choices
-        self.correctAnswerIndex = correctAnswerIndex
-        self.explanation = explanation
-    }
-}
-
-struct QuizIncorrectAnswerListView: View {
+struct QuizIncorrectTangoAnswerListView: View {
     @Binding var isPresenting: Bool
     @State var shuffledQuizList: [QuizQuestion] = []
     @State var isDataLoaded = false // データロード状態の追跡
@@ -48,14 +26,14 @@ struct QuizIncorrectAnswerListView: View {
         VStack{
             if isDataLoaded {
                 // データがロードされたらQuizViewを表示
-                QuizView(quizzes: shuffledQuizList, quizLevel: .incorrectAnswer, authManager: authManager, audioManager: audioManager, isPresenting: $isPresenting, interstitial: sharedInterstitial)
+                QuizView(quizzes: shuffledQuizList, quizLevel: .incorrectTangoAnswer, authManager: authManager, audioManager: audioManager, isPresenting: $isPresenting, interstitial: sharedInterstitial)
             } else {
                 ActivityIndicator()
             }
-        }   
+        }
         .onAppear {
             // ビューが表示された時にデータをフェッチする
-            fetchIncorrectAnswers(userId: authManager.currentUserId!) { quizList in
+            fetchIncorrectTangoAnswers(userId: authManager.currentUserId!) { quizList in
                 self.shuffledQuizList = quizList.shuffled()
                 print("self.shuffledQuizList")
                 print(self.shuffledQuizList)
@@ -68,8 +46,8 @@ struct QuizIncorrectAnswerListView: View {
     }
     }
     
-func fetchIncorrectAnswers(userId: String, completion: @escaping ([QuizQuestion]) -> Void) {
-    let ref = Database.database().reference().child("IncorrectAnswers").child(userId)
+func fetchIncorrectTangoAnswers(userId: String, completion: @escaping ([QuizQuestion]) -> Void) {
+    let ref = Database.database().reference().child("IncorrectTangoAnswers").child(userId)
     ref.observeSingleEvent(of: .value) { snapshot in
         var quizList = [QuizQuestion]()
         
@@ -78,10 +56,11 @@ func fetchIncorrectAnswers(userId: String, completion: @escaping ([QuizQuestion]
                let dict = childSnapshot.value as? [String: Any],
                let question = dict["quizQuestion"] as? String,
                let choices = dict["choices"] as? [String],
-               let correctAnswerIndex = dict["correctAnswerIndex"] as? Int,
-               let explanation = dict["explanation"] as? String {
+               let correctAnswerIndex = dict["correctAnswerIndex"] as? Int {
+//               let explanation = dict["explanation"] as? String {
                 let quizId = childSnapshot.key // クイズIDを取得
-                let quiz = QuizQuestion(id: quizId, question: question, choices: choices, correctAnswerIndex: correctAnswerIndex, explanation: explanation)
+//                let quiz = QuizQuestion(id: quizId, question: question, choices: choices, correctAnswerIndex: correctAnswerIndex, explanation: explanation)
+                let quiz = QuizQuestion(id: quizId, question: question, choices: choices, correctAnswerIndex: correctAnswerIndex)
                 quizList.append(quiz)
             }
         }
@@ -91,8 +70,9 @@ func fetchIncorrectAnswers(userId: String, completion: @escaping ([QuizQuestion]
 }
 
 
-struct QuizIncorrectAnswerListView_Previews: PreviewProvider {
+struct QuizIncorrectTangoAnswerListView_Previews: PreviewProvider {
     static var previews: some View {
-        QuizIncorrectAnswerListView(isPresenting: .constant(false))
+        QuizIncorrectTangoAnswerListView(isPresenting: .constant(false))
     }
 }
+

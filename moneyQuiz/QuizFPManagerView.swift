@@ -30,13 +30,13 @@ struct QuizFPManagerView: View {
                    
                     TabView(selection: $selectedTab,
                                         content: {
-                        QuizTangoManagerView(isPresenting: .constant(false), tutorialNum: $tutorialNum)
+                        QuizTangoManagerView(isPresenting: .constant(false))
 //                            .padding(.top)
                                         .tag(0)
-                        QuizJukugoManagerView(isPresenting: .constant(false), tutorialNum: $tutorialNum)
+                        QuizJukugoManagerView(isPresenting: .constant(false))
 //                            .padding(.top)
                                         .tag(1)
-                        QuizBunpouManagerView(isPresenting: .constant(false), tutorialNum: $tutorialNum)
+                        QuizBunpouManagerView(isPresenting: .constant(false))
 //                            .padding(.top)
                                         .tag(2)
                                 })

@@ -144,6 +144,7 @@
 		26F229032B302B0600760F40 /* ModalReturnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F229022B302B0600760F40 /* ModalReturnView.swift */; };
 		26F229052B3173AC00760F40 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F229042B3173AC00760F40 /* Banner.swift */; };
 		7D745C106B339DF249B98095 /* Pods_moneyQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD72B6F6625FF739A1731D87 /* Pods_moneyQuiz.framework */; };
+		D8EA9D8FBEAD324F5B720665 /* QuizToeicJukugoAdvancedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4125BAD454E5B4662B15B2 /* QuizToeicJukugoAdvancedList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,21 +160,21 @@
 		183A77842CB3EB630000B839 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		183A77882CB40F420000B839 /* HelpModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpModalView.swift; sourceTree = "<group>"; };
 		18996F052B63742900B72123 /* RewardTimesModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardTimesModal.swift; sourceTree = "<group>"; };
-		18A44FF72CA7A4D200907CF6 /* StoreKit.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = StoreKit.storekit; path = ../drill/StoreKit.storekit; sourceTree = "<group>"; };
+		18A44FF72CA7A4D200907CF6 /* StoreKit.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = StoreKit.storekit; path = moneyQuiz/StoreKit.storekit; sourceTree = SOURCE_ROOT; };
 		18A44FF92CA7A52900907CF6 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		18A44FFB2CA7A55100907CF6 /* PreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreView.swift; sourceTree = "<group>"; };
-		18B87A7F2B660178007EAA25 /* キャンセル.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "キャンセル.mp3"; path = "../../../Downloads/it 効果音/キャンセル.mp3"; sourceTree = "<group>"; };
-		18B87A802B660178007EAA25 /* soundKettei.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = soundKettei.mp3; path = "../../../Downloads/it 効果音/soundKettei.mp3"; sourceTree = "<group>"; };
-		18B87A812B660178007EAA25 /* ホームに戻る.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "ホームに戻る.mp3"; path = "../../../Downloads/it 効果音/ホームに戻る.mp3"; sourceTree = "<group>"; };
-		18B87A842B660178007EAA25 /* 不正解.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "不正解.mp3"; path = "../../../Downloads/it 効果音/不正解.mp3"; sourceTree = "<group>"; };
-		18B87A852B660178007EAA25 /* レベルアップ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "レベルアップ.mp3"; path = "../../../Downloads/it 効果音/レベルアップ.mp3"; sourceTree = "<group>"; };
-		18B87A862B660178007EAA25 /* おとも切り替え.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "おとも切り替え.mp3"; path = "../../../Downloads/it 効果音/おとも切り替え.mp3"; sourceTree = "<group>"; };
-		18B87A872B660178007EAA25 /* 敵攻撃.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "敵攻撃.mp3"; path = "../../../Downloads/it 効果音/敵攻撃.mp3"; sourceTree = "<group>"; };
-		18B87A882B660178007EAA25 /* カウントダウン.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "カウントダウン.mp3"; path = "../../../Downloads/it 効果音/カウントダウン.mp3"; sourceTree = "<group>"; };
-		18B87A8A2B660178007EAA25 /* 味方攻撃.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "味方攻撃.mp3"; path = "../../../Downloads/it 効果音/味方攻撃.mp3"; sourceTree = "<group>"; };
-		18B87A8B2B660178007EAA25 /* 倒れる.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "倒れる.mp3"; path = "../../../Downloads/it 効果音/倒れる.mp3"; sourceTree = "<group>"; };
-		18B87A8C2B660178007EAA25 /* 正解.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "正解.mp3"; path = "../../../Downloads/it 効果音/正解.mp3"; sourceTree = "<group>"; };
-		18B9DFB42B66A5F000E5AEFD /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sound.mp3; path = ../../../Downloads/sound.mp3; sourceTree = "<group>"; };
+		18B87A7F2B660178007EAA25 /* キャンセル.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "キャンセル.mp3"; path = "moneyQuiz/Resources/キャンセル.mp3"; sourceTree = SOURCE_ROOT; };
+		18B87A802B660178007EAA25 /* soundKettei.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = soundKettei.mp3; path = moneyQuiz/Resources/soundKettei.mp3; sourceTree = SOURCE_ROOT; };
+		18B87A812B660178007EAA25 /* ホームに戻る.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "ホームに戻る.mp3"; path = "moneyQuiz/Resources/ホームに戻る.mp3"; sourceTree = SOURCE_ROOT; };
+		18B87A842B660178007EAA25 /* 不正解.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "不正解.mp3"; path = "moneyQuiz/Resources/不正解.mp3"; sourceTree = SOURCE_ROOT; };
+		18B87A852B660178007EAA25 /* レベルアップ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "レベルアップ.mp3"; path = "moneyQuiz/Resources/レベルアップ.mp3"; sourceTree = SOURCE_ROOT; };
+		18B87A862B660178007EAA25 /* おとも切り替え.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "おとも切り替え.mp3"; path = "moneyQuiz/Resources/おとも切り替え.mp3"; sourceTree = SOURCE_ROOT; };
+		18B87A872B660178007EAA25 /* 敵攻撃.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "敵攻撃.mp3"; path = "moneyQuiz/Resources/敵攻撃.mp3"; sourceTree = SOURCE_ROOT; };
+		18B87A882B660178007EAA25 /* カウントダウン.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "カウントダウン.mp3"; path = "moneyQuiz/Resources/カウントダウン.mp3"; sourceTree = SOURCE_ROOT; };
+		18B87A8A2B660178007EAA25 /* 味方攻撃.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "味方攻撃.mp3"; path = "moneyQuiz/Resources/味方攻撃.mp3"; sourceTree = SOURCE_ROOT; };
+		18B87A8B2B660178007EAA25 /* 倒れる.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "倒れる.mp3"; path = "moneyQuiz/Resources/倒れる.mp3"; sourceTree = SOURCE_ROOT; };
+		18B87A8C2B660178007EAA25 /* 正解.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "正解.mp3"; path = "moneyQuiz/Resources/正解.mp3"; sourceTree = SOURCE_ROOT; };
+		18B9DFB42B66A5F000E5AEFD /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sound.mp3; path = moneyQuiz/Resources/sound.mp3; sourceTree = SOURCE_ROOT; };
 		18C37B142D0EFF3300326A2E /* ProgressExpBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressExpBar.swift; sourceTree = "<group>"; };
 		18C37B182D12D9A300326A2E /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		18C37B1A2D12DDC900326A2E /* ProgressStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStoryView.swift; sourceTree = "<group>"; };
@@ -189,56 +190,56 @@
 		18C37B2E2D13065A00326A2E /* StoryQuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryQuizResultView.swift; sourceTree = "<group>"; };
 		18C37B302D1306EA00326A2E /* StoryNikyuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNikyuListView.swift; sourceTree = "<group>"; };
 		18C37B322D1313E000326A2E /* InterstitialStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialStory.swift; sourceTree = "<group>"; };
-		18CE11692BC9730A001C1016 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "../../その他/名称未設定フォルダ/ContentView.swift"; sourceTree = "<group>"; };
-		18CE116B2BC97348001C1016 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthManager.swift; path = "../../その他/名称未設定フォルダ/AuthManager.swift"; sourceTree = "<group>"; };
-		18CE116D2BC97363001C1016 /* PentagonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PentagonShape.swift; path = "../../その他/名称未設定フォルダ/PentagonShape.swift"; sourceTree = "<group>"; };
-		18CE116F2BC97374001C1016 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalView.swift; path = "../../その他/名称未設定フォルダ/ModalView.swift"; sourceTree = "<group>"; };
-		18CE11712BC9738A001C1016 /* GachaManagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaManagerView.swift; path = "../../その他/名称未設定フォルダ/GachaManagerView.swift"; sourceTree = "<group>"; };
-		18CE11732BC973D3001C1016 /* AnswerSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnswerSelectionView.swift; path = "../../その他/名称未設定フォルダ/AnswerSelectionView.swift"; sourceTree = "<group>"; };
-		18CE11752BC973E7001C1016 /* RateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RateManager.swift; path = "../../その他/名称未設定フォルダ/RateManager.swift"; sourceTree = "<group>"; };
-		18CE11772BC983E3001C1016 /* AvatarListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvatarListView.swift; path = "../../その他/名称未設定フォルダ/AvatarListView.swift"; sourceTree = "<group>"; };
-		18CE11792BC983F6001C1016 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = "../../その他/名称未設定フォルダ/SettingView.swift"; sourceTree = "<group>"; };
-		18CE117B2BC98406001C1016 /* IllustratedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllustratedView.swift; path = "../../その他/名称未設定フォルダ/IllustratedView.swift"; sourceTree = "<group>"; };
-		18CE117D2BC9841A001C1016 /* Interstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interstitial.swift; path = "../../その他/名称未設定フォルダ/Interstitial.swift"; sourceTree = "<group>"; };
-		18CE117F2BC98441001C1016 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioManager.swift; path = "../../その他/名称未設定フォルダ/AudioManager.swift"; sourceTree = "<group>"; };
-		18CE11812BC9844D001C1016 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = "../../その他/名称未設定フォルダ/LoadingView.swift"; sourceTree = "<group>"; };
-		18CE11832BC9845A001C1016 /* LoginModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModalView.swift; path = "../../その他/名称未設定フォルダ/LoginModalView.swift"; sourceTree = "<group>"; };
-		18CE11852BC98466001C1016 /* ProgressBar3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressBar3.swift; path = "../../その他/名称未設定フォルダ/ProgressBar3.swift"; sourceTree = "<group>"; };
-		18CE11872BC98473001C1016 /* MemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoView.swift; path = "../../その他/名称未設定フォルダ/MemoView.swift"; sourceTree = "<group>"; };
-		18CE11892BC98481001C1016 /* RewardModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardModalView.swift; path = "../../その他/名称未設定フォルダ/RewardModalView.swift"; sourceTree = "<group>"; };
-		18CE118B2BC98499001C1016 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = "../../その他/名称未設定フォルダ/TimerView.swift"; sourceTree = "<group>"; };
-		18CE118D2BC984A5001C1016 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootView.swift; path = "../../その他/名称未設定フォルダ/RootView.swift"; sourceTree = "<group>"; };
-		18CE118F2BC984C8001C1016 /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopView.swift; path = "../../その他/名称未設定フォルダ/TopView.swift"; sourceTree = "<group>"; };
-		18CE11902BC984C8001C1016 /* GachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaView.swift; path = "../../その他/名称未設定フォルダ/GachaView.swift"; sourceTree = "<group>"; };
-		18CE11912BC984C8001C1016 /* GachaAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaAnimationView.swift; path = "../../その他/名称未設定フォルダ/GachaAnimationView.swift"; sourceTree = "<group>"; };
-		18CE11922BC984C8001C1016 /* RareGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RareGachaView.swift; path = "../../その他/名称未設定フォルダ/RareGachaView.swift"; sourceTree = "<group>"; };
-		18CE11932BC984C8001C1016 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp.swift; path = "../../その他/名称未設定フォルダ/SignUp.swift"; sourceTree = "<group>"; };
-		18CE11942BC984C8001C1016 /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardView.swift; path = "../../その他/名称未設定フォルダ/RewardView.swift"; sourceTree = "<group>"; };
-		18CE119B2BC984E4001C1016 /* ゲームクリア.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "ゲームクリア.mp3"; path = "../../その他/音声/ゲームクリア.mp3"; sourceTree = "<group>"; };
-		18CE119C2BC984E4001C1016 /* ゲームオーバー.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "ゲームオーバー.mp3"; path = "../../その他/音声/ゲームオーバー.mp3"; sourceTree = "<group>"; };
+		18CE11692BC9730A001C1016 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = moneyQuiz/ExternalSources/ContentView.swift; sourceTree = SOURCE_ROOT; };
+		18CE116B2BC97348001C1016 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthManager.swift; path = moneyQuiz/AuthManager.swift; sourceTree = SOURCE_ROOT; };
+		18CE116D2BC97363001C1016 /* PentagonShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PentagonShape.swift; path = moneyQuiz/PentagonShape.swift; sourceTree = SOURCE_ROOT; };
+		18CE116F2BC97374001C1016 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalView.swift; path = moneyQuiz/ExternalSources/ModalView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11712BC9738A001C1016 /* GachaManagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaManagerView.swift; path = moneyQuiz/ExternalSources/GachaManagerView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11732BC973D3001C1016 /* AnswerSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnswerSelectionView.swift; path = moneyQuiz/ExternalSources/AnswerSelectionView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11752BC973E7001C1016 /* RateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RateManager.swift; path = moneyQuiz/ExternalSources/RateManager.swift; sourceTree = SOURCE_ROOT; };
+		18CE11772BC983E3001C1016 /* AvatarListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvatarListView.swift; path = moneyQuiz/ExternalSources/AvatarListView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11792BC983F6001C1016 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = moneyQuiz/ExternalSources/SettingView.swift; sourceTree = SOURCE_ROOT; };
+		18CE117B2BC98406001C1016 /* IllustratedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllustratedView.swift; path = moneyQuiz/ExternalSources/IllustratedView.swift; sourceTree = SOURCE_ROOT; };
+		18CE117D2BC9841A001C1016 /* Interstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interstitial.swift; path = moneyQuiz/ExternalSources/Interstitial.swift; sourceTree = SOURCE_ROOT; };
+		18CE117F2BC98441001C1016 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioManager.swift; path = moneyQuiz/ExternalSources/AudioManager.swift; sourceTree = SOURCE_ROOT; };
+		18CE11812BC9844D001C1016 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = moneyQuiz/LoadingView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11832BC9845A001C1016 /* LoginModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModalView.swift; path = moneyQuiz/ExternalSources/LoginModalView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11852BC98466001C1016 /* ProgressBar3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressBar3.swift; path = moneyQuiz/ExternalSources/ProgressBar3.swift; sourceTree = SOURCE_ROOT; };
+		18CE11872BC98473001C1016 /* MemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoView.swift; path = moneyQuiz/ExternalSources/MemoView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11892BC98481001C1016 /* RewardModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardModalView.swift; path = moneyQuiz/ExternalSources/RewardModalView.swift; sourceTree = SOURCE_ROOT; };
+		18CE118B2BC98499001C1016 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = moneyQuiz/ExternalSources/TimerView.swift; sourceTree = SOURCE_ROOT; };
+		18CE118D2BC984A5001C1016 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootView.swift; path = moneyQuiz/ExternalSources/RootView.swift; sourceTree = SOURCE_ROOT; };
+		18CE118F2BC984C8001C1016 /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopView.swift; path = moneyQuiz/ExternalSources/TopView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11902BC984C8001C1016 /* GachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaView.swift; path = moneyQuiz/ExternalSources/GachaView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11912BC984C8001C1016 /* GachaAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GachaAnimationView.swift; path = moneyQuiz/ExternalSources/GachaAnimationView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11922BC984C8001C1016 /* RareGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RareGachaView.swift; path = moneyQuiz/ExternalSources/RareGachaView.swift; sourceTree = SOURCE_ROOT; };
+		18CE11932BC984C8001C1016 /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUp.swift; path = moneyQuiz/ExternalSources/SignUp.swift; sourceTree = SOURCE_ROOT; };
+		18CE11942BC984C8001C1016 /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardView.swift; path = moneyQuiz/ExternalSources/RewardView.swift; sourceTree = SOURCE_ROOT; };
+		18CE119B2BC984E4001C1016 /* ゲームクリア.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "ゲームクリア.mp3"; path = "moneyQuiz/Resources/ゲームクリア.mp3"; sourceTree = SOURCE_ROOT; };
+		18CE119C2BC984E4001C1016 /* ゲームオーバー.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "ゲームオーバー.mp3"; path = "moneyQuiz/Resources/ゲームオーバー.mp3"; sourceTree = SOURCE_ROOT; };
 		18D090672CA7F46800F8B8D8 /* ManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerView.swift; sourceTree = "<group>"; };
 		18D090692CA7FC2800F8B8D8 /* QuizFPManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFPManagerView.swift; sourceTree = "<group>"; };
-		18D0906D2CA81C5600F8B8D8 /* QuizTangoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTangoManager.swift; path = ../../sukimaFP/sukimaZatugaku/QuizTangoManager.swift; sourceTree = "<group>"; };
-		18D0906E2CA81C5600F8B8D8 /* QuizJukugoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugoManager.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJukugoManager.swift; sourceTree = "<group>"; };
-		18D0906F2CA81C5600F8B8D8 /* QuizBunpouManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouManager.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouManager.swift; sourceTree = "<group>"; };
-		18D090732CA81C9500F8B8D8 /* QuizTango2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTango2List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizTango2List.swift; sourceTree = "<group>"; };
-		18D090742CA81C9500F8B8D8 /* QuizTango1List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTango1List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizTango1List.swift; sourceTree = "<group>"; };
-		18D090762CA81C9500F8B8D8 /* QuizTangoJun1List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTangoJun1List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizTangoJun1List.swift; sourceTree = "<group>"; };
-		18D090772CA81C9500F8B8D8 /* QuizTangoJun2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTangoJun2List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizTangoJun2List.swift; sourceTree = "<group>"; };
-		18D0907D2CA81CAA00F8B8D8 /* QuizIncorrectTangoAnswerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizIncorrectTangoAnswerListView.swift; path = ../../sukimaFP/sukimaZatugaku/QuizIncorrectTangoAnswerListView.swift; sourceTree = "<group>"; };
-		18D0907E2CA81CAA00F8B8D8 /* QuizIncorrectBunpouAnswerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizIncorrectBunpouAnswerListView.swift; path = ../../sukimaFP/sukimaZatugaku/QuizIncorrectBunpouAnswerListView.swift; sourceTree = "<group>"; };
-		18D0907F2CA81CAA00F8B8D8 /* QuizIncorrectJukugoAnswerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizIncorrectJukugoAnswerListView.swift; path = ../../sukimaFP/sukimaZatugaku/QuizIncorrectJukugoAnswerListView.swift; sourceTree = "<group>"; };
-		18D090832CA81CF200F8B8D8 /* QuizJukugoJun2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugoJun2List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJukugoJun2List.swift; sourceTree = "<group>"; };
-		18D090842CA81CF200F8B8D8 /* QuizJukugo3List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugo3List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJukugo3List.swift; sourceTree = "<group>"; };
-		18D090852CA81CF200F8B8D8 /* QuizJukugo2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugo2List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJukugo2List.swift; sourceTree = "<group>"; };
-		18D090862CA81CF200F8B8D8 /* QuizJukugoJun1List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugoJun1List.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJukugoJun1List.swift; sourceTree = "<group>"; };
-		18D0908B2CA81D1E00F8B8D8 /* QuizBunpouJunAdvancedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouJunAdvancedList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouJunAdvancedList.swift; sourceTree = "<group>"; };
-		18D0908C2CA81D1E00F8B8D8 /* QuizBunpouBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouBeginnerList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouBeginnerList.swift; sourceTree = "<group>"; };
-		18D0908D2CA81D1E00F8B8D8 /* QuizJunBunpouBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJunBunpouBeginnerList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizJunBunpouBeginnerList.swift; sourceTree = "<group>"; };
-		18D0908E2CA81D1E00F8B8D8 /* QuizBunpouJunIntermediateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouJunIntermediateList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouJunIntermediateList.swift; sourceTree = "<group>"; };
-		18D0908F2CA81D1E00F8B8D8 /* QuizBunpouJunBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouJunBeginnerList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouJunBeginnerList.swift; sourceTree = "<group>"; };
-		18D090902CA81D1E00F8B8D8 /* QuizBunpouAdvancedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouAdvancedList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouAdvancedList.swift; sourceTree = "<group>"; };
-		18D090912CA81D1E00F8B8D8 /* QuizBunpouIntermediateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouIntermediateList.swift; path = ../../sukimaFP/sukimaZatugaku/QuizBunpouIntermediateList.swift; sourceTree = "<group>"; };
+		18D0906D2CA81C5600F8B8D8 /* QuizTangoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTangoManager.swift; path = moneyQuiz/ExternalSources/QuizTangoManager.swift; sourceTree = SOURCE_ROOT; };
+		18D0906E2CA81C5600F8B8D8 /* QuizJukugoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugoManager.swift; path = moneyQuiz/ExternalSources/QuizJukugoManager.swift; sourceTree = SOURCE_ROOT; };
+		18D0906F2CA81C5600F8B8D8 /* QuizBunpouManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouManager.swift; path = moneyQuiz/ExternalSources/QuizBunpouManager.swift; sourceTree = SOURCE_ROOT; };
+		18D090732CA81C9500F8B8D8 /* QuizTango2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTango2List.swift; path = moneyQuiz/ExternalSources/QuizTango2List.swift; sourceTree = SOURCE_ROOT; };
+		18D090742CA81C9500F8B8D8 /* QuizTango1List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTango1List.swift; path = moneyQuiz/ExternalSources/QuizTango1List.swift; sourceTree = SOURCE_ROOT; };
+		18D090762CA81C9500F8B8D8 /* QuizTangoJun1List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTangoJun1List.swift; path = moneyQuiz/ExternalSources/QuizTangoJun1List.swift; sourceTree = SOURCE_ROOT; };
+		18D090772CA81C9500F8B8D8 /* QuizTangoJun2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizTangoJun2List.swift; path = moneyQuiz/ExternalSources/QuizTangoJun2List.swift; sourceTree = SOURCE_ROOT; };
+		18D0907D2CA81CAA00F8B8D8 /* QuizIncorrectTangoAnswerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizIncorrectTangoAnswerListView.swift; path = moneyQuiz/ExternalSources/QuizIncorrectTangoAnswerListView.swift; sourceTree = SOURCE_ROOT; };
+		18D0907E2CA81CAA00F8B8D8 /* QuizIncorrectBunpouAnswerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizIncorrectBunpouAnswerListView.swift; path = moneyQuiz/ExternalSources/QuizIncorrectBunpouAnswerListView.swift; sourceTree = SOURCE_ROOT; };
+		18D0907F2CA81CAA00F8B8D8 /* QuizIncorrectJukugoAnswerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizIncorrectJukugoAnswerListView.swift; path = moneyQuiz/ExternalSources/QuizIncorrectJukugoAnswerListView.swift; sourceTree = SOURCE_ROOT; };
+		18D090832CA81CF200F8B8D8 /* QuizJukugoJun2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugoJun2List.swift; path = moneyQuiz/ExternalSources/QuizJukugoJun2List.swift; sourceTree = SOURCE_ROOT; };
+		18D090842CA81CF200F8B8D8 /* QuizJukugo3List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugo3List.swift; path = moneyQuiz/ExternalSources/QuizJukugo3List.swift; sourceTree = SOURCE_ROOT; };
+		18D090852CA81CF200F8B8D8 /* QuizJukugo2List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugo2List.swift; path = moneyQuiz/ExternalSources/QuizJukugo2List.swift; sourceTree = SOURCE_ROOT; };
+		18D090862CA81CF200F8B8D8 /* QuizJukugoJun1List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJukugoJun1List.swift; path = moneyQuiz/ExternalSources/QuizJukugoJun1List.swift; sourceTree = SOURCE_ROOT; };
+		18D0908B2CA81D1E00F8B8D8 /* QuizBunpouJunAdvancedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouJunAdvancedList.swift; path = moneyQuiz/ExternalSources/QuizBunpouJunAdvancedList.swift; sourceTree = SOURCE_ROOT; };
+		18D0908C2CA81D1E00F8B8D8 /* QuizBunpouBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouBeginnerList.swift; path = moneyQuiz/ExternalSources/QuizBunpouBeginnerList.swift; sourceTree = SOURCE_ROOT; };
+		18D0908D2CA81D1E00F8B8D8 /* QuizJunBunpouBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizJunBunpouBeginnerList.swift; path = moneyQuiz/ExternalSources/QuizJunBunpouBeginnerList.swift; sourceTree = SOURCE_ROOT; };
+		18D0908E2CA81D1E00F8B8D8 /* QuizBunpouJunIntermediateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouJunIntermediateList.swift; path = moneyQuiz/ExternalSources/QuizBunpouJunIntermediateList.swift; sourceTree = SOURCE_ROOT; };
+		18D0908F2CA81D1E00F8B8D8 /* QuizBunpouJunBeginnerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouJunBeginnerList.swift; path = moneyQuiz/ExternalSources/QuizBunpouJunBeginnerList.swift; sourceTree = SOURCE_ROOT; };
+		18D090902CA81D1E00F8B8D8 /* QuizBunpouAdvancedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouAdvancedList.swift; path = moneyQuiz/ExternalSources/QuizBunpouAdvancedList.swift; sourceTree = SOURCE_ROOT; };
+		18D090912CA81D1E00F8B8D8 /* QuizBunpouIntermediateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizBunpouIntermediateList.swift; path = moneyQuiz/ExternalSources/QuizBunpouIntermediateList.swift; sourceTree = SOURCE_ROOT; };
 		18D090992CA862B500F8B8D8 /* QuizToeicJukugoBeginnerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizToeicJukugoBeginnerList.swift; sourceTree = "<group>"; };
 		18D0909B2CA8630A00F8B8D8 /* QuizToeicJukugoIntermediateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizToeicJukugoIntermediateList.swift; sourceTree = "<group>"; };
 		18D0909D2CA8684400F8B8D8 /* QuizToeicTangoAdvancedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizToeicTangoAdvancedList.swift; sourceTree = "<group>"; };
@@ -271,8 +272,8 @@
 		261F44B72B25B93C00080669 /* moneyQuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moneyQuizApp.swift; sourceTree = "<group>"; };
 		261F44BB2B25B93E00080669 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		261F44BE2B25B93E00080669 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		261F45172B25BE8C00080669 /* PrivacyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivacyView.swift; path = ../../reward/reward/PrivacyView.swift; sourceTree = "<group>"; };
-		261F45182B25BE8C00080669 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsOfServiceView.swift; path = ../../reward/reward/TermsOfServiceView.swift; sourceTree = "<group>"; };
+		261F45172B25BE8C00080669 /* PrivacyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivacyView.swift; path = moneyQuiz/ExternalSources/PrivacyView.swift; sourceTree = SOURCE_ROOT; };
+		261F45182B25BE8C00080669 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermsOfServiceView.swift; path = moneyQuiz/ExternalSources/TermsOfServiceView.swift; sourceTree = SOURCE_ROOT; };
 		26228EE92B463016009D59ED /* TittlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TittlesView.swift; sourceTree = "<group>"; };
 		26280CFB2B47D02A006D96B6 /* ModalTittleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTittleView.swift; sourceTree = "<group>"; };
 		2630861E2B3AD63900D8BD76 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,6 +288,7 @@
 		26F229042B3173AC00760F40 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		5179FECCE44B63CB2672945E /* Pods-moneyQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moneyQuiz.debug.xcconfig"; path = "Target Support Files/Pods-moneyQuiz/Pods-moneyQuiz.debug.xcconfig"; sourceTree = "<group>"; };
 		8BFB83CE6250694AD6A58DDA /* Pods-moneyQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moneyQuiz.release.xcconfig"; path = "Target Support Files/Pods-moneyQuiz/Pods-moneyQuiz.release.xcconfig"; sourceTree = "<group>"; };
+		BF4125BAD454E5B4662B15B2 /* QuizToeicJukugoAdvancedList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizToeicJukugoAdvancedList.swift; path = moneyQuiz/ExternalSources/QuizToeicJukugoAdvancedList.swift; sourceTree = SOURCE_ROOT; };
 		CD72B6F6625FF739A1731D87 /* Pods_moneyQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moneyQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -460,6 +462,7 @@
 				261F44BB2B25B93E00080669 /* Assets.xcassets */,
 				261F44BD2B25B93E00080669 /* Preview Content */,
 				26507AA62B4477D4001A7F9E /* GoogleService-Info.plist */,
+				53BD41215234B2BC966E9075 /* ExternalSources */,
 			);
 			path = moneyQuiz;
 			sourceTree = "<group>";
@@ -490,6 +493,14 @@
 				CD72B6F6625FF739A1731D87 /* Pods_moneyQuiz.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		53BD41215234B2BC966E9075 /* ExternalSources */ = {
+			isa = PBXGroup;
+			children = (
+				BF4125BAD454E5B4662B15B2 /* QuizToeicJukugoAdvancedList.swift */,
+			);
+			name = ExternalSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -743,6 +754,7 @@
 				18C37B272D13026800326A2E /* StorySankyuListView.swift in Sources */,
 				181F7DD22B7349B10013629C /* RankingView.swift in Sources */,
 				18CE11862BC98466001C1016 /* ProgressBar3.swift in Sources */,
+				D8EA9D8FBEAD324F5B720665 /* QuizToeicJukugoAdvancedList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
